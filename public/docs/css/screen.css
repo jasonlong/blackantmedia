@@ -1,0 +1,88 @@
+/*-  palette
+----------------------------------------------------------------------
+*/
+
+
+/*-  common elements
+----------------------------------------------------------------------*/	
+body {
+	font-family: arial, sans-serif;
+	font-size: 12px;
+	color: #fff;
+	line-height: 1.6em;
+	background: #232222 url(/images/bg/bg.jpg) top left repeat;
+}
+
+p {
+	margin: 0.33em 0pt 1em;
+}
+
+a:link,
+a:visited {
+	color: #203e26;
+	text-decoration: underline;	
+}
+
+a:hover {
+	color: #35673f;
+}
+
+strong {
+	font-weight: bold;
+}
+
+em {
+	font-style: italic;
+}
+
+/*-  header
+----------------------------------------------------------------------*/
+#highlight {
+  width: 868px;
+  height: 449px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -434px;
+  z-index: 0;
+  background: transparent url(/images/bg/top_highlight.png) top center no-repeat;
+}
+
+header {
+  position: relative;
+  z-index: 1;
+  font-family: Georgia, Garamond, Times, serif;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, .6);	  
+  color: #c9c6c6;
+  font-size: 43px;
+  font-weight: normal;
+  line-height: 1em;
+  width: 600px;
+  margin: 1em auto;
+}
+
+header img {
+  display: block;
+  margin: 0 auto 0.5em auto;
+}
+
+header strong {
+  color: #fff;
+  font-weight: normal;
+}
+
+header span {
+  font-style: italic;
+  font-weight: bold;
+  color: #1a1a1a;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, .15);	
+  font-family: "Adobe Caslon Pro", "Hoefler Text", Georgia, Garamond, Times, serif;
+}
+
+
+/*-  top
+----------------------------------------------------------------------*/	
+
+
+/*-  content
+----------------------------------------------------------------------*/

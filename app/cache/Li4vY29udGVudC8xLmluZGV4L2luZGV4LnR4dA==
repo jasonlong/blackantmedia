@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Black Ant Media &middot; Portfolio of Jason Long &middot; Web &amp; UI Design &middot; Columbus, Ohio</title>
+    <link rel="stylesheet" href="docs/css/reset.css" type="text/css">
+    <link rel="stylesheet" href="docs/css/screen.css" type="text/css">
+    <script type="text/javascript" src="docs/js/jquery-1.3.2.min.js"></script>
+    <script type="text/javascript" src="docs/js/bam.js"></script>
+    <script type="text/javascript" src="http://use.typekit.com/onh2qny.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>    
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    
+    <header>
+      <img src="/images/logo.png" alt="Black Ant Media">
+      <img src="/images/bg/flourish.png" alt="~">            
+      I'm <strong>Jason Long</strong>, an independent front-end developer <span>&amp;</span> UI 
+      designer in <strong>Columbus, Ohio</strong>.
+    </header>
+    
+    <footer>
+      footer here
+    </footer>
+        
+  </body>
+</html>
+
+
+<!-- <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+	"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>Name's Graphic Design Portfolio</title>
+		<meta name="description" content="A collection of Name's graphic design work">
+		<link rel="stylesheet" href="docs/css/screen.css" type="text/css" media="screen"> 
+	</head>
+	<body>
+		<div id="container">
+			<h1 class="col three">
+				<a href="">Name</a>
+				<strong>Graphic Designer</strong>
+			</h1>
+			<em class="col three"><a href="mailto&#58;hi&#64;yourdomain.com">hi&#64;yourdomain.com</a></em>
+			<hr>
+			<p>! ../templates/partials/navigation.html not found.</p><p>! ../templates/partials/navigation.html not found.</p><p>! ../templates/partials/navigation.html not found.</p>
+			<div id="content" class="col eight">
+				<p>! ../templates/partials/category-list.html not found.</p><p>! ../templates/partials/category-list.html not found.</p><p>! ../templates/partials/category-list.html not found.</p><p>! ../templates/partials/category-list.html not found.</p><p>! ../templates/partials/category-list.html not found.</p><p>! ../templates/partials/category-list.html not found.</p><p>! ../templates/partials/category-list.html not found.</p><p>! ../templates/partials/category-list.html not found.</p><p>! ../templates/partials/category-list.html not found.</p><p>! ../templates/partials/category-list.html not found.</p>
+			</div>
+			<hr>
+			<p id="footer" class="col six">&copy; Copyright Name 2009<br>
+				<em>Content managed by <a href="http://www.staceyapp.com">stacey</a></em></p>
+		</div>
+	</body>
+</html> -->
+
+
+<!-- Stacey(1.2): 04ca4248a0b096609313a00ba22452ac -->
