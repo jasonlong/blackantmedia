@@ -8,7 +8,7 @@
 body {
 	font-family: arial, sans-serif;
 	font-size: 12px;
-	color: #fff;
+	color: #ccc;
 	line-height: 1.6em;
 	background: #232222 url(/images/bg/bg.jpg) top left repeat;
 }
@@ -19,7 +19,7 @@ p {
 
 a:link,
 a:visited {
-	color: #203e26;
+	color: #ab000f;
 	text-decoration: underline;	
 }
 
@@ -37,6 +37,16 @@ em {
 
 /*-  header
 ----------------------------------------------------------------------*/
+a#blog {
+  width: 205px;
+  height: 123px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-indent: -9999px;
+  background: transparent url(/images/blog_ribbon.png) top left no-repeat;
+}
+
 #highlight {
   width: 868px;
   height: 449px;
@@ -86,3 +96,22 @@ header span {
 
 /*-  content
 ----------------------------------------------------------------------*/
+section {
+  width: 600px;
+  margin: 2em auto 4em auto;  
+}
+
+a.nav {
+  text-decoration: none;
+  color: #ddd;
+  background-color: #ab000f;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;		  
+  padding: 0.3em 1em;
+  position: relative;
+  left: -620px;
+  top: 3px;
+  float: right;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, .8);  
+}
