@@ -21,7 +21,8 @@ h2 {
 	border-radius: 2px;
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;		  
-  padding: 0.3em 1em;
+  padding: 0 1em;
+  line-height: 2.2em;
   position: relative;
   left: -620px;
   top: 3px;
@@ -63,7 +64,7 @@ a#blog {
   background: transparent url(/images/blog_ribbon.png) top left no-repeat;
 }
 
-#highlight {
+#spotlight {
   width: 868px;
   height: 449px;
   position: absolute;
@@ -115,4 +116,47 @@ header span {
 section {
   width: 600px;
   margin: 2em auto 4em auto;  
+}
+
+section .inner {
+  width: 600px;
+  margin: 0 auto;  
+  padding: 1em 0;
+}
+
+section#colophon {
+  font-size: 14px;
+  color: #666;
+  width: 100%;
+  margin: -2em 0 0 0;
+  background: #fff url(/images/bg/shadow.png) top left repeat-x;
+}
+
+section#colophon h2 {
+  background-color: #666;
+  color: #fff;
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;		    
+}
+
+.guideline {
+  background-color: #4affff;
+  font-size: 1px;
+  line-height: 1px;
+}
+
+/*-  footer
+----------------------------------------------------------------------*/
+footer {
+  margin: 2em auto 4em auto;  
+  width: 100%;
+  padding: 2em 0;
+  margin: 0;
+  background: #fff url(/images/bg/shadow.png) top left repeat-x;  
+}
+
+footer .inner {
+  width: 600px;
+  margin: 0 auto;    
 }
