@@ -165,6 +165,7 @@ section#colophon a {
 ----------------------------------------------------------------------*/
 ul#projects {
   width: 620px;
+  margin-bottom: -20px;
 }
 
 ul#projects li {
