@@ -151,6 +151,15 @@ section#colophon h2 {
 	-webkit-border-radius: 0;		    
 }
 
+section#colophon ul {
+  list-style-position: inside;
+}
+
+section#colophon ul li {
+  margin-left: 0.3em;
+  padding-bottom: 0.3em;
+}
+
 section#colophon a {
   color: #1e22c6;
 }
@@ -179,11 +188,11 @@ ul#projects li {
 }
 
 ul#projects:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
 }
 
 * html ul#projects {
