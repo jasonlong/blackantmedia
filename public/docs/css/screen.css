@@ -51,6 +51,7 @@ h2 {
   line-height: 2.2em;
   position: relative;
   left: -620px;
+  margin-bottom: -40px;
   top: 3px;
   float: right;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, .8);  
@@ -76,6 +77,10 @@ strong {
 
 em {
 	font-style: italic;
+}
+
+ul, ol {
+/*  list-style: none;*/
 }
 
 /*-  header
@@ -115,15 +120,13 @@ header img {
   margin: 0 auto 0.5em auto;
 }
 
-/*-  top
-----------------------------------------------------------------------*/	
-
-
 /*-  content
 ----------------------------------------------------------------------*/
 section {
+  position: relative;
+  z-index: 1;
   width: 600px;
-  margin: 2em auto 4em auto;  
+  margin: 2em auto 4em auto;
 }
 
 section .inner {
@@ -158,6 +161,34 @@ section#colophon a {
   line-height: 1px;
 }
 
+/*-  projects
+----------------------------------------------------------------------*/
+ul#projects {
+  width: 620px;
+}
+
+ul#projects li {
+  display: block;
+  width: 186px;
+  height: 186px;
+  background-color: #111;
+  float: left;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+ul#projects:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+* html ul#projects {
+  height: 1%; 
+}
+
 /*-  footer
 ----------------------------------------------------------------------*/
 footer {
@@ -172,3 +203,6 @@ footer .inner {
   width: 600px;
   margin: 0 auto;    
 }
+
+/*-  misc
+----------------------------------------------------------------------*/
