@@ -13,6 +13,32 @@ body {
 	background: #232222 url(/images/bg/bg.jpg) top left repeat;
 }
 
+h1 {
+  position: relative;
+  z-index: 1;
+  font-family: Georgia, Garamond, Times, serif;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, .6);	  
+  color: #c9c6c6;
+  font-size: 43px;
+  font-weight: normal;
+  line-height: 1em;
+  width: 600px;
+  margin: 0.6em auto 1em auto;  
+}
+
+h1 strong {
+  color: #fff;
+  font-weight: normal;
+}
+
+h1 span {
+  font-style: italic;
+  font-weight: bold;
+  color: #1a1a1a;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, .15);	
+  font-family: "Adobe Caslon Pro", "Hoefler Text", Georgia, Garamond, Times, serif;
+}
+
 h2 {
   display: inline;
   color: #ddd;
@@ -78,34 +104,16 @@ a#blog {
 header {
   position: relative;
   z-index: 1;
-  font-family: Georgia, Garamond, Times, serif;
-	text-shadow: 1px 1px 0 rgba(0, 0, 0, .6);	  
-  color: #c9c6c6;
-  font-size: 43px;
-  font-weight: normal;
-  line-height: 1em;
   width: 600px;
-  margin: 1em auto;
+  height: 193px;
+  margin: 3.5em auto 0 auto;
+  background: transparent url(/images/bg/flourish.png) bottom center no-repeat;
 }
 
 header img {
   display: block;
   margin: 0 auto 0.5em auto;
 }
-
-header strong {
-  color: #fff;
-  font-weight: normal;
-}
-
-header span {
-  font-style: italic;
-  font-weight: bold;
-  color: #1a1a1a;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, .15);	
-  font-family: "Adobe Caslon Pro", "Hoefler Text", Georgia, Garamond, Times, serif;
-}
-
 
 /*-  top
 ----------------------------------------------------------------------*/	
@@ -138,6 +146,10 @@ section#colophon h2 {
 	border-radius: 0;
 	-moz-border-radius: 0;
 	-webkit-border-radius: 0;		    
+}
+
+section#colophon a {
+  color: #1e22c6;
 }
 
 .guideline {
