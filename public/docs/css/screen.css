@@ -13,6 +13,22 @@ body {
 	background: #232222 url(/images/bg/bg.jpg) top left repeat;
 }
 
+h2 {
+  display: inline;
+  color: #ddd;
+  background-color: #ab000f;
+  font-weight: normal;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;		  
+  padding: 0.3em 1em;
+  position: relative;
+  left: -620px;
+  top: 3px;
+  float: right;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, .8);  
+}
+
 p {
 	margin: 0.33em 0pt 1em;
 }
@@ -99,19 +115,4 @@ header span {
 section {
   width: 600px;
   margin: 2em auto 4em auto;  
-}
-
-a.nav {
-  text-decoration: none;
-  color: #ddd;
-  background-color: #ab000f;
-	border-radius: 2px;
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;		  
-  padding: 0.3em 1em;
-  position: relative;
-  left: -620px;
-  top: 3px;
-  float: right;
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, .8);  
 }
