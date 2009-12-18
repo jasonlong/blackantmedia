@@ -204,14 +204,17 @@ ul#projects:after {
 footer {
   margin: 2em auto 4em auto;  
   width: 100%;
-  padding: 2em 0;
+  height: 248px;
+/*  padding: 2em 0;*/
   margin: 0;
-  background: #fff url(/images/bg/shadow.png) top left repeat-x;  
+  background: #f5f3e8 url(/images/bg/paper.jpg) top left repeat-x;  
 }
 
-footer .inner {
-  width: 600px;
+footer .sketch {
+  width: 1075px;
+  height: 248px;
   margin: 0 auto;    
+  background: blue url(/images/bg/sketch.jpg) top center no-repeat;
 }
 
 /*-  misc
