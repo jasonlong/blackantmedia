@@ -209,6 +209,51 @@ ul#projects:after {
   height: 1%; 
 }
 
+/*-  contact methods
+----------------------------------------------------------------------*/
+ul#contact_methods {
+  width: 620px;
+  margin-bottom: -20px;
+	font-size: 1.4em;
+}
+
+ul#contact_methods li {
+  display: block;
+  width: 186px;
+  float: left;
+  margin-bottom: 20px;
+  margin-right: 20px;
+	text-align: center;
+}
+
+ul#contact_methods li img {
+	margin: 0 auto 0.8em auto;
+	display: block;
+}
+
+ul#contact_methods a span {
+	font-size: 1.2em;
+  font-style: italic;
+	padding-right: 3px;
+  color: #dd0013;
+  font-family: "Adobe Caslon Pro", "Hoefler Text", Georgia, Garamond, Times, serif;	
+	position: relative;
+	top: 3px;
+}
+
+
+ul#contact_methods:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+* html ul#contact_methods {
+  height: 1%; 
+}
+
 /*-  footer
 ----------------------------------------------------------------------*/
 footer {
