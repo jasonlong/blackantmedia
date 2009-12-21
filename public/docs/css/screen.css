@@ -268,7 +268,7 @@ footer .sketch {
   width: 1075px;
   height: 230px;
   margin: 0 auto;    
-  background: transparent url(/images/bg/sketch.jpg) top center no-repeat;
+  background: transparent url(/images/bg/sketch.jpg) 100px 0 no-repeat;
 }
 
 /*-  misc
