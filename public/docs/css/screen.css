@@ -1,5 +1,6 @@
 /*-  palette
 ----------------------------------------------------------------------
+red = ab000f
 */
 
 
@@ -58,6 +59,11 @@ h2 {
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, .8);  
 }
 
+h3 {
+  color: #fff;
+  font-size: 1.2em;
+}
+
 p {
 	margin: 0.33em 0pt 1em;
 }
@@ -80,10 +86,6 @@ strong {
 
 em {
 	font-style: italic;
-}
-
-ul, ol {
-/*  list-style: none;*/
 }
 
 /*-  header
@@ -182,12 +184,35 @@ img.mugshot {
 
 /*-  projects
 ----------------------------------------------------------------------*/
+section#portfolio {
+  position: relative;
+}
+
+section#portfolio p.link {
+  font-size: 1em;
+  margin-top: 0;
+  padding-bottom: 0.6em;
+  border-bottom: dotted 1px #444;
+}
+
+section#portfolio p {
+  font-size: 0.9em;
+}
+
+div.project_info {
+  position: absolute;
+  width: 200px;
+  right: -220px;
+  top: 0;
+}
+
 ul#projects {
   width: 620px;
   margin-bottom: -20px;
 }
 
 ul#projects li {
+  position: relative;
   display: block;
   width: 186px;
   height: 186px;
@@ -195,6 +220,27 @@ ul#projects li {
   float: left;
   margin-bottom: 20px;
   margin-right: 20px;
+  box-shadow: 0 0 8px #000;
+	-webkit-box-shadow: 0 0 8px #000;
+	-moz-box-shadow: 0 0 8px #000;
+}
+
+ul#projects li a {
+  text-decoration: none;
+}
+
+ul#projects li span.name {
+  display: none;
+  text-indent: 1em;
+  width: 183px;
+  line-height: 1.4em;
+  padding: 0.8em 0;
+  background: #333;  
+  background: rgba(0, 0, 0, .8);
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  border-left: solid 3px #ab000f;
 }
 
 ul#projects:after {

@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	progressiveEnhancements();
+	observePortfolio();
 });
 
 function progressiveEnhancements()
@@ -17,4 +18,13 @@ function progressiveEnhancements()
   $('<div class="guideline"></div>').prependTo('#colophon .inner').css({'height': $('#colophon').height(), 'width':'1px', 'margin-top':'-15px', 'margin-left':'600px', 'position':'absolute'});  
   $('<div class="guideline"></div>').prependTo('#colophon .inner').css({'height': $('#colophon').height(), 'width':'1px', 'margin-top':'-15px', 'margin-left':'620px', 'position':'absolute'});  
   $('<div class="guideline"></div>').prependTo('#colophon .inner').css({'height': $('#colophon').height(), 'width':'1px', 'margin-top':'-15px', 'margin-left':'820px', 'position':'absolute'});  
+}
+
+function observePortfolio()
+{
+  $('ul#projects li').hover(function() {
+    $(this).find('span.name').slideDown('fast');
+  }, function() {
+    $(this).find('span.name').slideUp('fast');
+  });
 }
