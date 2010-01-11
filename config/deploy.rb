@@ -11,7 +11,8 @@ set :deploy_via,        :remote_cache
 set :deploy_to,         "/home/blackant/subdomains/v2"
 role :web,              "blackant"
 
-# empty since we aren't rails
+# the restart task apparently needs to be here, let's use 
+# it to run the cleanup task (keep last 5 releases)
 namespace :deploy do
   task :restart do
     cleanup
