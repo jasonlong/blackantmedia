@@ -204,6 +204,7 @@ div.project_info {
   width: 200px;
   right: -220px;
   top: 0;
+  line-height: 1.4em;
 }
 
 ul#projects {
