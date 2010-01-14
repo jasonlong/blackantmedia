@@ -184,6 +184,12 @@ img.mugshot {
 
 /*-  projects
 ----------------------------------------------------------------------*/
+img.back_soon {
+  position: absolute;
+  right: -90px;
+  top: 50px;
+}
+
 section#portfolio {
   position: relative;
 }
