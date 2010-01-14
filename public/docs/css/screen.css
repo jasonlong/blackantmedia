@@ -186,8 +186,13 @@ img.mugshot {
 ----------------------------------------------------------------------*/
 img.back_soon {
   position: absolute;
-  right: -90px;
+  right: -94px;
   top: 50px;
+}
+
+img.curtain {
+  position: relative;
+  left: -4px;
 }
 
 section#portfolio {
