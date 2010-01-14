@@ -6,6 +6,10 @@ RewriteEngine on
 
 ErrorDocument 404 /404.html
 
+RewriteCond %{HTTP_HOST} ^blackantmedia.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.blackantmedia.com$
+RewriteRule ^strake\/?(.*)$ "http\:\/\/strake\.blackantmedia\.com\/$1" [R=301,L]
+
 # Add a trailing slash to directories
 RewriteCond %{REQUEST_URI} !app/(.*)$
 RewriteCond %{REQUEST_URI} !(\.)
