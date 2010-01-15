@@ -141,7 +141,7 @@ section .inner {
 }
 
 section#colophon {
-  font-size: 14px;
+  font-size: 14px;  
 	text-shadow: none;  	    
   color: #666;
   width: 100%;
@@ -158,7 +158,7 @@ section#colophon h2 {
 }
 
 section#colophon ul {
-  list-style-position: inside;
+  list-style-position: inside;  
 }
 
 section#colophon ul li {
