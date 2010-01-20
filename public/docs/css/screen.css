@@ -12,7 +12,7 @@ body {
 	color: #ccc;
 	line-height: 1.6em;
 	background: #232222 url(/images/bg/bg.jpg) top left repeat;
-	text-shadow: 1px 1px 0 rgba(0, 0, 0, .6);  		
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 1);     
 }
 
 h1 {
@@ -44,11 +44,12 @@ h1 span {
 h2 {
   display: inline;
   color: #ddd;
-  background-color: #ab000f;
+  background: #ab000f;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.0, #c10011), color-stop(1.0, #8f000d));  
   font-weight: normal;
-	border-radius: 2px;
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;		  
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;		  	
   padding: 0 1em;
   line-height: 2.2em;
   position: relative;
@@ -71,12 +72,13 @@ p {
 a:link,
 a:visited {
 	color: #c60011;
+	-webkit-transition: color .2s linear;	
 	text-decoration: none;	
 }
 
 a:hover {
-	color: #dd0013;
-	text-decoration: underline;		
+  color: #ee0014;
+	-webkit-transition: color .2s linear;  
 }
 
 strong {
@@ -150,7 +152,7 @@ section#colophon {
 }
 
 section#colophon h2 {
-  background-color: #666;
+  background: #666 ! important;
   color: #fff;
 	border-radius: 0;
 	-moz-border-radius: 0;
