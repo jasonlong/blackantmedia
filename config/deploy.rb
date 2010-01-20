@@ -3,7 +3,6 @@ Dir['vendor/plugins/*/recipes/*.rb'].each { |plugin| load(plugin) }
 
 set :application,       "blackantmedia"
 set :use_sudo,          false
-set :home_path,         "/var/www/mysitename"
 set :scm,               :git
 set :repository,        "git@github.com:blackant/blackantmedia.git"
 set(:current_branch)    { `git branch`.match(/\* (\S+)\s/m)[1] || raise("Couldn't determine current branch") }
