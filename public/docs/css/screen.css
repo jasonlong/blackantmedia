@@ -148,7 +148,8 @@ section#colophon {
   color: #666;
   width: 100%;
   margin: -2em 0 0 0;
-  background: #fff url(/images/bg/shadow.png) top left repeat-x;
+  padding-top: 1em;
+  background: #fff url(/images/bg/colophon_shadow.png) top left repeat-x;
 }
 
 section#colophon h2 {
@@ -319,16 +320,16 @@ ul#contact_methods:after {
 footer {
   margin: 2em auto 4em auto;  
   width: 100%;
-  height: 230px;
+  height: 250px;
   margin: 0;
   background: #f5f3e8 url(/images/bg/paper.jpg) top left repeat-x;  
 }
 
 footer .sketch {
   width: 1075px;
-  height: 230px;
+  height: 250px;
   margin: 0 auto;    
-  background: transparent url(/images/bg/sketch.jpg) 100px 0 no-repeat;
+  background: transparent url(/images/bg/sketch.jpg) 96px 16px no-repeat;
 }
 
 /*-  misc
