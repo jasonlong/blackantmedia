@@ -181,8 +181,8 @@ section#colophon a {
 
 img.mugshot {
   float: right;
-  margin: 0 3px 1.5em 1.5em;
-  border: solid 2px #1d1d1d;
+  margin: 0 3px 4em 1.5em;
+  border: solid 4px #111;
 }
 
 /*-  projects
