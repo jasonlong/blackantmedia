@@ -170,6 +170,23 @@ section#colophon h2 {
   background: transparent url(/images/icon-colophon.png) 0 0 no-repeat;
 }  
 
+/*-  portfolio
+----------------------------------------------------------------------*/	
+ol#portfolio {
+  list-style: none;
+}
+
+ol#portfolio li {
+  width: 272px;
+  height: 120px;
+  border: solid 4px #fff;
+  opacity: 0.2;
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  text-indent: -9999px;
+}
+
 /*-  mugshot
 ----------------------------------------------------------------------*/	
 section#about img {
@@ -237,7 +254,10 @@ form {
   }
   input:focus, textarea:focus {
     outline: none;
-    border-color: #5c676b;
+    border-color: @green;
+    -webkit-box-shadow: #6ce164 0 0 5px;
+    -moz-box-shadow: #6ce164 0 0 5px;
+    box-shadow: #6ce164 0 0 5px;
   }
   button {
     margin-left: 135px;
@@ -247,9 +267,9 @@ form {
     .rounded(4px);
     color: #fff;
     border: solid 1px #1f8319;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 26px;
-    height: 26px;
+    height: 28px;
     padding: 0 1em;
     text-shadow: 0 -1px rgba(0, 0, 0, 0.2);
     .box-shadow();
