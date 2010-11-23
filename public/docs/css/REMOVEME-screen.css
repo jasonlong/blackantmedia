@@ -1,0 +1,120 @@
+/*green = 2dbc24*/
+a {
+  color: #2dbc24;
+}
+body {
+  font-family: "ronnia-1","ronnia-2",sans-serif;  
+  background-color: #0f0705;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.4em;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.2); 
+  
+}
+img#bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+#wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+#content {
+  width: 900px;
+  margin: 0 auto;
+  padding-bottom: 3em;
+  position: relative;
+  z-index: 2;
+/*  visibility: hidden;*/
+  opacity: 0;
+}
+h1 {
+  font-weight: normal;
+  font-family: "ronnia-1","ronnia-2",sans-serif;
+  font-size: 47px;
+  line-height: 1.1em;
+  margin-top: 1.4em;
+  margin-bottom: 0.3em;
+}
+h1 em {
+  font-style: normal;
+/*  color: #bfc0b9;*/
+  opacity: 0.5;
+}
+
+h1 + p {
+  opacity: 0.93;
+  font-weight: normal;
+  font-size: 19px;
+  line-height: 1.4em;
+}
+
+h2 {
+  color: #f9f9f8;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 42px;
+  margin-bottom: 0.6em;
+  position: relative;
+  left: -50px;
+  padding-left: 50px;
+}
+
+header {
+/*  height: 125px;*/
+}
+
+header img {
+  position: relative;
+  top: 26px;
+}
+
+section {
+  margin-top: 2em;
+}
+
+nav {
+  position: absolute;
+  right: 0;
+  top: 42px;
+  text-align: right;
+  line-height: 1em;
+}
+
+nav a {
+  font-size: 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #2dbc24;  
+}
+
+nav li {
+ display: inline;
+ margin-left: 1.6em;
+}
+
+section#work h2 {
+  background: transparent url(/images/icon-work.png) 0 0 no-repeat;
+}
+
+section#play h2 {
+  background: transparent url(/images/icon-play.png) 0 0 no-repeat;
+}
+
+section#about h2 {
+  background: transparent url(/images/icon-about.png) 0 0 no-repeat;
+}
+
+section#contact h2 {
+  background: transparent url(/images/icon-contact.png) 0 0 no-repeat;
+}
+
+section#colophon h2 {
+  background: transparent url(/images/icon-colophon.png) 0 0 no-repeat;
+}
