@@ -3,7 +3,15 @@ window.addEvent('domready', function() {
   initBGScroll();
   observeNav();
   
-  var form = new FlippingForm($('contact-wrapper'), {});
+  var form = new FlippingForm($('contact-wrapper'), {
+    onFlip: function() {
+              $$('#from').set('html', $('name').get('value'));
+              $$('#mail-slot').show();
+              (function() { 
+                $('thanks').reveal({duration: 1000});
+              }).delay(3500, this);
+            }
+  });
 });
 
 var FlippingForm = new Class({
@@ -28,15 +36,13 @@ var FlippingForm = new Class({
   },
 
   flipForm: function() {
-    $$('#from').set('html', $('name').get('value'));
+    this.fireEvent("flip");
     this.container.addClass('flip'); 
-    $$('#mail-slot').show();
-
-    (function() { this.dropForm(); }).delay(2500, this);
-    (function() { $('thanks').reveal({duration: 1000});}).delay(3500, this);
+    (function() { this.dropForm(); }).delay(this.options.dropDelay, this);
   },
 
   dropForm: function() {
+    this.fireEvent("drop");
     this.container.setStyle('overflow', 'hidden');
     this.container.getChildren('.inner').move({
       relativeTo: this.container,
@@ -48,48 +54,23 @@ var FlippingForm = new Class({
 
 function observeContactForm() {
   
-  new Form.Validator.Inline($('contact-form'));
-  new Form.Request($('contact-form'), $('contact-wrapper'), {
-      requestOptions: {
-        useSpinner: false
-      },
-      onSend: showEnvelopeAnimation
-  });
-  
-  // $$('#send-another').addEvent('click', function(e) {
-    // e.stop();
-    // $$('#thanks').hide();
-    // $$('#mail-slot').hide();    
-    // $$('#contact-wrapper').setStyle('overflow', 'visible');
-    // $$('#contact-wrapper').removeClass('flip');     
-    // $$('#contact-wrapper .inner').move({
-      // relativeTo: $('contact-wrapper'),
-      // offset: {x: 0, y: -500},
-      // transition: Fx.Transitions.Quint.easeOut        
-    // });
-    // $$('#message').set('value', '');
-    // setTimeout(function() {        
-      // $('message').focus();
-    // }, (500));      
-  // })
+  $$('#send-another').addEvent('click', function(e) {
+    e.stop();
+    $$('#thanks').hide();
+    $$('#mail-slot').hide();    
+    $$('#contact-wrapper').setStyle('overflow', 'visible');
+    $$('#contact-wrapper').removeClass('flip');     
+    $$('#contact-wrapper .inner').move({
+      relativeTo: $('contact-wrapper'),
+      offset: {x: 0, y: -500},
+      transition: Fx.Transitions.Quint.easeOut        
+    });
+    $$('#message').set('value', '');
+    setTimeout(function() {        
+      $('message').focus();
+    }, (500));      
+  })
 }
-
-// function showEnvelopeAnimation() {
-  // $$('#from').set('html', $('name').get('value'));
-  // $$('#contact-wrapper').addClass('flip'); 
-  // setTimeout(function() {
-    // $$('#contact-wrapper').setStyle('overflow', 'hidden');
-    // $$('#contact-wrapper .inner').move({
-      // relativeTo: $('contact-wrapper'),
-      // offset: {x: 0, y: 500},
-      // transition: Fx.Transitions.Quint.easeIn      
-    // });
-  // }, (2500));
-  // $$('#mail-slot').show();
-  // setTimeout(function() {    
-    // $$('#thanks').reveal({duration: 1000});    
-  // }, (3500));      
-// }
 
 function observeNav() {
   $$('nav ul li a.section').addEvent('click', function(e) {
