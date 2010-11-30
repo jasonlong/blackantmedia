@@ -3,23 +3,16 @@ window.addEvent('domready', function() {
   initBGScroll();
   observeNav();
   
-  var form = new FlippingForm($('contact-wrapper'), {
-    onFlip: function() {
-              $$('#from').set('html', $('name').get('value'));
-              $$('#mail-slot').show();
-              (function() { 
-                $('thanks').reveal({duration: 1000});
-              }).delay(3500, this);
-            }
-  });
+  var form = new FlippingContactForm($('contact-wrapper'), {});
 });
 
-var FlippingForm = new Class({
+var FlippingContactForm = new Class({
   Implements: [Options, Events],
   Binds: ["flipForm", "dropForm"],
   
   options: {
-    dropDelay: 2500
+    dropDelay: 2500,
+    thanksDelay: 3500
   },
   initialize: function(container, options) { 
     this.setOptions(options);
@@ -33,44 +26,45 @@ var FlippingForm = new Class({
         },
         onSend: this.flipForm
     });
+    $$('#send-another').addEvent('click', function(e) {
+      e.stop();
+      this.resetForm();
+    }.bind(this));
   },
 
   flipForm: function() {
-    this.fireEvent("flip");
+    $$('#from').set('html', $('name').get('value'));
+    $$('#mail-slot').show();
+    (function() { $('thanks').reveal({duration: 1000}); }).delay(this.options.thanksDelay, this);
     this.container.addClass('flip'); 
     (function() { this.dropForm(); }).delay(this.options.dropDelay, this);
   },
 
   dropForm: function() {
-    this.fireEvent("drop");
+    this.fireEvent("beginDrop");
     this.container.setStyle('overflow', 'hidden');
     this.container.getChildren('.inner').move({
       relativeTo: this.container,
       offset: {x: 0, y: 500},
       transition: Fx.Transitions.Quint.easeIn      
     });
-  }
-});
+    this.fireEvent("completeDrop");
+  },
 
-function observeContactForm() {
-  
-  $$('#send-another').addEvent('click', function(e) {
-    e.stop();
+  resetForm: function() {
     $$('#thanks').hide();
     $$('#mail-slot').hide();    
-    $$('#contact-wrapper').setStyle('overflow', 'visible');
-    $$('#contact-wrapper').removeClass('flip');     
-    $$('#contact-wrapper .inner').move({
-      relativeTo: $('contact-wrapper'),
+    this.container.setStyle('overflow', 'visible');
+    this.container.removeClass('flip');     
+    this.container.getChildren('.inner').move({
+      relativeTo: this.container,
       offset: {x: 0, y: -500},
       transition: Fx.Transitions.Quint.easeOut        
     });
     $$('#message').set('value', '');
-    setTimeout(function() {        
-      $('message').focus();
-    }, (500));      
-  })
-}
+    (function() { $('message').focus(); }).delay(500, this);
+  }
+});
 
 function observeNav() {
   $$('nav ul li a.section').addEvent('click', function(e) {
