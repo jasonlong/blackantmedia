@@ -28,10 +28,17 @@
 	-webkit-backface-visibility: hidden;
 }
 
+#contact-wrapper .inner .front {
+  z-index: 20;
+}
 #contact-wrapper .inner .back {
 	width: 590px; 
 	height: 338px;	
 	-webkit-transform: rotateX(180deg);
+  z-index: 10;
+}
+.no-csstransforms3d #contact-wrapper .inner .back {
+  opacity: 0;
 }
 
 #form-wrapper {

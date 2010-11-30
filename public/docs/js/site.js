@@ -38,6 +38,10 @@ var FlippingContactForm = new Class({
     (function() { $('thanks').reveal({duration: 1000}); }).delay(this.options.thanksDelay, this);
     this.container.addClass('flip'); 
     (function() { this.dropForm(); }).delay(this.options.dropDelay, this);
+    if (!Modernizr.csstransforms3d) {
+      $('form-wrapper').morph({opacity: 0/*, height: $('envelope').getSize().y*/});
+      $('envelope').morph({opacity: 1});
+    }
   },
 
   dropForm: function() {
@@ -61,6 +65,10 @@ var FlippingContactForm = new Class({
       offset: {x: 0, y: -500},
       transition: Fx.Transitions.Quint.easeOut        
     });
+    if (!Modernizr.csstransforms3d) {
+      $('form-wrapper').morph({opacity: 1/*, height: '308px'*/});
+      $('envelope').morph({opacity: 0});
+    }
     $$('#message').set('value', '');
     (function() { $('message').focus(); }).delay(500, this);
   }
