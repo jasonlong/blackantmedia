@@ -14,13 +14,15 @@ var FlippingContactForm = new Class({
     dropDelay: 2500,
     thanksDelay: 3500
   },
+  senderName: '',
+  senderEmail: '',
   initialize: function(container, options) { 
     this.setOptions(options);
     this.container = $(container);
     this.form = this.container.getElement('form');
 
     new Form.Validator.Inline(this.form);
-    new Form.Request(this.form, this.container, {
+    new Form.Request(this.form, null, {
         requestOptions: {
           useSpinner: false
         },
@@ -33,13 +35,15 @@ var FlippingContactForm = new Class({
   },
 
   flipForm: function() {
-    $$('#from').set('html', $('name').get('value'));
+    $('from').set('html', $('name').get('value'));
+    this.senderName = $('name').get('value');
+    this.senderEmail = $('email').get('value');
     $$('#mail-slot').show();
     (function() { $('thanks').reveal({duration: 1000}); }).delay(this.options.thanksDelay, this);
     this.container.addClass('flip'); 
     (function() { this.dropForm(); }).delay(this.options.dropDelay, this);
     if (!Modernizr.csstransforms3d) {
-      $('form-wrapper').morph({opacity: 0/*, height: $('envelope').getSize().y*/});
+      $('form-wrapper').morph({opacity: 0});
       $('envelope').morph({opacity: 1});
     }
   },
@@ -66,10 +70,12 @@ var FlippingContactForm = new Class({
       transition: Fx.Transitions.Quint.easeOut        
     });
     if (!Modernizr.csstransforms3d) {
-      $('form-wrapper').morph({opacity: 1/*, height: '308px'*/});
+      $('form-wrapper').morph({opacity: 1});
       $('envelope').morph({opacity: 0});
     }
-    $$('#message').set('value', '');
+    $('name').set('value', this.senderName);
+    $('email').set('value', this.senderEmail);
+    $('message').set('value', '');
     (function() { $('message').focus(); }).delay(500, this);
   }
 });

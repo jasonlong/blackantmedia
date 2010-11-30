@@ -97,18 +97,18 @@
 
             			<div id="form-wrapper" class="face front">
                     Have a project you need help with? Just want to say hey?
-                    <form action="http://jsfiddle.net/shell/ajax_html_echo/" method="post" id="contact-form">
+                    <form action="/public/php/contact.php" method="post" id="contact-form">
                       <p>
                         <label for="name">Your Name <sup>*</sup></label>
-                        <input type="text" id="name" class="required" />
+                        <input type="text" id="name" name="name" class="required" />
                       </p>
                       <p>
                         <label for="email">Email Address <sup>*</sup></label>
-                        <input type="email" id="email" class="required validate-email" />
+                        <input type="email" id="email" name="email" class="required validate-email" />
                       </p>
                       <p>
                         <label for="message">Message <sup>*</sup></label>
-                        <textarea id="message" cols="30" rows="10" class="required"></textarea>
+                        <textarea id="message" name="message" cols="30" rows="10" class="required"></textarea>
                       </p>
                       <button type="submit">Send Message</button>
                     </form>
