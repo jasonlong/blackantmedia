@@ -1,4 +1,4 @@
-app/_cache/**/*
+app/_cache/
 app/cache/
 .DS_Store
 

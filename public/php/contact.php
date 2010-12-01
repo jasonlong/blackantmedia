@@ -25,13 +25,11 @@ function send_mail( $name, $email, $ip, $is_spam, $message) {
   $subject = '';
   if( $is_spam == true )
     $subject = "[?]";
-  $subject .= "[Black Ant] Contact form message";
+  $subject .= "[Black Ant] New message";
 
-  // mail( "jason@blackantmedia.com", $subject, $author_name.", ".$author_email."\r\n\r\n".$message);
   $smtp = new SMTP("smtp-server.columbus.rr.com", 25);
-  // $smtp->auth(SMTP_USER, SMTP_PASS);
   $smtp->mail_from($email);
-  $smtp->send("jason@blackantmedia.com", $subject, "Name: ".$name."\n\n".$message);
+  $smtp->send("jason@blackantmedia.com", $subject, "Name: ".$name."\n\n".stripslashes($message));
 }
 
 ?>
