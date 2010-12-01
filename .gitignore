@@ -1,4 +1,5 @@
 app/_cache/
 app/cache/
 .DS_Store
+config/settings.php
 

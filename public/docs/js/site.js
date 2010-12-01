@@ -3,7 +3,7 @@ window.addEvent('domready', function() {
   initBGScroll();
   observeNav();
   
-  var form = new FlippingContactForm($('contact-wrapper'), {});
+  // var form = new FlippingContactForm($('contact-wrapper'), {});
 });
 
 var FlippingContactForm = new Class({
