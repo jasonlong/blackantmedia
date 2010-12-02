@@ -3,7 +3,7 @@ window.addEvent('domready', function() {
   initBGScroll();
   observeNav();
   
-  // var form = new FlippingContactForm($('contact-wrapper'), {});
+  var form = new FlippingContactForm($('contact-wrapper'), {});
 });
 
 var FlippingContactForm = new Class({
@@ -26,7 +26,15 @@ var FlippingContactForm = new Class({
         requestOptions: {
           useSpinner: false
         },
-        onSend: this.flipForm
+        onComplete: function(response) {
+          alert(response);
+          if (response == "1") {
+            this.flipForm
+          }
+          else {
+            alert('fail');
+          }
+        }
     });
     $$('#send-another').addEvent('click', function(e) {
       e.stop();

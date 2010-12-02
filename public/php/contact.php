@@ -1,6 +1,7 @@
 <?php
 // ini_set('display_errors','1');
 // error_reporting (E_ALL);
+date_default_timezone_set('US/Eastern');
 
 require($_SERVER['DOCUMENT_ROOT'].'/config/settings.php');
 require('Akismet.class.php');
@@ -19,7 +20,13 @@ if(isset($_POST))
   $akismet->setCommentContent($message);
   $akismet->setUserIP($ip);
 
-  send_mail( $name, $email, $ip, $akismet->isCommentSpam(), $message);
+  if (send_mail( $name, $email, $ip, $akismet->isCommentSpam(), $message)) {
+    $status = array('code' => '1');
+  }
+  else {
+    $status = array('code' => '0');
+  }
+  return json_encode($status);
 }
 
 function send_mail( $name, $email, $ip, $is_spam, $message) {
@@ -30,7 +37,7 @@ function send_mail( $name, $email, $ip, $is_spam, $message) {
 
   $smtp = new SMTP($GLOBALS['SMTP_SERVER'], $GLOBALS['SMTP_PORT']);
   $smtp->mail_from($email);
-  $smtp->send($GLOBALS['CONTACT_RECIPIENT'], $subject, "Name: ".$name."\n\n".stripslashes($message));
+  return $smtp->send($GLOBALS['CONTACT_RECIPIENT'], $subject, "Name: ".$name."\n\n".stripslashes($message));
 }
 
 ?>
