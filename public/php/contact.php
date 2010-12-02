@@ -7,8 +7,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/config/settings.php');
 require('Akismet.class.php');
 require('SMTP.class.php');
 
-if(isset($_POST))
-{
+if(isset($_POST)) {
   $name = $_POST['name'];
   $email = $_POST['email'];
   $message = $_POST['message'];
@@ -26,7 +25,7 @@ if(isset($_POST))
   else {
     $status = array('code' => '0');
   }
-  return json_encode($status);
+  echo json_encode($status);
 }
 
 function send_mail( $name, $email, $ip, $is_spam, $message) {
@@ -39,5 +38,4 @@ function send_mail( $name, $email, $ip, $is_spam, $message) {
   $smtp->mail_from($email);
   return $smtp->send($GLOBALS['CONTACT_RECIPIENT'], $subject, "Name: ".$name."\n\n".stripslashes($message));
 }
-
 ?>

@@ -14,8 +14,6 @@ var FlippingContactForm = new Class({
     dropDelay: 2500,
     thanksDelay: 3500
   },
-  senderName: '',
-  senderEmail: '',
   initialize: function(container, options) { 
     this.setOptions(options);
     this.container = $(container);
@@ -24,16 +22,20 @@ var FlippingContactForm = new Class({
     new Form.Validator.Inline(this.form);
     new Form.Request(this.form, null, {
         requestOptions: {
-          useSpinner: false
+          useSpinner: false,
+          resetForm: false
         },
-        onComplete: function(response) {
-          alert(response);
-          if (response == "1") {
-            this.flipForm
+        onSuccess: function(target, response) {
+          var status = JSON.decode(response[0].data.clean());
+          if (status.code == "1") {
+            this.flipForm.bind(this);
           }
           else {
             alert('fail');
           }
+        },
+        onFailure: function() {
+          alert('failed');
         }
     });
     $$('#send-another').addEvent('click', function(e) {
@@ -44,8 +46,6 @@ var FlippingContactForm = new Class({
 
   flipForm: function() {
     $('from').set('html', $('name').get('value'));
-    this.senderName = $('name').get('value');
-    this.senderEmail = $('email').get('value');
     $$('#mail-slot').show();
     (function() { $('thanks').reveal({duration: 1000}); }).delay(this.options.thanksDelay, this);
     this.container.addClass('flip'); 
@@ -57,14 +57,12 @@ var FlippingContactForm = new Class({
   },
 
   dropForm: function() {
-    this.fireEvent("beginDrop");
     this.container.setStyle('overflow', 'hidden');
     this.container.getChildren('.inner').move({
       relativeTo: this.container,
       offset: {x: 0, y: 500},
       transition: Fx.Transitions.Quint.easeIn      
     });
-    this.fireEvent("completeDrop");
   },
 
   resetForm: function() {
