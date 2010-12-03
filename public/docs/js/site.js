@@ -8,7 +8,6 @@ window.addEvent('domready', function() {
 
 var FlippingContactForm = new Class({
   Implements: [Options, Events],
-  Binds: ["flipForm", "dropForm"],
   
   options: {
     dropDelay: 2500,
@@ -25,18 +24,24 @@ var FlippingContactForm = new Class({
           useSpinner: false,
           resetForm: false
         },
+        onSend: function() {
+          this.flipForm()
+        }.bind(this),
         onSuccess: function(target, response) {
-          var status = JSON.decode(response[0].data.clean());
-          if (status.code == "1") {
-            this.flipForm.bind(this);
+          var status = JSON.decode(response[0].data.clean(), true);
+          if (status == null) {
+            this.showErrorMessage()
+          }
+          else if (status.code == "1") {
+            this.showThanks()
           }
           else {
-            alert('fail');
+            this.showErrorMessage()
           }
-        },
+        }.bind(this),
         onFailure: function() {
           alert('failed');
-        }
+        }.bind(this)
     });
     $$('#send-another').addEvent('click', function(e) {
       e.stop();
@@ -47,7 +52,6 @@ var FlippingContactForm = new Class({
   flipForm: function() {
     $('from').set('html', $('name').get('value'));
     $$('#mail-slot').show();
-    (function() { $('thanks').reveal({duration: 1000}); }).delay(this.options.thanksDelay, this);
     this.container.addClass('flip'); 
     (function() { this.dropForm(); }).delay(this.options.dropDelay, this);
     if (!Modernizr.csstransforms3d) {
@@ -63,6 +67,14 @@ var FlippingContactForm = new Class({
       offset: {x: 0, y: 500},
       transition: Fx.Transitions.Quint.easeIn      
     });
+  },
+
+  showThanks: function() {
+    (function() { $('thanks').reveal({duration: 1000}); }).delay(this.options.thanksDelay, this);
+  },
+
+  showErrorMessage: function() {
+    (function() { $('error').reveal({duration: 1000}); }).delay(this.options.thanksDelay, this);
   },
 
   resetForm: function() {
