@@ -13,6 +13,9 @@ var FlippingContactForm = new Class({
     dropDelay: 2500,
     thanksDelay: 3500
   },
+  senderName: '',
+  senderEmail: '',
+  
   initialize: function(container, options) { 
     this.setOptions(options);
     this.container = $(container);
@@ -21,8 +24,7 @@ var FlippingContactForm = new Class({
     new Form.Validator.Inline(this.form);
     new Form.Request(this.form, null, {
         requestOptions: {
-          useSpinner: false,
-          resetForm: false
+          useSpinner: false
         },
         onSend: function() {
           this.flipForm()
@@ -51,6 +53,8 @@ var FlippingContactForm = new Class({
 
   flipForm: function() {
     $('from').set('html', $('name').get('value'));
+    this.senderName = $('name').get('value');
+    this.senderEmail = $('email').get('value');
     $$('#mail-slot').show();
     this.container.addClass('flip'); 
     (function() { this.dropForm(); }).delay(this.options.dropDelay, this);
