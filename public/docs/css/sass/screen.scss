@@ -84,7 +84,8 @@ p {
 ----------------------------------------------------------------------*/	
 header {
   h1 {
-    font-size: 47px;
+    font-size: 46px;
+    font-weight: 700;
     line-height: 1.1em;
     margin-top: 1.4em;
     margin-bottom: 0.3em;
@@ -98,6 +99,7 @@ header {
     opacity: 0.93;
     font-weight: normal;
     font-size: 19px;
+    font-weight: 600;
     line-height: 1.4em;
     text-shadow: 0 0 30px rgba(0, 0, 0, 0.3), $default_text_shadow;
     display: inline;
@@ -107,7 +109,7 @@ header {
     text-shadow: none;
     background-color: #fff;
     color: $green;
-    padding: 2px 6px;    
+    padding: 2px 4px;    
   }
   img#logo {
     position: relative;
@@ -203,6 +205,90 @@ section#about img {
 section#contact {
   position: relative;
 }
+
+#contact-wrapper {
+  float: left;
+	width: 590px; 
+	height: 338px;	
+	position: relative; 
+	z-index: 100;
+
+  .inner {
+    width: 590px; 
+    height: 338px;	
+    -webkit-perspective: 1000;
+    float: left; 
+    position: absolute; 
+
+    front {
+      z-index: 20;
+    }
+    .back {
+      width: 590px; 
+      height: 338px;	
+      -webkit-transform: rotateX(180deg);
+      z-index: 10;
+    }
+  }
+
+  .card {
+    width: 590px; 
+    height: 338px;	
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: 0.5s;
+  }
+  .face {
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+  }
+}
+
+#contact-wrapper.flip .card {
+	-webkit-transform: rotateX(180deg);				
+}
+
+.no-csstransforms3d #contact-wrapper .inner .back {
+  opacity: 0;
+}
+
+#form-wrapper {
+  width: 566px;  
+  background-color: #282222;
+  padding: 12px;  
+  opacity: 0.9;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;	    
+}
+
+#envelope {
+  background: #dbc09a url(/images/texture-envelope.jpg) 0 0 repeat;
+  -webkit-backface-visibility : hidden;  
+  -webkit-transform: rotateX(180deg);
+  width: 590px;
+  height: 198px !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  @include rounded(3px);        
+  font-family: "skippy-sharp-1","skippy-sharp-2", Georgia, helvetica,sans-serif;
+  font-size: 40px;  
+  line-height: 1em;
+  text-shadow: none;  
+  color: #333;
+  text-align: center;
+  padding-top: 140px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;	    
+}
+
+#envelope img {
+  position: absolute;
+  top: 10px;
+  right: 10px;  
+}
+
 form {
   margin-top: 8px;
   padding: 15px;
@@ -330,3 +416,4 @@ form {
     margin-bottom: 1.4em;
   }
 }
+
