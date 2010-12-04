@@ -1,10 +1,10 @@
-/*-  variables
-----------------------------------------------------------------------*/	
+// variables
+// ----------------------------------------------------------------------	
 $green: #2dbc24;
 $default_text_shadow: 1px 1px rgba(0, 0, 0, 0.2);
 
-/*-  mix-ins
-----------------------------------------------------------------------*/	
+//  mix-ins
+// ----------------------------------------------------------------------	
 @mixin rounded($radius: 3px) {
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
@@ -33,8 +33,8 @@ $default_text_shadow: 1px 1px rgba(0, 0, 0, 0.2);
   }
 }
 
-/*-  structural
-----------------------------------------------------------------------*/	
+//  structural
+// ----------------------------------------------------------------------	
 body {
   font-family: "ronnia-1","ronnia-2",helvetica,arial,sans-serif;  
   background-color: #0f0705;
@@ -80,8 +80,8 @@ p {
   margin-bottom: 1em;
 }
 
-/*-  header
-----------------------------------------------------------------------*/	
+// header
+// ----------------------------------------------------------------------	
 header {
   h1 {
     font-size: 46px;
@@ -139,8 +139,8 @@ header {
   }  
 }
 
-/*-  sections
-----------------------------------------------------------------------*/	
+// sections
+// ----------------------------------------------------------------------	
 section {
   margin-top: 2em;
   @include clearfix;
@@ -172,8 +172,8 @@ section#colophon h2 {
   background: transparent url(/images/icon-colophon.png) 0 0 no-repeat;
 }  
 
-/*-  portfolio
-----------------------------------------------------------------------*/	
+// portfolio
+// ----------------------------------------------------------------------	
 ol#portfolio {
   list-style: none;
 }
@@ -189,8 +189,8 @@ ol#portfolio li {
   text-indent: -9999px;
 }
 
-/*-  mugshot
-----------------------------------------------------------------------*/	
+// mugshot
+// ----------------------------------------------------------------------	
 section#about img {
   float: right;
   margin: -2em 1em 1em 1em;
@@ -200,8 +200,8 @@ section#about img {
   transform : rotate(3deg);
 }
 
-/*-  contact form
-----------------------------------------------------------------------*/	
+// contact form
+// ----------------------------------------------------------------------	
 section#contact {
   position: relative;
 }
@@ -345,9 +345,9 @@ form {
   }
   button {
     margin-left: 135px;
-    background: #5ECC57; /* old browsers */
-    background: -moz-linear-gradient(top, #5ECC57 0%, #2DBB24 6%, #269E1E 100%); /* firefox */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5ECC57), color-stop(6%,#2DBB24), color-stop(100%,#269E1E)); /* webkit */
+    background: #5ECC57;
+    background: -moz-linear-gradient(top, #5ECC57 0%, #2DBB24 6%, #269E1E 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5ECC57), color-stop(6%,#2DBB24), color-stop(100%,#269E1E));
     @include rounded(4px);
     color: #fff;
     border: solid 1px #1f8319;
@@ -359,9 +359,9 @@ form {
     @include box-shadow();
   }
   button:hover {
-    background: #5ECC57; /* old browsers */
-    background: -moz-linear-gradient(top, #5ECC57 0%, #2DBB24 6%, #29aa21 100%); /* firefox */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5ECC57), color-stop(6%,#2DBB24), color-stop(100%,#29aa21)); /* webkit */
+    background: #5ECC57;
+    background: -moz-linear-gradient(top, #5ECC57 0%, #2DBB24 6%, #29aa21 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5ECC57), color-stop(6%,#2DBB24), color-stop(100%,#29aa21));
   }      
 }
 
@@ -369,7 +369,7 @@ form {
   float: right;
   width: 400px;
   font-size: 12px;
-  color: yellow;  
+  color: #ff0;  
 }
 
 #mail-slot {
