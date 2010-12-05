@@ -37,7 +37,7 @@ var Portfolio = new Class({
     this.container = $(container);
     this.loadAllProjects(this.options.loadAllProjectsURL);
     this.initThumbnails();
-    this.renderThumbnails();
+    this.showThumbnails();
   },
 
   loadAllProjects: function(url) {
@@ -63,14 +63,25 @@ var Portfolio = new Class({
         styles: {top: p.position.y, left: p.position.x},
       }).inject($('portfolio'), 'bottom');
 
-      thumbnailContainer.adopt(new Element('img', {
-        src: '/images/tmp/google.png',
-        styles: {top: 128} /* hide images to start with */
-      }));
-    });
+      var link = 
+        new Element('a', {
+          href: '#'
+        }).adopt(
+          new Element('img', {
+            src: '/images/tmp/google.png',
+            styles: {top: 128} /* hide images to start with */
+          })
+        );
+
+      link.addEvent('click', function(e) {
+        e.stop();
+        this.hideThumbnails();
+      }.bind(this));
+      thumbnailContainer.adopt(link);
+    }.bind(this));
    },
 
-   renderThumbnails: function() {
+   showThumbnails: function() {
      $$('ol#portfolio li img').each(function(img, index) {
       (function() {
         img.move({
@@ -79,6 +90,19 @@ var Portfolio = new Class({
           transition: Fx.Transitions.Bounce.easeOut      
         });
       }).delay(index*80);
+     });
+   },
+
+   hideThumbnails: function() {
+     $$('ol#portfolio li img').each(function(img, index) {
+      (function() {
+        img.move({
+          relativeTo: img.getParent('li'),
+          offset: {x: 0, y: 128},
+          transition: Fx.Transitions.Back.easeInOut,
+          duration: 250
+        });
+      }).delay(index*30);
      });
    },
 
