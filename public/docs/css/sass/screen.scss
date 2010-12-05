@@ -184,13 +184,15 @@ ol#portfolio {
 
 ol#portfolio li {
   position: absolute;
-  width: 278px;
-  height: 120px;
-  border: solid 4px #fff;
-  opacity: 0.2;
-  // float: left;
-  // margin-right: 20px;
-  // margin-bottom: 20px;
+  width: 286px;
+  height: 128px;
+  overflow: hidden;
+}
+
+ol#portfolio li img {
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  position: relative;
 }
 
 // mugshot

@@ -3,10 +3,6 @@ window.addEvent('domready', function() {
   initBGScroll();
   observeNav();
   
-  var portfolio = new Portfolio($('portfolio-wrapper'), {
-    loadAllProjectsURL: '/load_all_projects.php',
-    loadProjectURL: '/load__project.php'
-  });
   var form = new FlippingContactForm($('contact-wrapper'), {});
 });
 
@@ -40,6 +36,7 @@ var Portfolio = new Class({
     this.setOptions(options);
     this.container = $(container);
     this.loadAllProjects(this.options.loadAllProjectsURL);
+    this.initThumbnails();
     this.renderThumbnails();
   },
 
@@ -56,17 +53,33 @@ var Portfolio = new Class({
     }
   },
 
-  renderThumbnails: function() {
+  initThumbnails: function() {
     new Element('ol', {
       id: 'portfolio'
     }).inject(this.container, 'top');
 
     this.projects.each(function(p) {
-      new Element('li', {
+      var thumbnailContainer = new Element('li', {
         styles: {top: p.position.y, left: p.position.x},
-        html: p.project.options.name
       }).inject($('portfolio'), 'bottom');
+
+      thumbnailContainer.adopt(new Element('img', {
+        src: '/images/tmp/google.png',
+        styles: {top: 128} /* hide images to start with */
+      }));
     });
+   },
+
+   renderThumbnails: function() {
+     $$('ol#portfolio li img').each(function(img, index) {
+      (function() {
+        img.move({
+          relativeTo: img.getParent('li'),
+          offset: {x: 0, y: -128},
+          transition: Fx.Transitions.Bounce.easeOut      
+        });
+      }).delay(index*80);
+     });
    },
 
    computePosition: function(count) {
@@ -185,14 +198,23 @@ function observeNav() {
   });
 }
 
+function initPortfolio() {
+  var portfolio = new Portfolio($('portfolio-wrapper'), {
+    loadAllProjectsURL: '/load_all_projects.php',
+    loadProjectURL: '/load__project.php'
+  });
+}
+
 function initTypography() {
   try {
     Typekit.load({
       active: function() {
         $$('#content').tween('opacity', '1');
+        (function() { initPortfolio(); }).delay(1000);
       },
       inactive: function() {
         $$('#content').tween('opacity', '1');
+        (function() { initPortfolio(); }).delay(1000);
       }
     })
   } catch(e) {}  
