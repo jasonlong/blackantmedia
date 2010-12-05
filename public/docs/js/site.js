@@ -3,7 +3,83 @@ window.addEvent('domready', function() {
   initBGScroll();
   observeNav();
   
+  var portfolio = new Portfolio($('portfolio-wrapper'), {
+    loadAllProjectsURL: '/load_all_projects.php',
+    loadProjectURL: '/load__project.php'
+  });
   var form = new FlippingContactForm($('contact-wrapper'), {});
+});
+
+var Project = new Class({
+  Implements: [Options, Events],
+
+  options: {
+    name: '',
+    description: ''
+  },
+
+  initialize: function(options) { 
+    this.setOptions(options);
+  }
+});
+
+var Portfolio = new Class({
+  Implements: [Options, Events],
+
+  options: {
+    loadAllProjectsURL: '',
+    loadProjectURL: '',
+    thumbnailColumns: 3,
+    thumbnailWidth: 286,
+    thumbnailHeight: 128,
+    thumbnailMargin: 20
+  },
+  projects: [], 
+
+  initialize: function(container, options) { 
+    this.setOptions(options);
+    this.container = $(container);
+    this.loadAllProjects(this.options.loadAllProjectsURL);
+    this.renderThumbnails();
+  },
+
+  loadAllProjects: function(url) {
+    for (i=0; i<9; i++) {
+      position = this.computePosition(i+1);
+      var p = new Hash();
+      p.set('project', new Project({name:'Project '+i}));
+      p.set('position', {
+        x:position.get('x'),
+        y:position.get('y')
+      });
+      this.projects.include(p);
+    }
+  },
+
+  renderThumbnails: function() {
+    new Element('ol', {
+      id: 'portfolio'
+    }).inject(this.container, 'top');
+
+    this.projects.each(function(p) {
+      new Element('li', {
+        styles: {top: p.position.y, left: p.position.x},
+        html: p.project.options.name
+      }).inject($('portfolio'), 'bottom');
+    });
+   },
+
+   computePosition: function(count) {
+     var row = Math.ceil(count / this.options.thumbnailColumns);
+     var column = count % this.options.thumbnailColumns;
+     if (column == 0) column = 3;
+     var x = (column - 1) * (this.options.thumbnailWidth+this.options.thumbnailMargin);
+     var y = (row - 1) *  (this.options.thumbnailHeight+this.options.thumbnailMargin);
+     var position = new Hash();
+     position.set('x', x);
+     position.set('y', y);
+     return position;
+   }
 });
 
 var FlippingContactForm = new Class({

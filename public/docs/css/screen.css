@@ -122,18 +122,19 @@ section#contact h2 {
 section#colophon h2 {
   background: transparent url(/images/icon-colophon.png) 0 0 no-repeat; }
 
+#portfolio-wrapper {
+  height: 426px; }
+
 ol#portfolio {
-  list-style: none; }
+  list-style: none;
+  position: relative; }
 
 ol#portfolio li {
-  width: 272px;
+  position: absolute;
+  width: 278px;
   height: 120px;
   border: solid 4px #fff;
-  opacity: 0.2;
-  float: left;
-  margin-right: 20px;
-  margin-bottom: 20px;
-  text-indent: -9999px; }
+  opacity: 0.2; }
 
 section#about img {
   float: right;

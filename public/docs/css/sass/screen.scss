@@ -174,19 +174,23 @@ section#colophon h2 {
 
 // portfolio
 // ----------------------------------------------------------------------	
+#portfolio-wrapper {
+  height: 426px;
+}
 ol#portfolio {
   list-style: none;
+  position: relative;
 }
 
 ol#portfolio li {
-  width: 272px;
+  position: absolute;
+  width: 278px;
   height: 120px;
   border: solid 4px #fff;
   opacity: 0.2;
-  float: left;
-  margin-right: 20px;
-  margin-bottom: 20px;
-  text-indent: -9999px;
+  // float: left;
+  // margin-right: 20px;
+  // margin-bottom: 20px;
 }
 
 // mugshot
