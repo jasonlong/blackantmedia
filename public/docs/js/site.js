@@ -38,6 +38,13 @@ var Portfolio = new Class({
     this.loadAllProjects(this.options.loadAllProjectsURL);
     this.initThumbnails();
     this.showThumbnails();
+
+    ///////////////////
+    $('tmp').addEvent('click', function(e) {
+      e.stop();
+      this.showThumbnails();
+    }.bind(this));
+    ///////////////////
   },
 
   loadAllProjects: function(url) {
@@ -89,7 +96,7 @@ var Portfolio = new Class({
           offset: {x: 0, y: -128},
           transition: Fx.Transitions.Bounce.easeOut      
         });
-      }).delay(index*80);
+      }).delay(index*40);
      });
    },
 
@@ -238,7 +245,7 @@ function initTypography() {
       },
       inactive: function() {
         $$('#content').tween('opacity', '1');
-        (function() { initPortfolio(); }).delay(1000);
+        (function() { initPortfolio(); }).delay(1500);
       }
     })
   } catch(e) {}  
