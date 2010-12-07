@@ -12,7 +12,8 @@ var Project = new Class({
   options: {
     name: '',
     description: '',
-    thumbnailImageURL: ''
+    thumbnailImageURL: '',
+    url: ''
   },
 
   initialize: function(options) { 
@@ -56,7 +57,11 @@ var Portfolio = new Class({
         data.projects.each(function(project_data) {
           position = this.computePosition(i+1);
           var p = new Hash();
-          p.set('project', new Project({name:project_data.title, thumbnailImageURL:project_data.thumb}));
+          p.set('project', new Project({
+            name:project_data.title, 
+            thumbnailImageURL:project_data.thumb,
+            url: project_data.url
+          }));
           p.set('position', {
             x:position.get('x'),
             y:position.get('y')
@@ -94,6 +99,9 @@ var Portfolio = new Class({
 
       link.addEvent('click', function(e) {
         e.stop();
+        var request = new Request.JSON({
+          url: p.project.options.url
+        }).send();
         this.hideThumbnails();
       }.bind(this));
       thumbnailContainer.adopt(link);
