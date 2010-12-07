@@ -84,32 +84,35 @@ p {
 // ----------------------------------------------------------------------	
 header {
   h1 {
+    text-align: center;
     font-size: 46px;
     font-weight: 700;
+    letter-spacing: -1px;
     line-height: 1.1em;
     margin-top: 1.4em;
     margin-bottom: 0.3em;
-    text-shadow: 0 0 30px rgba(0, 0, 0, 0.2), $default_text_shadow;    
+    opacity: 0.97;
+    text-shadow: 0 0 50px rgba(0, 0, 0, 0.2), $default_text_shadow;    
   }
   h1 em {
-    font-style: normal;
+    font-family: Palatino, Constantia, "Palatino Linotype", "Book Antiqua", serif;
+    font-weight: normal;
     opacity: 0.5;
   }
   h1 + p {
-    opacity: 0.93;
+    text-align: center;
     font-weight: normal;
     font-size: 19px;
     font-weight: 600;
     line-height: 1.4em;
-    text-shadow: 0 0 30px rgba(0, 0, 0, 0.3), $default_text_shadow;
-    display: inline;
+    text-shadow: 0 0 40px rgba(0, 0, 0, 0.3), $default_text_shadow;
+
+    span {
+      opacity: 0.7;
+    }
   }  
   h1 + p em {  
     font-style: normal;
-    text-shadow: none;
-    background-color: #fff;
-    color: $green;
-    padding: 2px 4px;    
   }
   img#logo {
     position: relative;

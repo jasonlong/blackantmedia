@@ -11,7 +11,8 @@ var Project = new Class({
 
   options: {
     name: '',
-    description: ''
+    description: '',
+    thumbnailImageURL: ''
   },
 
   initialize: function(options) { 
@@ -23,8 +24,7 @@ var Portfolio = new Class({
   Implements: [Options, Events],
 
   options: {
-    loadAllProjectsURL: '',
-    loadProjectURL: '',
+    loadAllProjectsURL: '/projects/',
     thumbnailColumns: 3,
     thumbnailWidth: 286,
     thumbnailHeight: 128,
@@ -36,8 +36,6 @@ var Portfolio = new Class({
     this.setOptions(options);
     this.container = $(container);
     this.loadAllProjects(this.options.loadAllProjectsURL);
-    this.initThumbnails();
-    this.showThumbnails();
 
     ///////////////////
     $('tmp').addEvent('click', function(e) {
@@ -48,16 +46,30 @@ var Portfolio = new Class({
   },
 
   loadAllProjects: function(url) {
-    for (i=0; i<9; i++) {
-      position = this.computePosition(i+1);
-      var p = new Hash();
-      p.set('project', new Project({name:'Project '+i}));
-      p.set('position', {
-        x:position.get('x'),
-        y:position.get('y')
-      });
-      this.projects.include(p);
-    }
+    var request = new Request.JSON({
+      url: this.options.loadAllProjectsURL,
+      onFailure: function(xhr) {
+        alert("Well this is embarassing, my projects couldn't be loaded right now. Please try again in a little bit.");
+      },
+      onSuccess: function(data) {
+        var i=0;
+        data.projects.each(function(project_data) {
+          position = this.computePosition(i+1);
+          var p = new Hash();
+          p.set('project', new Project({name:project_data.title, thumbnailImageURL:project_data.thumb}));
+          p.set('position', {
+            x:position.get('x'),
+            y:position.get('y')
+          });
+          this.projects.include(p);
+          i++;
+        }.bind(this));
+
+        this.initThumbnails();
+        this.showThumbnails();
+      }.bind(this)
+    }).send();
+      
   },
 
   initThumbnails: function() {
@@ -75,7 +87,7 @@ var Portfolio = new Class({
           href: '#'
         }).adopt(
           new Element('img', {
-            src: '/images/tmp/google.png',
+            src: '/projects/'+p.project.options.thumbnailImageURL,
             styles: {top: 128} /* hide images to start with */
           })
         );
@@ -231,8 +243,7 @@ function observeNav() {
 
 function initPortfolio() {
   var portfolio = new Portfolio($('portfolio-wrapper'), {
-    loadAllProjectsURL: '/load_all_projects.php',
-    loadProjectURL: '/load__project.php'
+    loadAllProjectsURL: '/projects/'
   });
 }
 

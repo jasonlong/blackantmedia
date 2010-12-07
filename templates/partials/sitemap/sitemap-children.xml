@@ -1,4 +1,0 @@
-foreach $children do
-  :sitemap-url
-  :sitemap-children
-endforeach

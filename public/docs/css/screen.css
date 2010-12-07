@@ -45,29 +45,30 @@ p {
 header {
   /* nav */ }
   header h1 {
+    text-align: center;
     font-size: 46px;
     font-weight: 700;
+    letter-spacing: -1px;
     line-height: 1.1em;
     margin-top: 1.4em;
     margin-bottom: 0.3em;
-    text-shadow: 0 0 30px rgba(0, 0, 0, 0.2), 1px 1px rgba(0, 0, 0, 0.2); }
+    opacity: 0.97;
+    text-shadow: 0 0 50px rgba(0, 0, 0, 0.2), 1px 1px rgba(0, 0, 0, 0.2); }
   header h1 em {
-    font-style: normal;
+    font-family: Palatino, Constantia, "Palatino Linotype", "Book Antiqua", serif;
+    font-weight: normal;
     opacity: 0.5; }
   header h1 + p {
-    opacity: 0.93;
+    text-align: center;
     font-weight: normal;
     font-size: 19px;
     font-weight: 600;
     line-height: 1.4em;
-    text-shadow: 0 0 30px rgba(0, 0, 0, 0.3), 1px 1px rgba(0, 0, 0, 0.2);
-    display: inline; }
+    text-shadow: 0 0 40px rgba(0, 0, 0, 0.3), 1px 1px rgba(0, 0, 0, 0.2); }
+    header h1 + p span {
+      opacity: 0.7; }
   header h1 + p em {
-    font-style: normal;
-    text-shadow: none;
-    background-color: #fff;
-    color: #2dbc24;
-    padding: 2px 4px; }
+    font-style: normal; }
   header img#logo {
     position: relative;
     top: 26px; }

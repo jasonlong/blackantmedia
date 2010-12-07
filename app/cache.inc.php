@@ -34,7 +34,7 @@ Class Cache {
       echo $page->parse_template();
       # if cache folder is writable, write to it
       if(is_writable('./app/_cache')) $this->write_cache();
-      else echo "\n".$this->comment_tags[0].' Stacey('.Stacey::$version.'). '.$this->comment_tags[1];
+      // else echo "\n".$this->comment_tags[0].' Stacey('.Stacey::$version.'). '.$this->comment_tags[1];
     # end buffer
     ob_end_flush();
     return '';
