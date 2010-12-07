@@ -25,7 +25,7 @@ var Portfolio = new Class({
   Implements: [Options, Events],
 
   options: {
-    loadAllProjectsURL: '/projects/',
+    loadAllProjectsURL: '/work/',
     thumbnailColumns: 3,
     thumbnailWidth: 286,
     thumbnailHeight: 128,
@@ -251,7 +251,7 @@ function observeNav() {
 
 function initPortfolio() {
   var portfolio = new Portfolio($('portfolio-wrapper'), {
-    loadAllProjectsURL: '/projects/'
+    loadAllProjectsURL: '/work/'
   });
 }
 
