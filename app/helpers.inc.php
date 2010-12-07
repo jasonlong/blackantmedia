@@ -89,7 +89,8 @@ Class Helpers {
     }
 
     # sort list in reverse-numeric order
-    krsort($files, SORT_NUMERIC);
+    // CHANGED BY JL - FROM krsort() to ksort() SO LISTINGS DISPLAY IN NUMERICAL ORDER, NOT REVERSE
+    ksort($files, SORT_NUMERIC);
     return $files;
   }
 

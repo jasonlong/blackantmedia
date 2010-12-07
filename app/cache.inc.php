@@ -34,6 +34,7 @@ Class Cache {
       echo $page->parse_template();
       # if cache folder is writable, write to it
       if(is_writable('./app/_cache')) $this->write_cache();
+      // COMMENTED OUT BY JL - THIS BREAKS JSON FORMATTING
       // else echo "\n".$this->comment_tags[0].' Stacey('.Stacey::$version.'). '.$this->comment_tags[1];
     # end buffer
     ob_end_flush();
@@ -54,7 +55,8 @@ Class Cache {
   }
 
   function write_cache() {
-    echo "\n".$this->comment_tags[0].' Stacey('.Stacey::$version.'): '.$this->hash.' '.$this->comment_tags[1];
+    // COMMENTED OUT BY JL - THIS BREAKS JSON FORMATTING
+    // echo "\n".$this->comment_tags[0].' Stacey('.Stacey::$version.'): '.$this->hash.' '.$this->comment_tags[1];
     $fp = fopen($this->cachefile, 'w');
     fwrite($fp, ob_get_contents());
     fclose($fp);
