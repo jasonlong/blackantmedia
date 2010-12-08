@@ -192,20 +192,18 @@ ol#portfolio li {
   overflow: hidden;
 }
 
-ol#portfolio li a {
+ol#portfolio li img {
   opacity: 0.85;
+  position: relative;
   -webkit-transition: opacity .25s ease-in, background .25s ease-in;
   -moz-transition: opacity .25s ease-in, background .25s ease-in;
   transition: opacity .25s ease-in, background .25s ease-in;
   background: rgba(255, 255, 255, 0.2);
   padding: 4px;
 }
-ol#portfolio li a:hover {
+ol#portfolio li a:hover img {
   opacity: 1;
-  background: rgba(255, 255, 255, 0.4);
-}
-ol#portfolio li a img {
-  position: relative;
+  background: rgba(255, 255, 255, 0.3);
 }
 
 // mugshot
