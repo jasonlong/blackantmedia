@@ -192,9 +192,19 @@ ol#portfolio li {
   overflow: hidden;
 }
 
-ol#portfolio li img {
-  padding: 4px;
+ol#portfolio li a {
+  opacity: 0.85;
+  -webkit-transition: opacity .25s ease-in, background .25s ease-in;
+  -moz-transition: opacity .25s ease-in, background .25s ease-in;
+  transition: opacity .25s ease-in, background .25s ease-in;
   background: rgba(255, 255, 255, 0.2);
+  padding: 4px;
+}
+ol#portfolio li a:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.4);
+}
+ol#portfolio li a img {
   position: relative;
 }
 
