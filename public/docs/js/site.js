@@ -71,13 +71,15 @@ var Portfolio = new Class({
         }.bind(this));
 
         this.initThumbnails();
-        this.showThumbnails();
+        // this.showThumbnails();
       }.bind(this)
     }).send();
       
   },
 
   initThumbnails: function() {
+    var thumbnails = [];
+
     new Element('ol', {
       id: 'portfolio'
     }).inject(this.container, 'top');
@@ -86,6 +88,8 @@ var Portfolio = new Class({
       var thumbnailContainer = new Element('li', {
         styles: {top: p.position.y, left: p.position.x},
       }).inject($('portfolio'), 'bottom');
+
+      thumbnails.include(p.project.options.thumbnailImageURL);
 
       var link = 
         new Element('a', {
@@ -105,6 +109,12 @@ var Portfolio = new Class({
         this.hideThumbnails();
       }.bind(this));
       thumbnailContainer.adopt(link);
+
+      // make sure images are complete pre-loaded before displaying them
+      var loader = new Asset.images(thumbnails, {
+        onComplete: function() {this.showThumbnails();}.bind(this)
+      });
+
     }.bind(this));
    },
 
