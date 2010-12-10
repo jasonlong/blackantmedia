@@ -71,7 +71,6 @@ var Portfolio = new Class({
         }.bind(this));
 
         this.initThumbnails();
-        // this.showThumbnails();
       }.bind(this)
     }).send();
       
