@@ -35,7 +35,7 @@ h1, h2, h3 {
 h3 {
   display: inline-block;
   background-color: #2dbc24;
-  padding: 2px 8px;
+  padding: 0.2em 0.6em;
   margin-bottom: 0.4em;
   text-shadow: none; }
 
@@ -124,7 +124,53 @@ section#colophon h2 {
   background: transparent url(/images/icon-colophon.png) 0 0 no-repeat; }
 
 #portfolio-wrapper {
-  height: 426px; }
+  height: 426px;
+  position: relative; }
+  #portfolio-wrapper nav {
+    height: 29px;
+    line-height: 26px;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.15);
+    font-size: 13px;
+    text-transform: uppercase;
+    position: relative;
+    margin-bottom: 14px; }
+  #portfolio-wrapper nav ol li {
+    display: inline; }
+  #portfolio-wrapper nav ol li#project_nav_previous {
+    float: left;
+    text-align: left; }
+  #portfolio-wrapper nav ol li#project_nav_next {
+    float: right;
+    text-align: right; }
+  #portfolio-wrapper nav ol li#project_nav_up {
+    position: absolute;
+    left: 400px; }
+  #portfolio-wrapper nav a {
+    color: #fff; }
+    #portfolio-wrapper nav a span {
+      padding-left: 0.4em;
+      color: #2dbc24; }
+  #portfolio-wrapper figure {
+    position: relative; }
+    #portfolio-wrapper figure figcaption {
+      width: 305px;
+      position: absolute;
+      right: 0;
+      top: 0; }
+      #portfolio-wrapper figure figcaption h3 {
+        text-transform: uppercase;
+        font-size: 22px;
+        padding: 0.5em 0.4em 0.4em 0.4em;
+        margin-bottom: 0; }
+      #portfolio-wrapper figure figcaption h4 {
+        display: inline-block;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        padding: 0.2em 0.6em;
+        margin-bottom: 1em;
+        text-shadow: none;
+        text-transform: uppercase;
+        font-size: 11px; }
 
 ol#portfolio {
   list-style: none;

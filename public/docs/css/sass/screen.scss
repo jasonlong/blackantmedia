@@ -72,7 +72,7 @@ h1, h2, h3 {
 h3 {
   display: inline-block;
   background-color: $green;
-  padding: 2px 8px;
+  padding: 0.2em 0.6em;
   margin-bottom: 0.4em;
   text-shadow: none;
 }
@@ -179,6 +179,68 @@ section#colophon h2 {
 // ----------------------------------------------------------------------	
 #portfolio-wrapper {
   height: 426px;
+  position: relative;
+
+  nav {
+    height: 29px;
+    line-height: 26px;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.15);
+    font-size: 13px;
+    text-transform: uppercase;
+    position: relative;
+    margin-bottom: 14px;
+  }
+  nav ol li {
+    display: inline;
+  }
+  nav ol li#project_nav_previous {
+    float: left;
+    text-align: left;
+  }
+  nav ol li#project_nav_next {
+    float: right;
+    text-align: right;
+  }
+  nav ol li#project_nav_up {
+    position: absolute;
+    left: 400px;
+  }
+  nav a {
+    color: #fff;
+
+    span {
+      padding-left: 0.4em;
+      color: $green;
+    }
+  }
+
+  figure {
+    position: relative;
+
+    figcaption {
+      width: 305px;
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      h3 {
+        text-transform: uppercase;
+        font-size: 22px;
+        padding: 0.5em 0.4em 0.4em 0.4em;
+        margin-bottom: 0;
+      }
+      h4 {
+        display: inline-block;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        padding: 0.2em 0.6em;
+        margin-bottom: 1em;
+        text-shadow: none;
+        text-transform: uppercase;
+        font-size: 11px;
+      }
+    }
+  }
 }
 ol#portfolio {
   list-style: none;

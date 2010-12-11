@@ -259,9 +259,9 @@ function observeNav() {
 }
 
 function initPortfolio() {
-  var portfolio = new Portfolio($('portfolio-wrapper'), {
-    loadAllProjectsURL: '/work/'
-  });
+  // var portfolio = new Portfolio($('portfolio-wrapper'), {
+    // loadAllProjectsURL: '/work/'
+  // });
 }
 
 function initTypography() {
