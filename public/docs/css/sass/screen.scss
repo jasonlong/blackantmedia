@@ -188,20 +188,26 @@ section#colophon h2 {
     font-size: 13px;
     text-transform: uppercase;
     position: relative;
+    top: 0;
     margin-bottom: 14px;
+    z-index: 100;
+  }
+  nav ol {
+    display: block;
+    // overflow: hidden;
   }
   nav ol li {
     display: inline;
   }
-  nav ol li#project_nav_previous {
+  nav ol li#project-nav-previous {
     float: left;
     text-align: left;
   }
-  nav ol li#project_nav_next {
+  nav ol li#project-nav-next {
     float: right;
     text-align: right;
   }
-  nav ol li#project_nav_up {
+  nav ol li#project-nav-up {
     position: absolute;
     left: 400px;
   }

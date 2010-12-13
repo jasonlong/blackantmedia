@@ -133,16 +133,20 @@ section#colophon h2 {
     font-size: 13px;
     text-transform: uppercase;
     position: relative;
-    margin-bottom: 14px; }
+    top: 0;
+    margin-bottom: 14px;
+    z-index: 100; }
+  #portfolio-wrapper nav ol {
+    display: block; }
   #portfolio-wrapper nav ol li {
     display: inline; }
-  #portfolio-wrapper nav ol li#project_nav_previous {
+  #portfolio-wrapper nav ol li#project-nav-previous {
     float: left;
     text-align: left; }
-  #portfolio-wrapper nav ol li#project_nav_next {
+  #portfolio-wrapper nav ol li#project-nav-next {
     float: right;
     text-align: right; }
-  #portfolio-wrapper nav ol li#project_nav_up {
+  #portfolio-wrapper nav ol li#project-nav-up {
     position: absolute;
     left: 400px; }
   #portfolio-wrapper nav a {

@@ -11,6 +11,7 @@ var Project = new Class({
 
   options: {
     name: '',
+    services: '',
     description: '',
     thumbnailImageURL: '',
     url: ''
@@ -37,13 +38,6 @@ var Portfolio = new Class({
     this.setOptions(options);
     this.container = $(container);
     this.loadAllProjects(this.options.loadAllProjectsURL);
-
-    ///////////////////
-    $('tmp').addEvent('click', function(e) {
-      e.stop();
-      this.showThumbnails();
-    }.bind(this));
-    ///////////////////
   },
 
   loadAllProjects: function(url) {
@@ -73,7 +67,6 @@ var Portfolio = new Class({
         this.initThumbnails();
       }.bind(this)
     }).send();
-      
   },
 
   initThumbnails: function() {
@@ -106,7 +99,7 @@ var Portfolio = new Class({
           url: p.project.options.url
         }).send();
         this.hideThumbnails();
-      }.bind(this));
+        (function() { this.showProjectNav(); }).delay(1000, this); }.bind(this));
       thumbnailContainer.adopt(link);
 
       // make sure images are complete pre-loaded before displaying them
@@ -140,6 +133,51 @@ var Portfolio = new Class({
         });
       }).delay(index*30);
      });
+   },
+
+   showProjectNav: function() {
+     if ($('project-nav') == null) {
+       this.initProjectNav();
+     }
+     // (function() {
+       // $('project-nav').move({
+         // relativeTo: this.container,
+         // offset: {x: 0, y: 30},
+         // transition: Fx.Transitions.Back.easeInOut,
+         // duration: 250
+       // });
+     // });
+   },
+
+   hideProjectNav: function() {
+     $$('#project-nav').set('morph', {duration: 500, transition: Fx.Transitions.Back.easeInOut});
+     $$('#project-nav').morph({
+       'margin-top': -30
+     });
+   },
+
+   initProjectNav: function() {
+     if ($('project-nav') != null) return;
+     var nav = new Element('nav', {id: 'project-nav'});
+     var nav_list = new Element('ol'/*, {styles: {top:-30}}*/);
+
+     var nav_previous =  new Element('li', {id: 'project-nav-previous'}).adopt(
+                           new Element('a', {href: '#', html: 'Previous'}));
+     var nav_up       =  new Element('li', {id: 'project-nav-up'}).adopt(
+                           new Element('a', {href: '#', html: 'All Projects'}));
+     var nav_next     =  new Element('li', {id: 'project-nav-next'}).adopt(
+                           new Element('a', {href: '#', html: 'Next'}));
+
+     nav_list.adopt(nav_previous, nav_up, nav_next);
+     nav.adopt(nav_list);
+     nav.inject(this.container, 'top');
+
+     $$('#project-nav-up a').addEvent('click', function(e) {
+       e.stop();
+       this.hideProjectNav();
+       (function() { this.showThumbnails(); }).delay(1000, this);
+     }.bind(this));
+
    },
 
    computePosition: function(count) {
@@ -259,9 +297,9 @@ function observeNav() {
 }
 
 function initPortfolio() {
-  // var portfolio = new Portfolio($('portfolio-wrapper'), {
-    // loadAllProjectsURL: '/work/'
-  // });
+  var portfolio = new Portfolio($('portfolio-wrapper'), {
+    loadAllProjectsURL: '/work/'
+  });
 }
 
 function initTypography() {
