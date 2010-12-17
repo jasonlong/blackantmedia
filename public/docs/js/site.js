@@ -91,15 +91,12 @@ var Portfolio = new Class({
             src: '/projects/'+p.project.options.thumbnailImageURL,
             styles: {top: 128} /* hide images to start with */
           })
-        );
+      );
 
       link.addEvent('click', function(e) {
         e.stop();
-        var request = new Request.JSON({
-          url: p.project.options.url
-        }).send();
-        this.hideThumbnails();
-        (function() { this.showProjectNav(); }).delay(1000, this); }.bind(this));
+        this.showProject(p.project);
+      }.bind(this));
       thumbnailContainer.adopt(link);
 
       // make sure images are complete pre-loaded before displaying them
@@ -108,22 +105,59 @@ var Portfolio = new Class({
       });
 
     }.bind(this));
-   },
+  },
 
-   showThumbnails: function() {
-     $$('ol#portfolio li img').each(function(img, index) {
-      (function() {
-        img.move({
-          relativeTo: img.getParent('li'),
-          offset: {x: 0, y: -128},
-          transition: Fx.Transitions.Bounce.easeOut      
-        });
-      }).delay(index*40);
-     });
-   },
+  showProject: function(project) {
+    if (!$$('#portfolio-wrapper figure').length) {
+      this.initProjectDetailContainer();
+    }
+    this.hideThumbnails();
+    this.loadProjectDetails(project);
+  },
 
-   hideThumbnails: function() {
-     $$('ol#portfolio li img').each(function(img, index) {
+  initProjectDetailContainer: function() {
+    var figure = new Element('figure');
+    var figcaption = new Element('figcaption');
+    var h3 = new Element('h3');
+    var h4 = new Element('h4');
+    var p = new Element('p');
+    figcaption.adopt(h3, h4, p);
+    figure.adopt(figcaption);
+    figure.inject(this.container, 'top');
+  },
+
+  loadProjectDetails: function(project) {
+    if (project.description) return; /* no request if we already have it */
+    var request = new Request.JSON({
+      url: project.options.url,
+      onFailure: function(xhr) {
+        alert("Well this is embarassing, that project couldn't be loaded right now. Please try again in a little bit.");
+      },
+      onSuccess: function(data) {
+        project.options.services = data.services;
+        project.options.description = data.description;
+        $$('#portfolio-wrapper figure h3').set('html', project.options.name);
+        $$('#portfolio-wrapper figure h4').set('html', project.options.services);
+        $$('#portfolio-wrapper figure p').set('html', project.options.description);
+        (function() { this.showProjectNav(); }).delay(1000, this); 
+      }.bind(this)
+    }).send();
+  },
+
+  showThumbnails: function() {
+    $$('ol#portfolio li img').each(function(img, index) {
+    (function() {
+      img.move({
+        relativeTo: img.getParent('li'),
+        offset: {x: 0, y: -128},
+        transition: Fx.Transitions.Bounce.easeOut      
+      });
+    }).delay(index*40);
+    });
+  },
+
+  hideThumbnails: function() {
+    $$('ol#portfolio li img').each(function(img, index) {
       (function() {
         img.move({
           relativeTo: img.getParent('li'),
@@ -132,78 +166,78 @@ var Portfolio = new Class({
           duration: 250
         });
       }).delay(index*30);
-     });
-   },
+    });
+  },
 
-   showProjectNav: function() {
-     if ($('project-nav') == null) {
-       this.initProjectNav();
-     }
-     $('project-nav').move({
-       relativeTo: this.container,
-       position: 'upperLeft',
-       offset: {x: 0, y: 0},
-       transition: Fx.Transitions.Back.easeInOut,
-       duration: 250
-     });
-   },
+  showProjectNav: function() {
+    if ($('project-nav') == null) {
+      this.initProjectNav();
+    }
+    $('project-nav').move({
+      relativeTo: this.container,
+      position: 'upperLeft',
+      offset: {x: 0, y: 0},
+      transition: Fx.Transitions.Back.easeInOut,
+      duration: 250
+    });
+  },
 
-   hideProjectNav: function() {
-     $('project-nav').move({
-       relativeTo: this.container,
-       position: 'upperLeft',
-       offset: {x: 0, y: -30},
-       transition: Fx.Transitions.Back.easeInOut,
-       duration: 250
-     });
-   },
+  hideProjectNav: function() {
+    $('project-nav').move({
+      relativeTo: this.container,
+      position: 'upperLeft',
+      offset: {x: 0, y: -30},
+      transition: Fx.Transitions.Back.easeInOut,
+      duration: 250
+    });
+  },
 
-   initProjectNav: function() {
-     if ($('project-nav') != null) return;
+  initProjectNav: function() {
+    if ($('project-nav') != null) return;
 
-     var nav_wrapper = new Element('div', {
-                                    id: 'project-nav-wrapper',
-                                    styles: {
-                                      height: 30,
-                                      width: '100%',
-                                      overflow: 'hidden',
-                                      position: 'absolute'
-                                    }
-     });
-     var nav = new Element('nav', {id: 'project-nav', styles: {position: 'absolute', top: -30, width: '100%'}});
-     var nav_list = new Element('ol');
+    var nav_wrapper = new Element('div', {
+                                  id: 'project-nav-wrapper',
+                                  styles: {
+                                    height: 30,
+                                    width: '100%',
+                                    overflow: 'hidden',
+                                    position: 'absolute'
+                                  }
+    });
+    var nav = new Element('nav', {id: 'project-nav', styles: {position: 'absolute', top: -30, width: '100%'}});
+    var nav_list = new Element('ol');
 
-     var nav_previous =  new Element('li', {id: 'project-nav-previous'}).adopt(
-                         new Element('a', {href: '#', html: 'Previous'}));
-     var nav_up       =  new Element('li', {id: 'project-nav-up'}).adopt(
-                         new Element('a', {href: '#', html: 'All Projects'}));
-     var nav_next     =  new Element('li', {id: 'project-nav-next'}).adopt(
-                         new Element('a', {href: '#', html: 'Next'}));
+    var nav_previous =  new Element('li', {id: 'project-nav-previous'}).adopt(
+                        new Element('a', {href: '#', html: 'Previous'}));
+    var nav_up       =  new Element('li', {id: 'project-nav-up'}).adopt(
+                        new Element('a', {href: '#', html: 'All Projects'}));
+    var nav_next     =  new Element('li', {id: 'project-nav-next'}).adopt(
+                        new Element('a', {href: '#', html: 'Next'}));
 
-     nav_list.adopt(nav_previous, nav_up, nav_next);
-     nav.adopt(nav_list);
-     nav_wrapper.adopt(nav);
-     nav_wrapper.inject(this.container, 'top');
+    nav_list.adopt(nav_previous, nav_up, nav_next);
+    nav.adopt(nav_list);
+    nav_wrapper.adopt(nav);
+    nav_wrapper.inject(this.container, 'top');
 
-     $$('#project-nav-up a').addEvent('click', function(e) {
-       e.stop();
-       this.hideProjectNav();
-       (function() { this.showThumbnails(); }).delay(1000, this);
-     }.bind(this));
+    $$('#project-nav-up a').addEvent('click', function(e) {
+      e.stop();
+      this.hideProjectNav();
+      (function() { this.showThumbnails(); }).delay(1000, this);
+    }.bind(this));
 
-   },
+  },
 
-   computePosition: function(count) {
-     var row = Math.ceil(count / this.options.thumbnailColumns);
-     var column = count % this.options.thumbnailColumns;
-     if (column == 0) column = 3;
-     var x = (column - 1) * (this.options.thumbnailWidth+this.options.thumbnailMargin);
-     var y = (row - 1) *  (this.options.thumbnailHeight+this.options.thumbnailMargin);
-     var position = new Hash();
-     position.set('x', x);
-     position.set('y', y);
-     return position;
-   }
+  computePosition: function(count) {
+    var row = Math.ceil(count / this.options.thumbnailColumns);
+    var column = count % this.options.thumbnailColumns;
+    if (column == 0) column = 3;
+    var x = (column - 1) * (this.options.thumbnailWidth+this.options.thumbnailMargin);
+    var y = (row - 1) *  (this.options.thumbnailHeight+this.options.thumbnailMargin);
+    var position = new Hash();
+    position.set('x', x);
+    position.set('y', y);
+    return position;
+  }
 });
 
 var FlippingContactForm = new Class({
@@ -242,7 +276,7 @@ var FlippingContactForm = new Class({
           }
         }.bind(this),
         onFailure: function() {
-          alert('failed');
+          this.showErrorMessage()
         }.bind(this)
     });
     $$('#send-another').addEvent('click', function(e) {

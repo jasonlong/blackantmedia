@@ -1,5 +1,11 @@
 {
   "title": "@title",
-  "content": "@content",
-  "images": "$images"
+  "services": "@services",
+  "description": "@description",
+  "images": [
+    foreach $images do
+      "url": "@url",
+      "name": "@name"
+    endforeach
+    ],
 }
