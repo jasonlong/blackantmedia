@@ -139,38 +139,51 @@ var Portfolio = new Class({
      if ($('project-nav') == null) {
        this.initProjectNav();
      }
-     // (function() {
-       // $('project-nav').move({
-         // relativeTo: this.container,
-         // offset: {x: 0, y: 30},
-         // transition: Fx.Transitions.Back.easeInOut,
-         // duration: 250
-       // });
-     // });
+     $('project-nav').move({
+       relativeTo: this.container,
+       position: 'upperLeft',
+       offset: {x: 0, y: 0},
+       transition: Fx.Transitions.Back.easeInOut,
+       duration: 250
+     });
    },
 
    hideProjectNav: function() {
-     $$('#project-nav').set('morph', {duration: 500, transition: Fx.Transitions.Back.easeInOut});
-     $$('#project-nav').morph({
-       'margin-top': -30
+     $('project-nav').move({
+       relativeTo: this.container,
+       position: 'upperLeft',
+       offset: {x: 0, y: -30},
+       transition: Fx.Transitions.Back.easeInOut,
+       duration: 250
      });
    },
 
    initProjectNav: function() {
      if ($('project-nav') != null) return;
-     var nav = new Element('nav', {id: 'project-nav'});
-     var nav_list = new Element('ol'/*, {styles: {top:-30}}*/);
+
+     var nav_wrapper = new Element('div', {
+                                    id: 'project-nav-wrapper',
+                                    styles: {
+                                      height: 30,
+                                      width: '100%',
+                                      overflow: 'hidden',
+                                      position: 'absolute'
+                                    }
+     });
+     var nav = new Element('nav', {id: 'project-nav', styles: {position: 'absolute', top: -30, width: '100%'}});
+     var nav_list = new Element('ol');
 
      var nav_previous =  new Element('li', {id: 'project-nav-previous'}).adopt(
-                           new Element('a', {href: '#', html: 'Previous'}));
+                         new Element('a', {href: '#', html: 'Previous'}));
      var nav_up       =  new Element('li', {id: 'project-nav-up'}).adopt(
-                           new Element('a', {href: '#', html: 'All Projects'}));
+                         new Element('a', {href: '#', html: 'All Projects'}));
      var nav_next     =  new Element('li', {id: 'project-nav-next'}).adopt(
-                           new Element('a', {href: '#', html: 'Next'}));
+                         new Element('a', {href: '#', html: 'Next'}));
 
      nav_list.adopt(nav_previous, nav_up, nav_next);
      nav.adopt(nav_list);
-     nav.inject(this.container, 'top');
+     nav_wrapper.adopt(nav);
+     nav_wrapper.inject(this.container, 'top');
 
      $$('#project-nav-up a').addEvent('click', function(e) {
        e.stop();
