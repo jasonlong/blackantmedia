@@ -1,5 +1,5 @@
 title: Verizon VERIS
 -
-services: Design / HTML / CSS / Javascript
+services: UI Design / HTML / CSS / Javascript
 -
 description: Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna.

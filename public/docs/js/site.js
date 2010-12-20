@@ -118,8 +118,8 @@ var Portfolio = new Class({
   initProjectDetailContainer: function() {
     var figure = new Element('figure');
     var figcaption = new Element('figcaption', {styles: {position: 'absolute', left: window.getSize().x}});
-    var h3 = new Element('h3');
-    var h4 = new Element('h4');
+    var h3 = new Element('h3', {styles: {display: 'block'}});
+    var h4 = new Element('h4', {styles: {display: 'block'}});
     var p = new Element('p');
     figcaption.adopt(h3, h4, p);
     figure.adopt(figcaption);
@@ -158,6 +158,8 @@ var Portfolio = new Class({
         duration: 250
       });
     }).delay(500, this);
+    this.container.getChildren('figure h3').setStyle('display', 'inline-block');
+    this.container.getChildren('figure h4').setStyle('display', 'inline-block');
     (function() { this.showProjectNav(); }).delay(1000, this); 
   },
 
