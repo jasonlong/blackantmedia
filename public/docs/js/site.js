@@ -95,7 +95,7 @@ var Portfolio = new Class({
 
       link.addEvent('click', function(e) {
         e.stop();
-        this.showProject(p.project);
+        this.switchToProject(p.project);
       }.bind(this));
       thumbnailContainer.adopt(link);
 
@@ -107,7 +107,7 @@ var Portfolio = new Class({
     }.bind(this));
   },
 
-  showProject: function(project) {
+  switchToProject: function(project) {
     if (!$$('#portfolio-wrapper figure').length) {
       this.initProjectDetailContainer();
     }
@@ -117,7 +117,7 @@ var Portfolio = new Class({
 
   initProjectDetailContainer: function() {
     var figure = new Element('figure');
-    var figcaption = new Element('figcaption');
+    var figcaption = new Element('figcaption', {styles: {position: 'absolute', left: window.getSize().x}});
     var h3 = new Element('h3');
     var h4 = new Element('h4');
     var p = new Element('p');
@@ -127,21 +127,49 @@ var Portfolio = new Class({
   },
 
   loadProjectDetails: function(project) {
-    if (project.description) return; /* no request if we already have it */
-    var request = new Request.JSON({
-      url: project.options.url,
-      onFailure: function(xhr) {
-        alert("Well this is embarassing, that project couldn't be loaded right now. Please try again in a little bit.");
-      },
-      onSuccess: function(data) {
-        project.options.services = data.services;
-        project.options.description = data.description;
-        $$('#portfolio-wrapper figure h3').set('html', project.options.name);
-        $$('#portfolio-wrapper figure h4').set('html', project.options.services);
-        $$('#portfolio-wrapper figure p').set('html', project.options.description);
-        (function() { this.showProjectNav(); }).delay(1000, this); 
-      }.bind(this)
-    }).send();
+    if (project.options.description) {
+      this.showProjectDetails(project);
+    }
+    else {
+      var request = new Request.JSON({
+        url: project.options.url,
+        onFailure: function(xhr) {
+          alert("Well this is embarassing, that project couldn't be loaded right now. Please try again in a little bit.");
+        },
+        onSuccess: function(data) {
+          project.options.services = data.services;
+          project.options.description = data.description;
+          this.showProjectDetails(project);
+        }.bind(this)
+      }).send();
+    }
+  },
+
+  showProjectDetails: function(project) {
+    this.container.getChildren('figure h3').set('html', project.options.name);
+    this.container.getChildren('figure h4').set('html', project.options.services);
+    this.container.getChildren('figure p').set('html', project.options.description);
+    (function() {
+      this.container.getChildren('figure figcaption').move({
+        relativeTo: this.container,
+        position: 'upperLeft',
+        offset: {x: 595, y: 45},
+        transition: Fx.Transitions.Back.easeInOut,
+        duration: 250
+      });
+    }).delay(500, this);
+    (function() { this.showProjectNav(); }).delay(1000, this); 
+  },
+
+  hideProjectDetails: function() {
+    this.container.getChildren('figure figcaption').move({
+      relativeTo: this.container,
+      position: 'upperLeft',
+      offset: {x: window.getSize().x, y: 45},
+      transition: Fx.Transitions.Back.easeInOut,
+      duration: 250
+    });
+    (function() { this.hideProjectNav(); }).delay(500, this); 
   },
 
   showThumbnails: function() {
@@ -221,7 +249,7 @@ var Portfolio = new Class({
 
     $$('#project-nav-up a').addEvent('click', function(e) {
       e.stop();
-      this.hideProjectNav();
+      this.hideProjectDetails();
       (function() { this.showThumbnails(); }).delay(1000, this);
     }.bind(this));
 
@@ -375,35 +403,3 @@ function positionBG() {
   var scroll = window.getScroll();  
   $$('img#bg').setStyle('top', '-' + 0.3*scroll.y + 'px')    
 }
-
-
-/*
-$$('#slide-out-trigger').addEvent('click', function(e) {
-  e.stop();
-  $('slider1').move({
-    position: 'upperLeft',
-    edge: 'upperRight'
-  })
-  $('slider2').move({
-    position: 'upperRight',
-    edge: 'upperLeft',
-    // offset: {x: 100, y: 0}       
-  })
-});
-
-$$('#slide-in-trigger').addEvent('click', function(e) {
-  e.stop();
-  $('slider1').move({
-    relativeTo: $('content'),
-    position: 'upperLeft',
-    edge: 'upperLeft',
-    transition: Fx.Transitions.Back.easeOut      
-  })
-  $('slider2').move({
-    relativeTo: $('content'),      
-    position: 'upperRight',
-    edge: 'upperRight',
-    transition: Fx.Transitions.Back.easeOut
-  })
-});
-*/
