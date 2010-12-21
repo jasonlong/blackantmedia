@@ -14,7 +14,11 @@ var Project = new Class({
     services: '',
     description: '',
     thumbnailImageURL: '',
-    url: ''
+    url: '',
+    next_project_name: '',
+    next_project_url: '',
+    previous_project_name: '',
+    previous_project_url: ''
   },
 
   initialize: function(options) { 
@@ -24,6 +28,7 @@ var Project = new Class({
 
 var Portfolio = new Class({
   Implements: [Options, Events],
+  Binds: ['switchToProject', 'findProjectByURL'],
 
   options: {
     loadAllProjectsURL: '/work/',
@@ -107,6 +112,13 @@ var Portfolio = new Class({
     }.bind(this));
   },
 
+  findProjectByURL: function(url) {
+    this.projects.each(function(p) {
+      if (p.options.url == url) return p;
+    });
+    return null;
+  },
+
   switchToProject: function(project) {
     if (!$$('#portfolio-wrapper figure').length) {
       this.initProjectDetailContainer();
@@ -139,6 +151,10 @@ var Portfolio = new Class({
         onSuccess: function(data) {
           project.options.services = data.services;
           project.options.description = data.description;
+          project.options.next_project_name = data.next_project.title;
+          project.options.next_project_url = data.next_project.url;
+          project.options.previous_project_name = data.previous_project.title;
+          project.options.previous_project_url = data.previous_project.url;
           this.showProjectDetails(project);
         }.bind(this)
       }).send();
@@ -160,7 +176,7 @@ var Portfolio = new Class({
     }).delay(500, this);
     this.container.getChildren('figure h3').setStyle('display', 'inline-block');
     this.container.getChildren('figure h4').setStyle('display', 'inline-block');
-    (function() { this.showProjectNav(); }).delay(1000, this); 
+    (function() { this.showProjectNav(project); }).delay(1000, this); 
   },
 
   hideProjectDetails: function() {
@@ -199,10 +215,12 @@ var Portfolio = new Class({
     });
   },
 
-  showProjectNav: function() {
+  showProjectNav: function(project) {
     if ($('project-nav') == null) {
       this.initProjectNav();
     }
+    $('project-nav-previous').getChildren('a').set({html: 'Previous <span>'+project.options.previous_project_name+'</span>', href: project.options.previous_project_url});
+    $('project-nav-next').getChildren('a').set({html: 'Next <span>'+project.options.next_project_name+'</span>', href: project.options.next_project_url});
     $('project-nav').move({
       relativeTo: this.container,
       position: 'upperLeft',
