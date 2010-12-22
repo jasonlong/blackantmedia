@@ -14,11 +14,7 @@ var Project = new Class({
     services: '',
     description: '',
     thumbnailImageURL: '',
-    url: '',
-    next_project_name: '',
-    next_project_url: '',
-    previous_project_name: '',
-    previous_project_url: ''
+    url: ''
   },
 
   initialize: function(options) { 
@@ -28,7 +24,6 @@ var Project = new Class({
 
 var Portfolio = new Class({
   Implements: [Options, Events],
-  Binds: ['switchToProject', 'findProjectByURL'],
 
   options: {
     loadAllProjectsURL: '/work/',
@@ -38,6 +33,7 @@ var Portfolio = new Class({
     thumbnailMargin: 20
   },
   projects: [], 
+  current_project_index: 0,
 
   initialize: function(container, options) { 
     this.setOptions(options);
@@ -81,7 +77,7 @@ var Portfolio = new Class({
       id: 'portfolio'
     }).inject(this.container, 'top');
 
-    this.projects.each(function(p) {
+    this.projects.each(function(p, index) {
       var thumbnailContainer = new Element('li', {
         styles: {top: p.position.y, left: p.position.x},
       }).inject($('portfolio'), 'bottom');
@@ -90,7 +86,8 @@ var Portfolio = new Class({
 
       var link = 
         new Element('a', {
-          href: '#'
+          href: '#',
+          'data-project-index': index 
         }).adopt(
           new Element('img', {
             src: '/projects/'+p.project.options.thumbnailImageURL,
@@ -98,9 +95,9 @@ var Portfolio = new Class({
           })
       );
 
-      link.addEvent('click', function(e) {
+      var project_link = link.addEvent('click', function(e) {
         e.stop();
-        this.switchToProject(p.project);
+        this.switchToProject(project_link.get('data-project-index'));
       }.bind(this));
       thumbnailContainer.adopt(link);
 
@@ -119,12 +116,13 @@ var Portfolio = new Class({
     return null;
   },
 
-  switchToProject: function(project) {
+  switchToProject: function(project_index) {
+    this.current_project_index = project_index;
     if (!$$('#portfolio-wrapper figure').length) {
       this.initProjectDetailContainer();
     }
     this.hideThumbnails();
-    this.loadProjectDetails(project);
+    this.loadProjectDetails(this.projects[project_index].project);
   },
 
   initProjectDetailContainer: function() {
@@ -151,10 +149,6 @@ var Portfolio = new Class({
         onSuccess: function(data) {
           project.options.services = data.services;
           project.options.description = data.description;
-          project.options.next_project_name = data.next_project.title;
-          project.options.next_project_url = data.next_project.url;
-          project.options.previous_project_name = data.previous_project.title;
-          project.options.previous_project_url = data.previous_project.url;
           this.showProjectDetails(project);
         }.bind(this)
       }).send();
@@ -215,12 +209,44 @@ var Portfolio = new Class({
     });
   },
 
-  showProjectNav: function(project) {
-    if ($('project-nav') == null) {
+  getPreviousProjectIndex: function() {
+    if (parseInt(this.current_project_index) === 0) {
+      return this.projects.length - 1;
+    }
+    else {
+      return parseInt(this.current_project_index)-1;
+    }
+  },
+
+  getPreviousProject: function() {
+    return this.projects[this.getPreviousProjectIndex()].project;
+  },
+
+  getNextProjectIndex: function() {
+    if (parseInt(this.current_project_index) == this.projects.length - 1) {
+      return 0;
+    }
+    else {
+      return parseInt(this.current_project_index)+1;
+    }
+  },
+  
+  getNextProject: function() {
+    return this.projects[this.getNextProjectIndex()].project;
+  },
+
+  showProjectNav: function() {
+    if ($('project-nav') === null) {
       this.initProjectNav();
     }
-    $('project-nav-previous').getChildren('a').set({html: 'Previous <span>'+project.options.previous_project_name+'</span>', href: project.options.previous_project_url});
-    $('project-nav-next').getChildren('a').set({html: 'Next <span>'+project.options.next_project_name+'</span>', href: project.options.next_project_url});
+    $('project-nav-previous').getChildren('a').set({
+      html: 'Previous <span>'+this.getPreviousProject().options.name+'</span>',
+      'data-project-index': this.getPreviousProjectIndex()
+    });
+    $('project-nav-next').getChildren('a').set({
+      html: 'Next <span>'+this.getNextProject().options.name+'</span>',
+      'data-project-index': this.getNextProjectIndex()
+    });
     $('project-nav').move({
       relativeTo: this.container,
       position: 'upperLeft',
@@ -266,6 +292,16 @@ var Portfolio = new Class({
     nav.adopt(nav_list);
     nav_wrapper.adopt(nav);
     nav_wrapper.inject(this.container, 'top');
+
+    var previous_link = $$('#project-nav-previous a').addEvent('click', function(e) {
+      e.stop();
+      this.switchToProject(previous_link.get('data-project-index'));
+    }.bind(this));
+
+    var next_link = $$('#project-nav-next a').addEvent('click', function(e) {
+      e.stop();
+      this.switchToProject(next_link.get('data-project-index'));
+    }.bind(this));
 
     $$('#project-nav-up a').addEvent('click', function(e) {
       e.stop();

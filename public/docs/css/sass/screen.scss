@@ -47,6 +47,10 @@ a {
   color: $green;
   text-decoration: none;
 }
+a:active,
+:-moz-any-link:focus {
+  outline: none;
+}
 img#bg {
   position: fixed;
   top: 0;

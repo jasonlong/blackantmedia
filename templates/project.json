@@ -2,18 +2,6 @@
   "title": "@title",
   "services": "@services",
   "description": "@description",
-  foreach $previous_sibling do
-  "previous_project": {
-    "url": "@url",
-    "title": "@title"
-  },
-  endforeach
-  foreach $next_sibling do
-  "next_project": {
-    "url": "@url",
-    "title": "@title"
-  },
-  endforeach
   "images": [
     foreach $images do
       "url": "@url",
