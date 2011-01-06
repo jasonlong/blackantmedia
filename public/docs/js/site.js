@@ -123,8 +123,7 @@ var Portfolio = new Class({
     }
     this.hideThumbnails();
     this.hideProjectDetails();
-    this.loadProjectDetails(this.projects[project_index].project);
-    this.showProjectDetails();
+    (function() { this.loadProjectDetails(this.projects[project_index].project); }).delay(250, this);
   },
 
   initProjectDetailContainer: function() {
