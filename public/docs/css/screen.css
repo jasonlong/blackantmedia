@@ -146,10 +146,22 @@ section#colophon h2 {
     display: inline; }
   #portfolio-wrapper nav ol li#project-nav-previous {
     float: left;
-    text-align: left; }
+    text-align: left;
+    height: 26px;
+    overflow: hidden; }
+    #portfolio-wrapper nav ol li#project-nav-previous ol li {
+      float: none;
+      display: block;
+      text-align: left; }
   #portfolio-wrapper nav ol li#project-nav-next {
     float: right;
-    text-align: right; }
+    text-align: right;
+    height: 26px;
+    overflow: hidden; }
+    #portfolio-wrapper nav ol li#project-nav-next ol li {
+      float: none;
+      display: block;
+      text-align: right; }
   #portfolio-wrapper nav ol li#project-nav-up {
     position: absolute;
     left: 400px; }

@@ -243,9 +243,21 @@ var Portfolio = new Class({
       html: 'Previous <span>'+this.getPreviousProject().options.name+'</span>',
       'data-project-index': this.getPreviousProjectIndex()
     });
-    $('project-nav-next').getChildren('a').set({
-      html: 'Next <span>'+this.getNextProject().options.name+'</span>',
-      'data-project-index': this.getNextProjectIndex()
+    $('previous-project-list').move({
+      relativeTo: $('project-nav-previous'),
+      position: 'upperLeft',
+      edge: 'upperLeft',
+      offset: {x: 0, y: -26 * this.getPreviousProjectIndex()},
+      transition: Fx.Transitions.Back.easeInOut,
+      duration: 250
+    });
+    $('next-project-list').move({
+      relativeTo: $('project-nav-next'),
+      position: 'upperRight',
+      edge: 'upperRight',
+      offset: {x: 0, y: -26 * this.getNextProjectIndex()},
+      transition: Fx.Transitions.Back.easeInOut,
+      duration: 250
     });
     $('project-nav').move({
       relativeTo: this.container,
@@ -254,9 +266,13 @@ var Portfolio = new Class({
       transition: Fx.Transitions.Back.easeInOut,
       duration: 250
     });
+    $('previous-project-list').fade('in');
+    $('next-project-list').fade('in');
   },
 
   hideProjectNav: function() {
+    $('previous-project-list').fade('out');
+    $('next-project-list').fade('out');
     $('project-nav').move({
       relativeTo: this.container,
       position: 'upperLeft',
@@ -264,6 +280,20 @@ var Portfolio = new Class({
       transition: Fx.Transitions.Back.easeInOut,
       duration: 250
     });
+    // $('previous-project-list').move({
+      // relativeTo: this.container,
+      // position: 'upperLeft',
+      // offset: {x: 0, y: -1000},
+      // transition: Fx.Transitions.Back.easeInOut,
+      // duration: 0
+    // });
+    // $$('#next-project-list').move({
+      // relativeTo: this.container,
+      // position: 'upperRight',
+      // offset: {x: 0, y: -1000},
+      // transition: Fx.Transitions.Back.easeInOut,
+      // duration: 0
+    // });
   },
 
   initProjectNav: function() {
@@ -281,27 +311,42 @@ var Portfolio = new Class({
     var nav = new Element('nav', {id: 'project-nav', styles: {position: 'absolute', top: -30, width: '100%'}});
     var nav_list = new Element('ol');
 
-    var nav_previous =  new Element('li', {id: 'project-nav-previous'}).adopt(
-                        new Element('a', {href: '#', html: 'Previous'}));
+    var nav_previous =  new Element('li', {id: 'project-nav-previous'});
     var nav_up       =  new Element('li', {id: 'project-nav-up'}).adopt(
                         new Element('a', {href: '#', html: 'All Projects'}));
-    var nav_next     =  new Element('li', {id: 'project-nav-next'}).adopt(
-                        new Element('a', {href: '#', html: 'Next'}));
+    var nav_next     =  new Element('li', {id: 'project-nav-next'});
+
+    var nav_next_projects = new Element('ol', {id: 'next-project-list', styles: {opacity: 0}});
+    var nav_previous_projects = new Element('ol', {id: 'previous-project-list', styles: {opacity: 0}});
+    this.projects.each(function(p, index) {
+      var previous_link = new Element('a', {
+        href: '#', 
+        html: 'Previous <span>'+p.project.options.name+'</span>',
+        'data-project-index': index 
+      });
+      var next_link = new Element('a', {
+        href: '#', 
+        html: 'Next <span>'+p.project.options.name+'</span>',
+        'data-project-index': index 
+      });
+      previous_link.addEvent('click', function(e) {
+        e.stop();
+        this.switchToProject(previous_link.get('data-project-index'));
+      }.bind(this));
+      next_link.addEvent('click', function(e) {
+        e.stop();
+        this.switchToProject(next_link.get('data-project-index'));
+      }.bind(this));
+      nav_previous_projects.adopt(new Element('li').adopt(previous_link));
+      nav_next_projects.adopt(new Element('li').adopt(next_link));
+    }.bind(this));
+    nav_previous.adopt(nav_previous_projects);
+    nav_next.adopt(nav_next_projects);
 
     nav_list.adopt(nav_previous, nav_up, nav_next);
     nav.adopt(nav_list);
     nav_wrapper.adopt(nav);
     nav_wrapper.inject(this.container, 'top');
-
-    var previous_link = $$('#project-nav-previous a').addEvent('click', function(e) {
-      e.stop();
-      this.switchToProject(previous_link.get('data-project-index'));
-    }.bind(this));
-
-    var next_link = $$('#project-nav-next a').addEvent('click', function(e) {
-      e.stop();
-      this.switchToProject(next_link.get('data-project-index'));
-    }.bind(this));
 
     $$('#project-nav-up a').addEvent('click', function(e) {
       e.stop();
@@ -309,7 +354,6 @@ var Portfolio = new Class({
       (function() { this.hideProjectNav(); }).delay(500, this); 
       (function() { this.showThumbnails(); }).delay(1000, this);
     }.bind(this));
-
   },
 
   computePosition: function(count) {
@@ -460,3 +504,6 @@ function positionBG() {
   var scroll = window.getScroll();  
   $$('img#bg').setStyle('top', '-' + 0.3*scroll.y + 'px')    
 }
+
+
+

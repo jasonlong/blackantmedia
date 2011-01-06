@@ -205,10 +205,26 @@ section#colophon h2 {
   nav ol li#project-nav-previous {
     float: left;
     text-align: left;
+    height: 26px;
+    overflow: hidden;
+    
+    ol li {
+      float: none;
+      display: block;
+      text-align: left;
+    }
   }
   nav ol li#project-nav-next {
     float: right;
     text-align: right;
+    height: 26px;
+    overflow: hidden;
+    
+    ol li {
+      float: none;
+      display: block;
+      text-align: right;
+    }
   }
   nav ol li#project-nav-up {
     position: absolute;
