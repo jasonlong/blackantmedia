@@ -122,7 +122,9 @@ var Portfolio = new Class({
       this.initProjectDetailContainer();
     }
     this.hideThumbnails();
+    this.hideProjectDetails();
     this.loadProjectDetails(this.projects[project_index].project);
+    this.showProjectDetails();
   },
 
   initProjectDetailContainer: function() {
@@ -181,7 +183,6 @@ var Portfolio = new Class({
       transition: Fx.Transitions.Back.easeInOut,
       duration: 250
     });
-    (function() { this.hideProjectNav(); }).delay(500, this); 
   },
 
   showThumbnails: function() {
@@ -306,6 +307,7 @@ var Portfolio = new Class({
     $$('#project-nav-up a').addEvent('click', function(e) {
       e.stop();
       this.hideProjectDetails();
+      (function() { this.hideProjectNav(); }).delay(500, this); 
       (function() { this.showThumbnails(); }).delay(1000, this);
     }.bind(this));
 
