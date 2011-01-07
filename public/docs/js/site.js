@@ -276,20 +276,20 @@ var Portfolio = new Class({
       transition: Fx.Transitions.Back.easeInOut,
       duration: 250
     });
-    // $('previous-project-list').move({
-      // relativeTo: this.container,
-      // position: 'upperLeft',
-      // offset: {x: 0, y: -1000},
-      // transition: Fx.Transitions.Back.easeInOut,
-      // duration: 0
-    // });
-    // $$('#next-project-list').move({
-      // relativeTo: this.container,
-      // position: 'upperRight',
-      // offset: {x: 0, y: -1000},
-      // transition: Fx.Transitions.Back.easeInOut,
-      // duration: 0
-    // });
+    $('previous-project-list').move({
+      relativeTo: this.container,
+      position: 'upperLeft',
+      offset: {x: 0, y: 100},
+      transition: Fx.Transitions.Back.easeInOut,
+      duration: 0
+    });
+    $$('#next-project-list').move({
+      relativeTo: this.container,
+      position: 'upperRight',
+      offset: {x: 0, y: 100},
+      transition: Fx.Transitions.Back.easeInOut,
+      duration: 0
+    });
   },
 
   initProjectNav: function() {
