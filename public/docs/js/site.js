@@ -249,7 +249,7 @@ var Portfolio = new Class({
       edge: 'upperLeft',
       offset: {x: 0, y: -26 * this.getPreviousProjectIndex()},
       transition: Fx.Transitions.Back.easeInOut,
-      duration: 250
+      duration: 200
     });
     $('next-project-list').move({
       relativeTo: $('project-nav-next'),
@@ -257,7 +257,7 @@ var Portfolio = new Class({
       edge: 'upperRight',
       offset: {x: 0, y: -26 * this.getNextProjectIndex()},
       transition: Fx.Transitions.Back.easeInOut,
-      duration: 250
+      duration: 200
     });
     $('project-nav').move({
       relativeTo: this.container,
@@ -266,13 +266,9 @@ var Portfolio = new Class({
       transition: Fx.Transitions.Back.easeInOut,
       duration: 250
     });
-    $('previous-project-list').fade('in');
-    $('next-project-list').fade('in');
   },
 
   hideProjectNav: function() {
-    $('previous-project-list').fade('out');
-    $('next-project-list').fade('out');
     $('project-nav').move({
       relativeTo: this.container,
       position: 'upperLeft',
@@ -316,8 +312,8 @@ var Portfolio = new Class({
                         new Element('a', {href: '#', html: 'All Projects'}));
     var nav_next     =  new Element('li', {id: 'project-nav-next'});
 
-    var nav_next_projects = new Element('ol', {id: 'next-project-list', styles: {opacity: 0}});
-    var nav_previous_projects = new Element('ol', {id: 'previous-project-list', styles: {opacity: 0}});
+    var nav_next_projects = new Element('ol', {id: 'next-project-list'});
+    var nav_previous_projects = new Element('ol', {id: 'previous-project-list'});
     this.projects.each(function(p, index) {
       var previous_link = new Element('a', {
         href: '#', 
