@@ -173,6 +173,8 @@ section#colophon h2 {
   #portfolio-wrapper figure {
     position: relative;
     top: 45px; }
+    #portfolio-wrapper figure ul {
+      list-style: none; }
     #portfolio-wrapper figure figcaption {
       width: 305px;
       position: absolute;

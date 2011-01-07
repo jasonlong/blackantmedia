@@ -128,12 +128,13 @@ var Portfolio = new Class({
 
   initProjectDetailContainer: function() {
     var figure = new Element('figure');
+    var slideshow = new Element('ul', {styles: {position: 'absolute', left: -window.getSize().x}});
     var figcaption = new Element('figcaption', {styles: {position: 'absolute', left: window.getSize().x}});
     var h3 = new Element('h3', {styles: {display: 'block'}});
     var h4 = new Element('h4', {styles: {display: 'block'}});
     var p = new Element('p');
     figcaption.adopt(h3, h4, p);
-    figure.adopt(figcaption);
+    figure.adopt(slideshow, figcaption);
     figure.inject(this.container, 'top');
   },
 
@@ -157,16 +158,33 @@ var Portfolio = new Class({
   },
 
   showProjectDetails: function(project) {
+    this.container.getChildren('figure ul li').dispose();
+    this.container.getChildren('figure ul').adopt(
+      new Element('li').adopt(
+        new Element('img', {src: '/images/tmp/screenshot.gif'})
+      )
+    );
+
+
     this.container.getChildren('figure h3').set('html', project.options.name);
     this.container.getChildren('figure h4').set('html', project.options.services);
     this.container.getChildren('figure p').set('html', project.options.description);
+    (function() {
+      this.container.getChildren('figure ul').move({
+        relativeTo: this.container,
+        position: 'upperLeft',
+        offset: {x: 0, y: 45},
+        transition: Fx.Transitions.Back.easeInOut,
+        duration: 400 
+      });
+    }).delay(500, this);
     (function() {
       this.container.getChildren('figure figcaption').move({
         relativeTo: this.container,
         position: 'upperLeft',
         offset: {x: 595, y: 45},
         transition: Fx.Transitions.Back.easeInOut,
-        duration: 250
+        duration: 400 
       });
     }).delay(500, this);
     this.container.getChildren('figure h3').setStyle('display', 'inline-block');
@@ -175,12 +193,19 @@ var Portfolio = new Class({
   },
 
   hideProjectDetails: function() {
+    this.container.getChildren('figure ul').move({
+      relativeTo: this.container,
+      position: 'upperLeft',
+      offset: {x: -window.getSize().x, y: 45},
+      transition: Fx.Transitions.Back.easeInOut,
+      duration:400 
+    });
     this.container.getChildren('figure figcaption').move({
       relativeTo: this.container,
       position: 'upperLeft',
       offset: {x: window.getSize().x, y: 45},
       transition: Fx.Transitions.Back.easeInOut,
-      duration: 250
+      duration:400 
     });
   },
 

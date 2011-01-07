@@ -216,7 +216,7 @@ section#colophon h2 {
   }
   nav ol li#project-nav-next {
     float: right;
-    text-align: right;
+  text-align: right;
     height: 26px;
     overflow: hidden;
     
@@ -242,6 +242,10 @@ section#colophon h2 {
   figure {
     position: relative;
     top: 45px;
+
+    ul {
+      list-style: none;
+    }
 
     figcaption {
       width: 305px;
