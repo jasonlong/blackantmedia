@@ -1,6 +1,6 @@
 // MooTools: the javascript framework.
-// Load this file's selection again by visiting: http://mootools.net/more/9a008d5b5566cc9b157884bc50d440a4 
-// Or build this file again with packager using: packager build More/Form.Request More/Form.Request.Append More/Form.Validator.Inline More/Fx.Move More/Fx.Reveal More/Fx.Scroll More/Fx.Slide More/Assets
+// Load this file's selection again by visiting: http://mootools.net/more/0ff47cdf3b18b4a2baeb0936f462b050 
+// Or build this file again with packager using: packager build More/Form.Request More/Form.Request.Append More/Form.Validator.Inline More/Fx.Elements More/Fx.Move More/Fx.Reveal More/Fx.Scroll More/Fx.Slide More/Assets
 /*
 ---
 copyrights:
@@ -286,7 +286,10 @@ if(!f){return;}b.push({message:f.getError(d),warnOnly:e,passed:f.test(),validato
 var d=document.id(this).getParent();while(d!=document.body&&d.getScrollSize().y==d.getSize().y){d=d.getParent();}var e=d.retrieve("$moo:fvScroller");if(!e&&window.Fx&&Fx.Scroll){e=new Fx.Scroll(d,this.options.scrollFxOptions);
 d.store("$moo:fvScroller",e);}if(c){if(e){e.toElement(c);}else{d.scrollTo(d.getScroll().x,c.getPosition(d).y-20);}}}return a;},watchFields:function(a){a.each(function(b){if(this.options.evaluateFieldsOnBlur){b.addEvent("blur",this.validationMonitor.pass([b,false,this.options.scrollToErrorsOnBlur],this));
 }if(this.options.evaluateFieldsOnChange){b.addEvent("change",this.validationMonitor.pass([b,true,this.options.scrollToErrorsOnChange],this));}},this);}});
-Fx.Move=new Class({Extends:Fx.Morph,options:{relativeTo:document.body,position:"center",edge:false,offset:{x:0,y:0}},start:function(a){var b=this.element,c=b.getStyles("top","left");
+Fx.Elements=new Class({Extends:Fx.CSS,initialize:function(b,a){this.elements=this.subject=$$(b);this.parent(a);},compute:function(g,h,j){var c={};for(var d in g){var a=g[d],e=h[d],f=c[d]={};
+for(var b in a){f[b]=this.parent(a[b],e[b],j);}}return c;},set:function(b){for(var c in b){if(!this.elements[c]){continue;}var a=b[c];for(var d in a){this.render(this.elements[c],d,a[d],this.options.unit);
+}}return this;},start:function(c){if(!this.check(c)){return this;}var h={},j={};for(var d in c){if(!this.elements[d]){continue;}var f=c[d],a=h[d]={},g=j[d]={};
+for(var b in f){var e=this.prepare(this.elements[d],b,f[b]);a[b]=e.from;g[b]=e.to;}}return this.parent(h,j);}});Fx.Move=new Class({Extends:Fx.Morph,options:{relativeTo:document.body,position:"center",edge:false,offset:{x:0,y:0}},start:function(a){var b=this.element,c=b.getStyles("top","left");
 if(c.top=="auto"||c.left=="auto"){b.setPosition(b.getPosition(b.getOffsetParent()));}return this.parent(b.position(Object.merge(this.options,a,{returnPos:true})));
 }});Element.Properties.move={set:function(a){this.get("move").cancel().setOptions(a);return this;},get:function(){var a=this.retrieve("move");if(!a){a=new Fx.Move(this,{link:"cancel"});
 this.store("move",a);}return a;}};Element.implement({move:function(a){this.get("move").start(a);return this;}});(function(){Fx.Scroll=new Class({Extends:Fx,options:{offset:{x:0,y:0},wheelStops:true},initialize:function(c,b){this.element=this.subject=document.id(c);

@@ -128,12 +128,13 @@ var Portfolio = new Class({
 
   initProjectDetailContainer: function() {
     var figure = new Element('figure');
-    var slideshow = new Element('ul', {styles: {position: 'absolute', left: -window.getSize().x}});
+    var slideshow = new Element('ul', {id: 'slideshow', styles: {position: 'absolute', left: -window.getSize().x}});
     var figcaption = new Element('figcaption', {styles: {position: 'absolute', left: window.getSize().x}});
     var h3 = new Element('h3', {styles: {display: 'block'}});
+    var br = new Element('br');
     var h4 = new Element('h4', {styles: {display: 'block'}});
     var p = new Element('p');
-    figcaption.adopt(h3, h4, p);
+    figcaption.adopt(h3, br, h4, p);
     figure.adopt(slideshow, figcaption);
     figure.inject(this.container, 'top');
   },
@@ -162,9 +163,14 @@ var Portfolio = new Class({
     this.container.getChildren('figure ul').adopt(
       new Element('li').adopt(
         new Element('img', {src: '/images/tmp/screenshot.gif'})
+      ),
+      new Element('li').adopt(
+        new Element('img', {src: '/images/tmp/screenshot2.gif'})
+      ),
+      new Element('li').adopt(
+        new Element('img', {src: '/images/tmp/screenshot3.gif'})
       )
     );
-
 
     this.container.getChildren('figure h3').set('html', project.options.name);
     this.container.getChildren('figure h4').set('html', project.options.services);
@@ -189,6 +195,14 @@ var Portfolio = new Class({
     }).delay(500, this);
     this.container.getChildren('figure h3').setStyle('display', 'inline-block');
     this.container.getChildren('figure h4').setStyle('display', 'inline-block');
+
+var slideshow = new SlideShow('slideshow', {
+  transition: 'pushUp',
+  delay: 3000,
+  duration: 200,
+  autoplay: true
+});
+    
     (function() { this.showProjectNav(project); }).delay(1000, this); 
   },
 
