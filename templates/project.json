@@ -4,8 +4,7 @@
   "description": "@description",
   "images": [
     foreach $images do
-      "url": "@url",
-      "name": "@name"
+      {"url": "@url", "name": "@name"},
     endforeach
     ],
 }

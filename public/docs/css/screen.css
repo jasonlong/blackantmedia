@@ -188,7 +188,7 @@ section#colophon h2 {
       -moz-transition: opacity .25s ease-in, background .25s ease-in;
       transition: opacity .25s ease-in, background .25s ease-in; }
     #portfolio-wrapper figure a.ss-nav:hover {
-      opacity: 1; }
+      opacity: 1 !important; }
     #portfolio-wrapper figure a#ss-previous {
       left: -21px;
       background: transparent url(/images/ss_nav_previous.png) 0 0 no-repeat; }

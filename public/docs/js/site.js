@@ -14,7 +14,8 @@ var Project = new Class({
     services: '',
     description: '',
     thumbnailImageURL: '',
-    url: ''
+    url: '',
+    images: []
   },
 
   initialize: function(options) { 
@@ -154,6 +155,7 @@ var Portfolio = new Class({
         onSuccess: function(data) {
           project.options.services = data.services;
           project.options.description = data.description;
+          project.options.screenshots = data.images;
           this.showProjectDetails(project);
         }.bind(this)
       }).send();
@@ -162,17 +164,13 @@ var Portfolio = new Class({
 
   showProjectDetails: function(project) {
     this.container.getChildren('figure ul li').dispose();
-    this.container.getChildren('figure ul').adopt(
-      new Element('li').adopt(
-        new Element('img', {src: '/images/tmp/screenshot.gif'})
-      ),
-      new Element('li').adopt(
-        new Element('img', {src: '/images/tmp/screenshot2.gif'})
-      ),
-      new Element('li').adopt(
-        new Element('img', {src: '/images/tmp/screenshot3.gif'})
-      )
-    );
+    project.options.screenshots.each(function(ss, index) {
+      this.container.getChildren('figure ul').adopt(
+        new Element('li').adopt(
+          new Element('img', {src: ss.url})
+        )
+      );
+    }.bind(this));
 
     this.container.getChildren('figure h3').set('html', project.options.name);
     this.container.getChildren('figure h4').set('html', project.options.services);
