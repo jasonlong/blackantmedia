@@ -251,6 +251,20 @@ section#colophon h2 {
     position: relative;
     top: 45px;
 
+    a#ss-previous {
+      z-index: 100;
+      position: absolute;
+      top: 200px;
+      left: -10px;
+    }
+
+    a#ss-next {
+      z-index: 100;
+      position: absolute;
+      top: 200px;
+      left: 570px;
+    }
+    
     ul {
       list-style: none;
       width: 570px;

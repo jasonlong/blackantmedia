@@ -177,6 +177,16 @@ section#colophon h2 {
   #portfolio-wrapper figure {
     position: relative;
     top: 45px; }
+    #portfolio-wrapper figure a#ss-previous {
+      z-index: 100;
+      position: absolute;
+      top: 200px;
+      left: -10px; }
+    #portfolio-wrapper figure a#ss-next {
+      z-index: 100;
+      position: absolute;
+      top: 200px;
+      left: 570px; }
     #portfolio-wrapper figure ul {
       list-style: none;
       width: 570px;

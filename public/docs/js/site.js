@@ -129,13 +129,15 @@ var Portfolio = new Class({
   initProjectDetailContainer: function() {
     var figure = new Element('figure');
     var slideshow = new Element('ul', {id: 'slideshow', styles: {position: 'absolute', left: -window.getSize().x}});
+    var ss_previous = new Element('a', {href: '#', id: 'ss-previous', html: '<<'});
+    var ss_next = new Element('a', {href: '#', id: 'ss-next', html: '>>'});
     var figcaption = new Element('figcaption', {styles: {position: 'absolute', left: window.getSize().x}});
     var h3 = new Element('h3', {styles: {display: 'block'}});
     var br = new Element('br');
     var h4 = new Element('h4', {styles: {display: 'block'}});
     var p = new Element('p');
     figcaption.adopt(h3, br, h4, p);
-    figure.adopt(slideshow, figcaption);
+    figure.adopt(slideshow, ss_previous, ss_next, figcaption);
     figure.inject(this.container, 'top');
   },
 
@@ -195,15 +197,26 @@ var Portfolio = new Class({
     }).delay(500, this);
     this.container.getChildren('figure h3').setStyle('display', 'inline-block');
     this.container.getChildren('figure h4').setStyle('display', 'inline-block');
-
-var slideshow = new SlideShow('slideshow', {
-  transition: 'pushUp',
-  delay: 3000,
-  duration: 200,
-  autoplay: true
-});
-    
     (function() { this.showProjectNav(project); }).delay(1000, this); 
+
+    slideshow = new Carousel({
+      container: 'slideshow',
+      scroll: 1,
+      circular: true,
+      fx: {
+        transition: Fx.Transitions.Back.easeIn,
+        duration: 300 
+      }
+    });
+     
+    $('ss-previous').addEvent('click', function(e) {
+      e.stop();
+      slideshow.previous();
+    });
+    $('ss-next').addEvent('click', function(e) {
+      e.stop();
+      slideshow.next();
+    });
   },
 
   hideProjectDetails: function() {
