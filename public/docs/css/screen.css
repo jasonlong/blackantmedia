@@ -177,16 +177,24 @@ section#colophon h2 {
   #portfolio-wrapper figure {
     position: relative;
     top: 45px; }
+    #portfolio-wrapper figure a.ss-nav {
+      position: absolute;
+      top: 170px;
+      z-index: 100;
+      width: 40px;
+      height: 40px;
+      opacity: 0.9;
+      -webkit-transition: opacity .25s ease-in, background .25s ease-in;
+      -moz-transition: opacity .25s ease-in, background .25s ease-in;
+      transition: opacity .25s ease-in, background .25s ease-in; }
+    #portfolio-wrapper figure a.ss-nav:hover {
+      opacity: 1; }
     #portfolio-wrapper figure a#ss-previous {
-      z-index: 100;
-      position: absolute;
-      top: 200px;
-      left: -10px; }
+      left: -21px;
+      background: transparent url(/images/ss_nav_previous.png) 0 0 no-repeat; }
     #portfolio-wrapper figure a#ss-next {
-      z-index: 100;
-      position: absolute;
-      top: 200px;
-      left: 570px; }
+      left: 548px;
+      background: transparent url(/images/ss_nav_next.png) 0 0 no-repeat; }
     #portfolio-wrapper figure ul {
       list-style: none;
       width: 570px;

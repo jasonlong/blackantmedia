@@ -129,8 +129,8 @@ var Portfolio = new Class({
   initProjectDetailContainer: function() {
     var figure = new Element('figure');
     var slideshow = new Element('ul', {id: 'slideshow', styles: {position: 'absolute', left: -window.getSize().x}});
-    var ss_previous = new Element('a', {href: '#', id: 'ss-previous', html: '<<'});
-    var ss_next = new Element('a', {href: '#', id: 'ss-next', html: '>>'});
+    var ss_previous = new Element('a', {href: '#', id: 'ss-previous', 'class': 'ss-nav', styles: {opacity:0}});
+    var ss_next = new Element('a', {href: '#', id: 'ss-next', 'class': 'ss-nav', styles: {opacity:0}});
     var figcaption = new Element('figcaption', {styles: {position: 'absolute', left: window.getSize().x}});
     var h3 = new Element('h3', {styles: {display: 'block'}});
     var br = new Element('br');
@@ -198,6 +198,10 @@ var Portfolio = new Class({
     this.container.getChildren('figure h3').setStyle('display', 'inline-block');
     this.container.getChildren('figure h4').setStyle('display', 'inline-block');
     (function() { this.showProjectNav(project); }).delay(1000, this); 
+    (function() {
+      $('ss-previous').fade(0.9);
+      $('ss-next').fade(0.9);
+    }).delay(1100, this);
 
     slideshow = new Carousel({
       container: 'slideshow',
@@ -220,6 +224,8 @@ var Portfolio = new Class({
   },
 
   hideProjectDetails: function() {
+    $('ss-previous').fade('hide');
+    $('ss-next').fade('hide');
     this.container.getChildren('figure ul').move({
       relativeTo: this.container,
       position: 'upperLeft',
