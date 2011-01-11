@@ -268,12 +268,12 @@ section#colophon h2 {
     }
 
     a#ss-previous {
-      left: -21px;
+      left: -20px;
       background: transparent url(/images/ss_nav_previous.png) 0 0 no-repeat;
     }
 
     a#ss-next {
-      left: 548px;
+      left: 550px;
       background: transparent url(/images/ss_nav_next.png) 0 0 no-repeat;
     }
     
@@ -294,6 +294,7 @@ section#colophon h2 {
       position: absolute;
       right: 0;
       top: 0;
+      z-index: 100;
 
       h3 {
         text-transform: uppercase;
