@@ -2,4 +2,4 @@ title: Verizon VERIS
 -
 services: UI Design / HTML / CSS / Javascript
 -
-description: Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna.
+description: VERIS is a Verizon Business initiative that allows security experts to anonymously report incidents. This information can then be compared with the community dataset so that better risk management decisions can be made. The multi-step wizard-style interface is implemented entirely in client-side Javascript, including many dynamic elements. I designed and implemented the user interface and jQuery code for VERIS while <a href='http://thinkrelevance.com'>Relevance</a> handled the heavy-lifting on the backend.
