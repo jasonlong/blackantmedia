@@ -80,6 +80,13 @@ h3 {
   margin-bottom: 0.4em;
   text-shadow: none;
 }
+
+h5 {
+  text-transform: uppercase;
+  font-weight: normal;
+  margin-bottom: 0.4em;
+}
+
 p {
   margin-bottom: 1em;
 }
@@ -340,6 +347,36 @@ ol#portfolio li a:hover img {
   opacity: 1;
   background: rgba(255, 255, 255, 0.3);
 }
+
+// play
+// ----------------------------------------------------------------------	
+section#play {
+}
+
+ul#experiments {
+  list-style: none;
+  width: 620px;
+}
+
+ul#experiments li {
+  display: block;
+  float: left;
+  width: 280px;
+  margin-right: 25px;
+  margin-bottom: 2em;
+}
+
+ul#experiments li img {
+  float: left;
+  margin-right: 0.8em;
+}
+
+ul#experiments li p {
+  font-size: 0.8em;
+  line-height: 1.4em;
+  opacity: 0.8;
+}
+
 
 // mugshot
 // ----------------------------------------------------------------------	
