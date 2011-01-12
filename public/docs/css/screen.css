@@ -170,7 +170,8 @@ section#colophon h2 {
     position: absolute;
     left: 400px; }
   #portfolio-wrapper nav a {
-    color: #fff; }
+    color: #fff;
+    padding: 0.4em 0; }
     #portfolio-wrapper nav a span {
       padding-left: 0.4em;
       color: #2dbc24; }
