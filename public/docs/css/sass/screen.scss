@@ -87,6 +87,13 @@ h5 {
   margin-bottom: 0.4em;
 }
 
+h6 {
+  text-transform: uppercase;
+  font-size: 0.9em;
+  font-weight: normal;
+  margin-bottom: 0.8em;
+}
+
 p {
   margin-bottom: 1em;
 }
@@ -351,11 +358,13 @@ ol#portfolio li a:hover img {
 // play
 // ----------------------------------------------------------------------	
 section#play {
+  position: relative;
 }
 
 ul#experiments {
   list-style: none;
   width: 620px;
+  margin-top: 2em;
 }
 
 ul#experiments li {
@@ -377,6 +386,41 @@ ul#experiments li p {
   opacity: 0.8;
 }
 
+#social {
+  position: absolute;
+  right: 0;
+  margin-top: 2em;
+  width: 270px;
+  padding: 16px 0 16px 16px;
+  background: #181517;
+  background: rgba(255, 255, 255, 0.06);
+  @include rounded(4px);    
+}
+
+#social h6 {
+  opacity: 0.85;
+}
+
+#social ul {
+  list-style: none;
+}
+
+#social ul li {
+  display: inline-block;
+  margin-right: 0.4em;
+  padding-bottom: 0.4em;
+}
+
+#social ul li a {
+  opacity: 0.5;
+  -webkit-transition: opacity .25s ease-in, background .25s ease-in;
+  -moz-transition: opacity .25s ease-in, background .25s ease-in;
+  transition: opacity .25s ease-in, background .25s ease-in;
+}
+
+#social ul li a:hover {
+  opacity: 1;
+}
 
 // mugshot
 // ----------------------------------------------------------------------	
