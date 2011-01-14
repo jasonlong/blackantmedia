@@ -444,10 +444,10 @@ var SocialBillboard = new Class({
       var index = li.getAllPrevious()[0].length + 1;
 
       this.container.move({
-        relativeTo: $('current-social'),
+        relativeTo: $('social'),
         position: 'upperLeft',
         edge: 'upperLeft',
-        offset: {x: 0, y: -22 * index},
+        offset: {x: 16, y: 16 + (-22 * index)},
         transition: Fx.Transitions.Back.easeInOut,
         duration: 200
       });
