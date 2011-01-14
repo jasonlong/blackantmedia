@@ -46,7 +46,8 @@ h3 {
 h5 {
   text-transform: uppercase;
   font-weight: normal;
-  margin-bottom: 0.3em; }
+  margin-bottom: 0.3em;
+  line-height: 1.2em; }
 
 h6 {
   text-transform: uppercase;
@@ -273,14 +274,17 @@ ul#experiments li {
   width: 280px;
   margin-right: 25px; }
 
+ul#experiments li a {
+  color: #fff; }
+
 ul#experiments li img {
   float: left;
   margin-right: 0.8em;
-  margin-bottom: 2em; }
-
-ul#experiments li img {
+  margin-bottom: 2em;
   background: rgba(255, 255, 255, 0.2);
-  padding: 3px; }
+  padding: 3px;
+  position: relative;
+  z-index: 100; }
 
 ul#experiments li a:hover img {
   background: rgba(255, 255, 255, 0.3); }
