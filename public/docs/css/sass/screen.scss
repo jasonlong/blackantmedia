@@ -84,7 +84,7 @@ h3 {
 h5 {
   text-transform: uppercase;
   font-weight: normal;
-  margin-bottom: 0.4em;
+  margin-bottom: 0.3em;
 }
 
 h6 {
@@ -372,12 +372,20 @@ ul#experiments li {
   float: left;
   width: 280px;
   margin-right: 25px;
-  margin-bottom: 2em;
 }
 
 ul#experiments li img {
   float: left;
   margin-right: 0.8em;
+  margin-bottom: 2em;
+}
+
+ul#experiments li img {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 3px;
+}
+ul#experiments li a:hover img {
+  background: rgba(255, 255, 255, 0.3);
 }
 
 ul#experiments li p {
@@ -391,7 +399,7 @@ ul#experiments li p {
   right: 0;
   margin-top: 1em;
   width: 270px;
-  padding: 16px 0 16px 16px;
+  padding: 16px 0 8px 16px;
   background: #181517;
   background: rgba(40, 40, 40, 0.4);
   @include rounded(4px);    
@@ -428,8 +436,7 @@ ul#experiments li p {
 #social ul#social-icons {
   z-index: 100;
   position: relative;
-  margin-bottom: 20px;
-  top: 1.9em;
+  margin-top: 2.4em;
 }
 
 #social ul#social-icons li {
