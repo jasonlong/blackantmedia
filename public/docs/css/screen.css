@@ -295,24 +295,43 @@ ul#experiments li p {
   -moz-border-radius: 4px;
   border-radius: 4px; }
 
-#social h6 {
-  opacity: 0.85; }
-
 #social ul {
   list-style: none; }
 
-#social ul li {
+#current-social {
+  display: block;
+  height: 22px;
+  overflow: hidden;
+  margin-bottom: 0.8em; }
+
+#social-names {
+  z-index: 1;
+  position: absolute;
+  text-transform: uppercase;
+  font-size: 0.9em; }
+
+#social-names li {
+  color: #2dbc24; }
+
+#social-names li.heading {
+  color: #fff; }
+
+#social ul#social-icons {
+  z-index: 100;
+  position: relative; }
+
+#social ul#social-icons li {
   display: inline-block;
   margin-right: 0.4em;
   padding-bottom: 0.4em; }
 
-#social ul li a {
+#social ul#social-icons li a {
   opacity: 0.5;
   -webkit-transition: opacity .25s ease-in, background .25s ease-in;
   -moz-transition: opacity .25s ease-in, background .25s ease-in;
   transition: opacity .25s ease-in, background .25s ease-in; }
 
-#social ul li a:hover {
+#social ul#social-icons li a:hover {
   opacity: 1; }
 
 section#about img {

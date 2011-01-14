@@ -4,6 +4,7 @@ window.addEvent('domready', function() {
   observeNav();
   
   var form = new FlippingContactForm($('contact-wrapper'), {});
+  var sb   = new SocialBillboard($('social-names'), {});
 });
 
 var Project = new Class({
@@ -419,6 +420,51 @@ var Portfolio = new Class({
     position.set('y', y);
     return position;
   }
+});
+
+var SocialBillboard = new Class({
+  Implements: [Options, Events],
+
+  options: {
+  },
+  icons: '',
+
+  initialize: function(container, options) { 
+    this.setOptions(options);
+    this.container = $(container);
+    this.initIcons();
+  },
+
+  initIcons: function() {
+    this.icons = $$('#social-icons li a');
+
+    this.icons.addEvent('mouseover', function(e) {
+      e.stop();
+      var li = e.target.getParents('li');
+      var index = li.getAllPrevious()[0].length + 1;
+
+      this.container.move({
+        relativeTo: $('current-social'),
+        position: 'upperLeft',
+        edge: 'upperLeft',
+        offset: {x: 0, y: -22 * index},
+        transition: Fx.Transitions.Back.easeInOut,
+        duration: 200
+      });
+    }.bind(this));
+    this.icons.addEvent('mouseout', function(e) {
+      e.stop();
+      this.container.move({
+        relativeTo: $('current-social'),
+        position: 'upperLeft',
+        edge: 'upperLeft',
+        offset: {x: 0, y: 0},
+        transition: Fx.Transitions.Back.easeInOut,
+        duration: 200
+      });
+    }.bind(this));
+  }
+
 });
 
 var FlippingContactForm = new Class({
