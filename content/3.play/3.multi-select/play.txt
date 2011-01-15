@@ -1,0 +1,5 @@
+title: Multi-select Dropdown Lists
+-
+link: http://sntf.blackantmedia.com/multiselect/
+-
+description: A sample of the custom dropdowns used in the Verizon project.

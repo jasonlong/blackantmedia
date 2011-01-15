@@ -80,7 +80,7 @@
           <h2>Play</h2>
           
           <p>
-          These are a few of the experiments and concepts that I’ve posted to <a href="http://thestrake.com">my blog</a>, <a href="http://dribbble.com/jasonlong">Dribbble</a>, and <a href="http://lovedsgn.com/profile/jasonlong">LoveDsgn</a>. I have a site called <a href="http://houseofbuttons.tumblr.com">House of Buttons</a> that you might like if you share my fetish for beautiful user interface buttons. Oh, and if wanted to <a href="http://twitter.com/jasonlong">follow me on Twitter</a>, I won’t stop you.
+          These are a few of the experiments and concepts that I’ve posted to <a href="http://thestrake.com">my blog</a>, <a href="http://dribbble.com/jasonlong">Dribbble</a>, and <a href="http://lovedsgn.com/profile/jasonlong">LoveDsgn</a>. I have a site called <a href="http://houseofbuttons.tumblr.com">House of Buttons</a> that you might like if you share my fetish for beautiful user interface buttons. Oh, and you can <a href="http://twitter.com/jasonlong">follow me on Twitter</a> if you're into that sort of thing.
           </p>
 
           <div id="social">
@@ -112,37 +112,19 @@
           </div>
 
           <ul id="experiments">
-            <li>
-              <a href="http://sntf.blackantmedia.com/multiselect/">
-                <img src="/images/tmp/multiselect.png" alt="Multi-select" />
-                <h5>Multi-select Dropdown Lists</h5>
-              </a>
-              <p>A sample of the custom dropdowns used in the Verizon project.</p>
-            </li>
-            <li>
-              <a href="http://dribbble.com/shots/66019-Rdio-Search-Concept">
-                <img src="/images/tmp/rdio.png" alt="Rdio" />
-                <h5>Rdio Search Concept</h5>
-              </a>
-              <p>A Dribbble rebound of Adam Polselli's design.</p>
-            </li>
-            <li>
-              <a href="http://lovedsgn.com/post/1698">
-                <img src="/images/tmp/zen.png" alt="Zen" />
-                <h5>Zen Signup</h5>
-              </a>
-              <p>A simple sigup form concept playing with glass and transparency.</p>
-            </li>
-            <li>
-              <a href="http://concepts.blackantmedia.com/domo/">
-                <img src="/images/tmp/domo.png" alt="Domo" />
-                <h5>Pure CSS Domo</h5>
-              </a>
-              <p>A Domo made entirely out of Unicode characters and CSS.</p>
-            </li>
-          </ul>
-
-          
+            get "/play" do
+              foreach $children do
+                <li>
+                  <a href="@link">
+                    foreach $images do
+                      <img src="@url" alt="@title" />
+                    endforeach
+                    <h5>@title</h5>
+                  </a>
+                  <p>@description</p>
+                </li>
+              endforeach
+            end
         </section>
 
         <section id="about">
