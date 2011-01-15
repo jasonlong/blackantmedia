@@ -1,28 +1,19 @@
-# Stacey 2.2.1
+# Source for blackantmedia.com
 
 ## Overview
-Stacey takes content from `.txt` files, image files and implied directory structure and generates a website.
-It is a no-database, dynamic website generator.
+I've made this repo public so that it might help others learn from how it is put together. And better yet, maybe someone will let me know about things that could be improved (though I have a list of improvements to make already). Please feel free to download the code or fork it for your own spelunking, but please don't copy it wholesale as if you built it.
 
-If you look in the `/content` and `/templates` folders, you should get the general idea of how it all works.
+The site is built on Stacey (<http://staceyapp.com>). This is a great little CMS that doesn't require a backend database. All of the content and assets are stored in directories. It's a perfect system for lightweight portfolio sites.
 
-## Installation
+## Notable Features
 
-Copy to server, `chmod 777 app/_cache`.
+A few of the things you may or may not find nifty:
 
-If you want clean urls, `mv htaccess .htaccess`
+* Pseudo-parallax effect for the background while scrolling.
+* Animated contact form (3D transform for flipping the form in WebKit)
 
-## Templates
+## To-Dos
 
-There are an additional two sets of templates which can be found at:
-<http://github.com/kolber/stacey-template2> &
-<http://github.com/kolber/stacey-template3>
-
-## Read More
-
-See <http://staceyapp.com> for more detailed usage information.
-
-## Copyright/License
-
-Copyright (c) 2009 Anthony Kolber. See `LICENSE` for details.
-Except PHP Markdown Extra which is (c) Michel Fortin (see `/app/parsers/markdown-parser.inc.php` for details).
+* Add HTML5 History API for portfolio navigation (see <http://html5demos.com/history>)
+* Create mobile version.
+* Refactor giant JS functions
