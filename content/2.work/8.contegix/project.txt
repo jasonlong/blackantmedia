@@ -2,4 +2,4 @@ title: Contegix Cloud Panel
 -
 services: UI Design / HTML / CSS / Javascript
 -
-description: Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna.
+description: Contegix is one of the top hosting companies I've ever worked with. I learned about their legendary support during this project and became a paying customer shortly thereafter. They recently unveiled their new cloud service and I designed and built the UI that sits on top of the amazing work <a href='http://thinkrelevance.com'>Relevance</a> did on the back-end. Customers can create new virtual machines, specifying their preferred Linux distribution and specs, and power them on and off as needed.

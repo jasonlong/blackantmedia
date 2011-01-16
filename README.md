@@ -1,5 +1,3 @@
-# Source for blackantmedia.com
-
 ## Overview
 I've made this repo public so that it might help others learn from how it is put together. And better yet, maybe someone will let me know about things that could be improved (though I have a list of improvements to make already). Please feel free to download the code or fork it for your own spelunking, but please don't copy it wholesale as if you built it.
 
