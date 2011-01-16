@@ -3,15 +3,23 @@ I've made this repo public so that it might help others learn from how it is put
 
 The site is built on Stacey (<http://staceyapp.com>). This is a great little CMS that doesn't require a backend database. All of the content and assets are stored in directories. It's a perfect system for lightweight portfolio sites.
 
-## Notable Features
+## Possibly Interesting Features
 
-A few of the things you may or may not find nifty:
+A few of the things you may find nifty:
 
 * Pseudo-parallax effect for the background while scrolling.
-* Animated contact form (3D transform for flipping the form in WebKit)
+* Animated portfolio section - lots 'o animation and AJAX via MooTools. 
+* Animated contact form (3D transform for flipping the form in WebKit).
+* Modernizr for detecting browser capabilities (ie. supplying fallback effect for 3D transforms).
+* Contact form uses inline validation via MooTools.
+* -webkit-transitions for subtle hover state transitions 
+* TypeKit for more playful typography.
+* Sass for generating CSS (I use the sass-watch script).
+* Capistrano used for simple deployment.
 
 ## To-Dos
 
 * Add HTML5 History API for portfolio navigation (see <http://html5demos.com/history>)
 * Create mobile version.
-* Refactor giant JS functions
+* Create larger pool of entries for Play section and pull 4 random ones. 
+* Refactor giant/fugly JS functions

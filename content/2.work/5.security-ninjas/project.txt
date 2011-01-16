@@ -2,4 +2,4 @@ title: Security Ninjas
 -
 services: UI Design / HTML / CSS / Javascript
 -
-description: Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna.
+description: Security Ninjas is an interesting site that allows people responsible for websites to hire an expert to perform security audits. They maintain relationships with many high-caliber security experts and audits can be basic or in-depth depending on budgets and timeframes. I designed and built the initial templates for the site, including dashboard, project activity, and project creation pages.

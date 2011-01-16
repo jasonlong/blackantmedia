@@ -2,4 +2,4 @@ title: LegalPM
 -
 services: UI Design / HTML / CSS / Javascript
 -
-description: Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna.
+description: LegalPM (since renamed Onit) is a project management and collaboration tool for lawyers. Users are able to organize their legal cases, track documents and tasks, and watch budgets. I designed and built the screens for this previous version of the application including a simplified navigation/search bar, overhauled dashboard, and project detail page.

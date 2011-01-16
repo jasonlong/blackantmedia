@@ -2,4 +2,4 @@ title: Run Code Run
 -
 services: UI Design
 -
-description: Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna.
+description: Run Code Run was a hosted continuous integration product <a href='http://thinkrelevance.com'>Relevance</a> built and operated but decided to shut down recently. Before that decision, they asked me to put together some concepts for a possible redesign. These screens show some of these ideas: the build state (pass/fail) of the user's projects, dashboard overview, and project detail page.

@@ -2,4 +2,4 @@ title: Connect for Healthcare
 -
 services: UI Design / HTML / CSS / Javascript / Ruby on Rails
 -
-description: Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna.
+description: Connect for Healthcare is a service that allows long-term care providers to send updates (email and text messages) to loved-ones. Family members choose which \"wellness metrics\" they wish to be informed about and providers have a simple interface for entering updates. I am a partner in the business and have designed and built the entire application, including the HTML, CSS, jQuery, and Rails back-end.

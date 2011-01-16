@@ -2,4 +2,4 @@ title: ReviewShine
 -
 services: UI Design / HTML / CSS / Javascript
 -
-description: Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna.
+description: ReviewShine is a popular site for musicians and music reviewers. Musicians can get away from the hassle of sending CDs to reviewers and hoping one of them will publish a review. With ReviewShine, they simply upload digital copies of their works and large pool of reviewers can see all of the submissions at a glance. I gave the site a fresh coat of pixels and markup to bring the visual design up to snuff with the great application under the hood.

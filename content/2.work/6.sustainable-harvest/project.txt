@@ -2,4 +2,4 @@ title: Sustainable Harvest
 -
 services: UI Design / HTML / CSS / Javascript
 -
-description: Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna.
+description: Sustainable Harvest is a very interesting organization that imports speciality coffee and manages the relationships of the entire supply chain, from farmer to end customer. I worked with <a href=\"thinkrelevance.com\">Relevance</a> again on multiple projects for this client and I was tasked with designing interfaces for the workflow management as well as for cupping sessions. The workflow portion is especially interesting because it is used in the field at washing stations and dry mills in Tanzania and other countries.
