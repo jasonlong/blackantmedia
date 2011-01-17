@@ -7,14 +7,15 @@ The site is built on Stacey (<http://staceyapp.com>). This is a great little CMS
 
 A few of the things you may find nifty:
 
+* Page content fades in once TypeKit fonts load (to avoid "flash of unstyled content").
 * Pseudo-parallax effect for the background while scrolling.
 * Animated portfolio section - lots 'o animation and AJAX via MooTools. 
 * Animated contact form (3D transform for flipping the form in WebKit).
 * Modernizr for detecting browser capabilities (ie. supplying fallback effect for 3D transforms).
 * Contact form uses inline validation via MooTools.
 * -webkit-transitions for subtle hover state transitions 
-* TypeKit for more playful typography.
 * Sass for generating CSS (I use the sass-watch script).
+* hCard microformat for contact info.
 * Capistrano used for simple deployment.
 
 ## To-Dos

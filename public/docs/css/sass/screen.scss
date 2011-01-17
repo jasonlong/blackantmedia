@@ -113,6 +113,9 @@ header {
     opacity: 0.97;
     text-shadow: 0 0 50px rgba(0, 0, 0, 0.2), $default_text_shadow;    
   }
+  .no-fontface h1 {
+    font-size: 42;
+  }
   h1 em {
     font-family: Palatino, Constantia, "Palatino Linotype", "Book Antiqua", serif;
     font-weight: normal;
@@ -125,6 +128,10 @@ header {
     font-weight: 600;
     line-height: 1.4em;
     text-shadow: 0 0 40px rgba(0, 0, 0, 0.3), $default_text_shadow;
+
+    .no-fontface h1 + p {
+      font-size: 17;
+    }
 
     span {
       opacity: 0.7;
@@ -493,7 +500,7 @@ section#contact {
     float: left; 
     position: absolute; 
 
-    front {
+    .front {
       z-index: 20;
     }
     .back {
@@ -501,6 +508,7 @@ section#contact {
       height: 338px;	
       -webkit-transform: rotateX(180deg);
       z-index: 10;
+      font-family: "skippy-sharp-1","skippy-sharp-2", Georgia, helvetica,sans-serif;
     }
   }
 
@@ -544,7 +552,6 @@ section#contact {
   top: 0;
   left: 0;
   @include rounded(3px);        
-  font-family: "skippy-sharp-1","skippy-sharp-2", Georgia, helvetica,sans-serif;
   font-size: 40px;  
   line-height: 1em;
   text-shadow: none;  
@@ -712,4 +719,13 @@ ul.logos li a {
 
 ul.logos li a:hover {
   opacity: 1;
+}
+
+
+// misc
+// ----------------------------------------------------------------------	
+#ie-typekit-fix {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
 }

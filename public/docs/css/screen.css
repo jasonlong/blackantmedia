@@ -70,6 +70,8 @@ header {
     margin-bottom: 0.3em;
     opacity: 0.97;
     text-shadow: 0 0 50px rgba(0, 0, 0, 0.2), 1px 1px rgba(0, 0, 0, 0.2); }
+  header .no-fontface h1 {
+    font-size: 42; }
   header h1 em {
     font-family: Palatino, Constantia, "Palatino Linotype", "Book Antiqua", serif;
     font-weight: normal;
@@ -81,6 +83,8 @@ header {
     font-weight: 600;
     line-height: 1.4em;
     text-shadow: 0 0 40px rgba(0, 0, 0, 0.3), 1px 1px rgba(0, 0, 0, 0.2); }
+    header h1 + p .no-fontface h1 + p {
+      font-size: 17; }
     header h1 + p span {
       opacity: 0.7; }
   header h1 + p em {
@@ -373,13 +377,14 @@ section#contact {
     -webkit-perspective: 1000;
     float: left;
     position: absolute; }
-    #contact-wrapper .inner front {
+    #contact-wrapper .inner .front {
       z-index: 20; }
     #contact-wrapper .inner .back {
       width: 590px;
       height: 338px;
       -webkit-transform: rotateX(180deg);
-      z-index: 10; }
+      z-index: 10;
+      font-family: "skippy-sharp-1","skippy-sharp-2", Georgia, helvetica,sans-serif; }
   #contact-wrapper .card {
     width: 590px;
     height: 338px;
@@ -416,7 +421,6 @@ section#contact {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  font-family: "skippy-sharp-1","skippy-sharp-2", Georgia, helvetica,sans-serif;
   font-size: 40px;
   line-height: 1em;
   text-shadow: none;
@@ -586,3 +590,8 @@ ul.logos li a {
 
 ul.logos li a:hover {
   opacity: 1; }
+
+#ie-typekit-fix {
+  position: absolute;
+  top: -9999px;
+  left: -9999px; }
