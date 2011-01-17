@@ -566,3 +566,21 @@ form {
     display: block; }
   .vcard .email, .vcard .tel {
     margin-bottom: 1.4em; }
+
+ul.logos {
+  margin-top: 2em;
+  list-style: none;
+  background-color: yellow; }
+
+ul.logos li {
+  display: inline;
+  float: left; }
+
+ul.logos li a {
+  opacity: 0.5;
+  -webkit-transition: opacity .25s ease-in, background .25s ease-in;
+  -moz-transition: opacity .25s ease-in, background .25s ease-in;
+  transition: opacity .25s ease-in, background .25s ease-in; }
+
+ul.logos li a:hover {
+  opacity: 1; }
