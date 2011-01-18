@@ -577,7 +577,15 @@ form {
 ul.logos {
   margin-top: 2em;
   list-style: none;
-  background-color: yellow; }
+  border-bottom: solid 1px #1e1e1e;
+  padding-bottom: 1em;
+  *display: inline-block; }
+  ul.logos:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
 
 ul.logos li {
   display: inline;
@@ -590,6 +598,23 @@ ul.logos li a {
   transition: opacity .25s ease-in, background .25s ease-in; }
 
 ul.logos li a:hover {
+  opacity: 1; }
+
+p#legal {
+  color: #443e3c;
+  font-size: 0.8em;
+  margin-top: 1em;
+  position: relative; }
+
+a#html5-badge {
+  position: absolute;
+  right: 0;
+  opacity: 0.8;
+  -webkit-transition: opacity .25s ease-in, background .25s ease-in;
+  -moz-transition: opacity .25s ease-in, background .25s ease-in;
+  transition: opacity .25s ease-in, background .25s ease-in; }
+
+a#html5-badge:hover {
   opacity: 1; }
 
 #ie-typekit-fix {

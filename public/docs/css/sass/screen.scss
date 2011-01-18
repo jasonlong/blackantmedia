@@ -70,7 +70,7 @@ img#bg {
   z-index: 2;
   opacity: 0;
 }
-h1, h2, h3 {
+  h1, h2, h3 {
   font-weight: normal;
 }
 h3 {
@@ -703,7 +703,9 @@ form {
 ul.logos {
   margin-top: 2em;
   list-style: none;
-  background-color: yellow;
+  border-bottom: solid 1px #1e1e1e;
+  padding-bottom: 1em;
+  @include clearfix;
 }
 
 ul.logos li {
@@ -719,6 +721,26 @@ ul.logos li a {
 }
 
 ul.logos li a:hover {
+  opacity: 1;
+}
+
+p#legal {
+  color: #443e3c;
+  font-size: 0.8em;
+  margin-top: 1em;
+  position: relative;
+}
+
+a#html5-badge {
+  position: absolute;
+  right: 0;
+  opacity: 0.8;
+  -webkit-transition: opacity .25s ease-in, background .25s ease-in;
+  -moz-transition: opacity .25s ease-in, background .25s ease-in;
+  transition: opacity .25s ease-in, background .25s ease-in;
+}
+
+a#html5-badge:hover {
   opacity: 1;
 }
 
