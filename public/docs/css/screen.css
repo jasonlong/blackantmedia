@@ -558,7 +558,8 @@ form {
   display: none; }
   #thanks h5, #error h5 {
     font-size: 50px;
-    margin-bottom: 0.5em; }
+    margin-bottom: 0.5em;
+    text-transform: none; }
   #thanks p, #error p {
     font-size: 35px;
     margin-bottom: 1em; }
