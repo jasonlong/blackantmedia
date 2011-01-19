@@ -1,0 +1,5 @@
+title: Spring Metrics
+-
+services: UI Design / HTML / CSS / Javascript
+-
+description: Spring Metrics is a new startup with a new spin on web analytics. Their service provides a friendly and easy to use SpringBox widget that is used to tag buttons, links, and pages for later conversion analysis. I was given a logo and used that as the starting point for the app's visual design. I then built clean HTML5 and CSS templates they could take and run with to bring the rest of the site to life. The SpringBox widget is designed to work well on either light or dark sites. 

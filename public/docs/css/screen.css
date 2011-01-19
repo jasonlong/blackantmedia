@@ -199,13 +199,7 @@ section#colophon h2 {
       top: 170px;
       z-index: 100;
       width: 40px;
-      height: 40px;
-      opacity: 0.9;
-      -webkit-transition: opacity .25s ease-in, background .25s ease-in;
-      -moz-transition: opacity .25s ease-in, background .25s ease-in;
-      transition: opacity .25s ease-in, background .25s ease-in; }
-    #portfolio-wrapper figure a.ss-nav:hover {
-      opacity: 1 !important; }
+      height: 40px; }
     #portfolio-wrapper figure a#ss-previous {
       left: -20px;
       background: transparent url(/images/ss_nav_previous.png) 0 0 no-repeat; }
