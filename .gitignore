@@ -3,4 +3,5 @@ app/cache/
 .DS_Store
 config/settings.php
 .sass-cache/
+mkmf.log
 
