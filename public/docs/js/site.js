@@ -176,6 +176,14 @@ var Portfolio = new Class({
     this.container.getChildren('figure h3').set('html', project.options.name);
     this.container.getChildren('figure h4').set('html', project.options.services);
     this.container.getChildren('figure p').set('html', project.options.description);
+
+    // make sure the first image is loaded before sliding it over 
+    var loader = new Asset.images(project.options.screenshots[0], {
+      onComplete: function() {this.slideProjectDetailsIn(project);}.bind(this)
+    });
+  },
+
+  slideProjectDetailsIn: function(project) {
     (function() {
       this.container.getChildren('figure ul').move({
         relativeTo: this.container,
