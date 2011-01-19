@@ -206,8 +206,8 @@ var Portfolio = new Class({
     this.container.getChildren('figure h4').setStyle('display', 'inline-block');
     (function() { this.showProjectNav(project); }).delay(1000, this); 
     (function() {
-      $('ss-previous').fade(0.9);
-      $('ss-next').fade(0.9);
+      $('ss-previous').fade('show');
+      $('ss-next').fade('show');
     }).delay(1100, this);
 
     slideshow = new Carousel({
@@ -250,6 +250,10 @@ var Portfolio = new Class({
   },
 
   showThumbnails: function() {
+    // make sure slideshow nav buttons are hidden
+    if ($('ss-previous')) $('ss-previous').fade('hide');
+    if ($('ss-next')) $('ss-next').fade('hide');
+
     $$('ol#portfolio li img').each(function(img, index) {
     (function() {
       img.move({
