@@ -13,6 +13,7 @@ A few of the things you may find nifty:
 * Animated contact form (3D transform for flipping the form in WebKit).
 * Modernizr for detecting browser capabilities (ie. supplying fallback effect for 3D transforms).
 * Contact form uses inline validation via MooTools.
+* Contact form spam detection with Akismet
 * -webkit-transitions for subtle hover state transitions 
 * Sass for generating CSS (I use the sass-watch script).
 * hCard microformat for contact info.

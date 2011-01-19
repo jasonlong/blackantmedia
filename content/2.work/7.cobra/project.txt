@@ -2,4 +2,4 @@ title: Project: Cobra
 -
 services: UI Design / HTML / CSS / Javascript / Ruby on Rails
 -
-description: I'm not yet allowed to identify this client, but I'm allowed to show a few screenshots. Cobra is a tool used for collecting research data from participants. The researchers can create fully custom \"homework assignments\" with both traditional-style survey questions and some custom ones as well. I've been responsible for the entire design and development of this application, from the initial UI design concepts to the HTML, CSS (Sass), heavy AJAX/jQuery front-end, and Rails 3 back-end.
+description: I'm not yet allowed to identify this client, but I'm allowed to show a few screenshots. Cobra is a tool used for collecting research data from participants. The researchers can create fully custom \"homework assignments\" with both traditional-style survey questions and some custom ones as well. I've been responsible for the entire design and development of this application, from the initial UI design concepts to the HTML5, CSS (Sass), heavy AJAX/jQuery front-end, and Rails 3 back-end.
