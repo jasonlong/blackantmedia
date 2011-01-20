@@ -71,7 +71,8 @@ header {
     opacity: 0.97;
     text-shadow: 0 0 50px rgba(0, 0, 0, 0.2), 1px 1px rgba(0, 0, 0, 0.2); }
   header .no-fontface h1 {
-    font-size: 42; }
+    font-size: 32px;
+    letter-spacing: -1px; }
   header h1 em {
     font-family: Palatino, Constantia, "Palatino Linotype", "Book Antiqua", serif;
     font-weight: normal;
@@ -149,6 +150,7 @@ section#colophon h2 {
   #portfolio-wrapper nav {
     height: 29px;
     line-height: 26px;
+    border-bottom: solid 1px #515b51;
     border-bottom: solid 1px rgba(0, 0, 0, 0.15);
     font-size: 13px;
     text-transform: uppercase;
@@ -229,6 +231,7 @@ section#colophon h2 {
         margin-bottom: 0; }
       #portfolio-wrapper figure figcaption h4 {
         display: inline-block;
+        background-color: #1d2319;
         background-color: rgba(0, 0, 0, 0.6);
         color: #fff;
         padding: 0.2em 0.6em;

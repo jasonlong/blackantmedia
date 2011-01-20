@@ -154,7 +154,7 @@ var Carousel = this.Carousel = new Class({
 	Carousel.prototype.plugins.Move = new Class({
 	
 		initialize: function (carousel) {
-		
+
 			var up = this.up = carousel.options.mode == 'vertical',
 				options = this.options = carousel.options,
 				elements = this.elements = carousel.elements,

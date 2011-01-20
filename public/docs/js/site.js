@@ -164,18 +164,18 @@ var Portfolio = new Class({
   },
 
   showProjectDetails: function(project) {
-    this.container.getChildren('figure ul li').dispose();
+    this.container.getElements('li.screenshot').dispose();
     project.options.screenshots.each(function(ss, index) {
-      this.container.getChildren('figure ul').adopt(
-        new Element('li').adopt(
+      this.container.getElements('ul#slideshow').adopt(
+        new Element('li.screenshot').adopt(
           new Element('img', {src: ss.url})
         )
       );
     }.bind(this));
 
-    this.container.getChildren('figure h3').set('html', project.options.name);
-    this.container.getChildren('figure h4').set('html', project.options.services);
-    this.container.getChildren('figure p').set('html', project.options.description);
+    this.container.getElement('h3').set('html', project.options.name);
+    this.container.getElement('h4').set('html', project.options.services);
+    this.container.getElement('p').set('html', project.options.description);
 
     // make sure the first image is loaded before sliding it over 
     var loader = new Asset.images(project.options.screenshots[0], {
@@ -185,7 +185,7 @@ var Portfolio = new Class({
 
   slideProjectDetailsIn: function(project) {
     (function() {
-      this.container.getChildren('figure ul').move({
+      this.container.getElements('ul#slideshow').move({
         relativeTo: this.container,
         position: 'upperLeft',
         offset: {x: 0, y: 45},
@@ -194,7 +194,7 @@ var Portfolio = new Class({
       });
     }).delay(500, this);
     (function() {
-      this.container.getChildren('figure figcaption').move({
+      this.container.getElements('figcaption').move({
         relativeTo: this.container,
         position: 'upperLeft',
         offset: {x: 595, y: 45},
@@ -202,15 +202,15 @@ var Portfolio = new Class({
         duration: 400 
       });
     }).delay(500, this);
-    this.container.getChildren('figure h3').setStyle('display', 'inline-block');
-    this.container.getChildren('figure h4').setStyle('display', 'inline-block');
+    this.container.getElements('h3').setStyle('display', 'inline-block');
+    this.container.getElements('h4').setStyle('display', 'inline-block');
     (function() { this.showProjectNav(project); }).delay(1000, this); 
     (function() {
       $('ss-previous').fade('show');
       $('ss-next').fade('show');
     }).delay(1100, this);
 
-    slideshow = new Carousel({
+    var slideshow = new Carousel({
       container: 'slideshow',
       scroll: 1,
       circular: true,
@@ -233,14 +233,14 @@ var Portfolio = new Class({
   hideProjectDetails: function() {
     $('ss-previous').fade('hide');
     $('ss-next').fade('hide');
-    this.container.getChildren('figure ul').move({
+    this.container.getElements('ul#slideshow').move({
       relativeTo: this.container,
       position: 'upperLeft',
       offset: {x: -window.getSize().x, y: 45},
       transition: Fx.Transitions.Back.easeInOut,
       duration:400 
     });
-    this.container.getChildren('figure figcaption').move({
+    this.container.getElements('figcaption').move({
       relativeTo: this.container,
       position: 'upperLeft',
       offset: {x: window.getSize().x, y: 45},
@@ -493,6 +493,10 @@ var FlippingContactForm = new Class({
     this.setOptions(options);
     this.container = $(container);
     this.form = this.container.getElement('form');
+
+    if (!Modernizr.csstransforms3d) {
+      $('envelope').morph({opacity: 0});
+    }
 
     new Form.Validator.Inline(this.form);
     new Form.Request(this.form, null, {
