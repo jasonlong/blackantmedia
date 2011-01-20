@@ -9,7 +9,7 @@ set(:current_branch)     { `git branch`.match(/\* (\S+)\s/m)[1] || raise("Couldn
 set :branch,             defer { current_branch }
 set :repository_cache,  "git_cache"
 set :deploy_via,        :remote_cache
-set :deploy_to,         "/home/blackant/subdomains/v2"
+set :deploy_to,         "/home/blackant/blackantmedia"
 role :web,              "blackant"
 
 
