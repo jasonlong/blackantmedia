@@ -621,23 +621,35 @@ form {
   }
   button {
     margin-left: 135px;
-    background: #5ECC57;
-    background: -moz-linear-gradient(top, #5ECC57 0%, #2DBB24 6%, #269E1E 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5ECC57), color-stop(6%,#2DBB24), color-stop(100%,#269E1E));
-    @include rounded(4px);
+    background: $green;
+    background: -moz-linear-gradient(top, $green 0%, darken($green, 10%) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$green), color-stop(100%, darken($green, 10%)));
+    -moz-box-shadow: inset 0 1px 0 0 lighten($green, 15%), 0 1px 1px 0 darken($green, 35%);
+    -webkit-box-shadow: inset 0 1px 0 0 lighten($green, 15%), 0 1px 1px 0 darken($green, 35%);
+    -webkit-background-clip: padding-box;
+    border-top: 1px solid darken($green, 10%);
+    border-right: 1px solid darken($green, 17%);
+    border-bottom: 1px solid darken($green, 24%);
+    border-left: 1px solid darken($green, 17%);
+    @include rounded(3px);
     color: #fff;
-    border: solid 1px #1f8319;
     font-size: 13px;
-    line-height: 26px;
+    line-height: 1;
     height: 28px;
-    padding: 0 1em;
+    padding: 0 1em 0.25em 1em;
     text-shadow: 0 -1px rgba(0, 0, 0, 0.2);
-    @include box-shadow();
   }
   button:hover {
-    background: #5ECC57;
-    background: -moz-linear-gradient(top, #5ECC57 0%, #2DBB24 6%, #29aa21 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5ECC57), color-stop(6%,#2DBB24), color-stop(100%,#29aa21));
+    background: $green;
+    background: -moz-linear-gradient(top, darken($green, 3%) 0%, darken($green, 13%) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,darken($green, 3%)), color-stop(100%, darken($green, 13%)));
+    -moz-box-shadow: inset 0 1px 0 0 lighten($green, 5%), 0 1px 1px 0 darken($green, 35%);
+    -webkit-box-shadow: inset 0 1px 0 0 lighten($green, 5%), 0 1px 1px 0 darken($green, 35%);
+    border-top: 1px solid darken($green, 13%);
+    border-right: 1px solid darken($green, 20%);
+    border-bottom: 1px solid darken($green, 27%);
+    border-left: 1px solid darken($green, 20%);
+    cursor: pointer;
   }      
 }
 

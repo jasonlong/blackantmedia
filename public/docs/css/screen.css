@@ -508,26 +508,36 @@ form {
     box-shadow: #6ce164 0 0 5px; }
   form button {
     margin-left: 135px;
-    background: #5ECC57;
-    background: -moz-linear-gradient(top, #5ecc57 0%, #2dbb24 6%, #269e1e 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #5ecc57), color-stop(6%, #2dbb24), color-stop(100%, #269e1e));
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
+    background: #2dbc24;
+    background: -moz-linear-gradient(top, #2dbc24 0%, #23911c 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #2dbc24), color-stop(100%, #23911c));
+    -moz-box-shadow: inset 0 1px 0 0 #58dd4f, 0 1px 1px 0 #092607;
+    -webkit-box-shadow: inset 0 1px 0 0 #58dd4f, 0 1px 1px 0 #092607;
+    -webkit-background-clip: padding-box;
+    border-top: 1px solid #23911c;
+    border-right: 1px solid #1c7316;
+    border-bottom: 1px solid #145510;
+    border-left: 1px solid #1c7316;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
     color: #fff;
-    border: solid 1px #1f8319;
     font-size: 13px;
-    line-height: 26px;
+    line-height: 1;
     height: 28px;
-    padding: 0 1em;
-    text-shadow: 0 -1px rgba(0, 0, 0, 0.2);
-    -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); }
+    padding: 0 1em 0.25em 1em;
+    text-shadow: 0 -1px rgba(0, 0, 0, 0.2); }
   form button:hover {
-    background: #5ECC57;
-    background: -moz-linear-gradient(top, #5ecc57 0%, #2dbb24 6%, #29aa21 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #5ecc57), color-stop(6%, #2dbb24), color-stop(100%, #29aa21)); }
+    background: #2dbc24;
+    background: -moz-linear-gradient(top, #2aaf22 0%, #208419 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #2aaf22), color-stop(100%, #208419));
+    -moz-box-shadow: inset 0 1px 0 0 #32d128, 0 1px 1px 0 #092607;
+    -webkit-box-shadow: inset 0 1px 0 0 #32d128, 0 1px 1px 0 #092607;
+    border-top: 1px solid #208419;
+    border-right: 1px solid #196614;
+    border-bottom: 1px solid #11480e;
+    border-left: 1px solid #196614;
+    cursor: pointer; }
 
 .validation-advice {
   float: right;
