@@ -612,6 +612,7 @@ function initBGScroll() {
   window.addEvent('scroll', function(event) {
     positionBG();
   });  
+  $$('img#bg').addEvent('mousedown', function(e) { e.stop(); });
 }
 
 function positionBG() {
