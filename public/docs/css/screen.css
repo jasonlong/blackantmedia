@@ -147,10 +147,6 @@ section#colophon h2 {
 #portfolio-wrapper {
   height: 426px;
   position: relative; }
-  #portfolio-wrapper img#loading {
-    position: absolute;
-    top: 200px;
-    left: 430px; }
   #portfolio-wrapper nav {
     height: 29px;
     line-height: 26px;
