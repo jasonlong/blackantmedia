@@ -50,6 +50,7 @@ var Portfolio = new Class({
         alert("Well this is embarassing, my projects couldn't be loaded right now. Please try again in a little bit.");
       },
       onSuccess: function(data) {
+        $('loading').fade('hide');
         var i=0;
         data.projects.each(function(project_data) {
           position = this.computePosition(i+1);
@@ -99,6 +100,7 @@ var Portfolio = new Class({
 
       var project_link = link.addEvent('click', function(e) {
         e.stop();
+        (function() { $('loading').fade('show'); }).delay(200);
         this.switchToProject(project_link.get('data-project-index'));
       }.bind(this));
       thumbnailContainer.adopt(link);
@@ -164,6 +166,7 @@ var Portfolio = new Class({
   },
 
   showProjectDetails: function(project) {
+    $('loading').fade('hide');
     this.container.getElements('li.screenshot').dispose();
     project.options.screenshots.each(function(ss, index) {
       this.container.getElements('ul#slideshow').adopt(
@@ -396,10 +399,12 @@ var Portfolio = new Class({
       });
       previous_link.addEvent('click', function(e) {
         e.stop();
+        (function() { $('loading').fade('show'); }).delay(200);
         this.switchToProject(previous_link.get('data-project-index'));
       }.bind(this));
       next_link.addEvent('click', function(e) {
         e.stop();
+        (function() { $('loading').fade('show'); }).delay(200);
         this.switchToProject(next_link.get('data-project-index'));
       }.bind(this));
       nav_previous_projects.adopt(new Element('li').adopt(previous_link));

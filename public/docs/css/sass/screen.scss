@@ -208,6 +208,12 @@ section#colophon h2 {
   height: 426px;
   position: relative;
 
+  img#loading {
+    position: absolute;
+    top: 200px;
+    left: 430px;
+  }
+
   nav {
     height: 29px;
     line-height: 26px;
