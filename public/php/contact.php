@@ -28,12 +28,13 @@ if(isset($_POST)) {
 
 function send_mail( $name, $email, $ip, $is_spam, $message) {
   $subject = '';
-  if( $is_spam == true )
-    $subject = "[?]";
-  $subject .= $GLOBALS['CONTACT_SUBJECT'];
+  if( $is_spam == false ) {
+    $subject = $GLOBALS['CONTACT_SUBJECT'];
 
-  $smtp = new SMTP($GLOBALS['SMTP_SERVER'], $GLOBALS['SMTP_PORT']);
-  $smtp->mail_from($email);
-  return $smtp->send($GLOBALS['CONTACT_RECIPIENT'], $subject, "Name: ".$name."\n\n".stripslashes($message));
+    $smtp = new SMTP($GLOBALS['SMTP_SERVER'], $GLOBALS['SMTP_PORT']);
+    $smtp->mail_from($email);
+    return $smtp->send($GLOBALS['CONTACT_RECIPIENT'], $subject, "Name: ".$name."\n\n".stripslashes($message));
+  }
+  else return true;
 }
 ?>
