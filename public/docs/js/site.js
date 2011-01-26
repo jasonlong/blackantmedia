@@ -1,6 +1,7 @@
 window.addEvent('domready', function() {  
   initTypography();
   initBGScroll();
+  decoratePlayLinks();
   observeNav();
   
   var form = new FlippingContactForm($('contact-wrapper'), {});
@@ -605,6 +606,12 @@ function initTypography() {
       }
     })
   } catch(e) {}  
+}
+
+function decoratePlayLinks() {
+  $$('ul#experiments li a h5').each(function(heading) {
+    new Element('img', {src: '/images/icon-external.png'}).inject(heading);
+  });
 }
 
 function initBGScroll() {
