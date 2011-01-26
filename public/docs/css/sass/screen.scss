@@ -397,7 +397,7 @@ ul#experiments li img.thumbnail {
   position: relative;
   z-index: 100;
 }
-ul#experiments li a:hover img {
+ul#experiments li a:hover img.thumbnail {
   background: rgba(255, 255, 255, 0.3);
 }
 
