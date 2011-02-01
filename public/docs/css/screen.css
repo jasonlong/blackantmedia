@@ -9,10 +9,9 @@ body {
 a {
   color: #2dbc24;
   text-decoration: none; }
-
-a:active,
-:-moz-any-link:focus {
-  outline: none; }
+  a:active,
+  a :-moz-any-link:focus {
+    outline: none; }
 
 img#bg {
   position: fixed;
@@ -108,8 +107,8 @@ header {
       text-decoration: none;
       -webkit-transition-duration: .30s;
       -webkit-transition-property: background-color, color; }
-    header nav a:hover {
-      color: #2dbc24; }
+      header nav a:hover {
+        color: #2dbc24; }
 
 section {
   margin-top: 2em;
@@ -347,9 +346,8 @@ ul#experiments li p {
   -webkit-transition: opacity .25s ease-in, background .25s ease-in;
   -moz-transition: opacity .25s ease-in, background .25s ease-in;
   transition: opacity .25s ease-in, background .25s ease-in; }
-
-#social ul#social-icons li a:hover {
-  opacity: 1; }
+  #social ul#social-icons li a:hover {
+    opacity: 1; }
 
 section#about img {
   float: right;
@@ -427,11 +425,10 @@ section#contact {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px; }
-
-#envelope img {
-  position: absolute;
-  top: 10px;
-  right: 10px; }
+  #envelope img {
+    position: absolute;
+    top: 10px;
+    right: 10px; }
 
 form {
   margin-top: 8px;
@@ -527,17 +524,17 @@ form {
     height: 28px;
     padding: 0 1em 0.25em 1em;
     text-shadow: 0 -1px rgba(0, 0, 0, 0.2); }
-  form button:hover {
-    background: #2dbc24;
-    background: -moz-linear-gradient(top, #2aaf22 0%, #208419 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #2aaf22), color-stop(100%, #208419));
-    -moz-box-shadow: inset 0 1px 0 0 #32d128, 0 1px 1px 0 #092607;
-    -webkit-box-shadow: inset 0 1px 0 0 #32d128, 0 1px 1px 0 #092607;
-    border-top: 1px solid #208419;
-    border-right: 1px solid #196614;
-    border-bottom: 1px solid #11480e;
-    border-left: 1px solid #196614;
-    cursor: pointer; }
+    form button:hover {
+      background: #2dbc24;
+      background: -moz-linear-gradient(top, #2aaf22 0%, #208419 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #2aaf22), color-stop(100%, #208419));
+      -moz-box-shadow: inset 0 1px 0 0 #32d128, 0 1px 1px 0 #092607;
+      -webkit-box-shadow: inset 0 1px 0 0 #32d128, 0 1px 1px 0 #092607;
+      border-top: 1px solid #208419;
+      border-right: 1px solid #196614;
+      border-bottom: 1px solid #11480e;
+      border-left: 1px solid #196614;
+      cursor: pointer; }
 
 .validation-advice {
   float: right;
@@ -603,9 +600,8 @@ ul.logos li a {
   -webkit-transition: opacity .25s ease-in, background .25s ease-in;
   -moz-transition: opacity .25s ease-in, background .25s ease-in;
   transition: opacity .25s ease-in, background .25s ease-in; }
-
-ul.logos li a:hover {
-  opacity: 1; }
+  ul.logos li a:hover {
+    opacity: 1; }
 
 p#legal {
   color: #443e3c;
@@ -620,9 +616,8 @@ a#html5-badge {
   -webkit-transition: opacity .25s ease-in, background .25s ease-in;
   -moz-transition: opacity .25s ease-in, background .25s ease-in;
   transition: opacity .25s ease-in, background .25s ease-in; }
-
-a#html5-badge:hover {
-  opacity: 1; }
+  a#html5-badge:hover {
+    opacity: 1; }
 
 #ie-typekit-fix {
   position: absolute;
