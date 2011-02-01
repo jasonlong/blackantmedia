@@ -278,8 +278,10 @@ ul#experiments li {
 
 ul#experiments li a {
   color: #fff; }
+  ul#experiments li a h5 img {
+    padding-left: 0.3em; }
 
-ul#experiments li img {
+ul#experiments li img.thumbnail {
   float: left;
   margin-right: 0.8em;
   margin-bottom: 2em;
@@ -288,7 +290,7 @@ ul#experiments li img {
   position: relative;
   z-index: 100; }
 
-ul#experiments li a:hover img {
+ul#experiments li a:hover img.thumbnail {
   background: rgba(255, 255, 255, 0.3); }
 
 ul#experiments li p {
