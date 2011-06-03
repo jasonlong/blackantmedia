@@ -2,7 +2,7 @@ load 'deploy' if respond_to?(:namespace) # cap2 differentiator
 Dir['vendor/plugins/*/recipes/*.rb'].each { |plugin| load(plugin) }
 
 set :use_sudo,          false
-set :home_path,         "/var/www/mysitename"
+#set :home_path,         "/var/www/mysitename"
 set :scm,               :git
 set :repository,        "git@github.com:blackant/blackantmedia.git"
 set(:current_branch)     { `git branch`.match(/\* (\S+)\s/m)[1] || raise("Couldn't determine current branch") }

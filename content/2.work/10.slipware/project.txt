@@ -1,0 +1,5 @@
+title: AppAnalyzer by Slipware
+-
+services: UI Design / Visual Design Direction
+-
+description: AppAnalyzer is an iPad application that allows developers to visualize usage statistics for their software using the <a href='http://www.flurry.com/product/analytics/index.html'>Flurry Analytics</a> engine. Slipware approached me and asked if I could help create a sleek UI design to replace their working development interface. I created Photoshop mockups and Slipware did a great job incorporating everything into the app. <a href='http://itunes.apple.com/us/app/appanalyzer/id440422279?mt=8'>AppAnalyzer</a> is now available in the App Store.
