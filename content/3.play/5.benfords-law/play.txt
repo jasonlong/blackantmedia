@@ -1,0 +1,5 @@
+title: Testing Benford's Law
+-
+link: http://testingbenfordslaw.com
+-
+description: An open source experiment testing this odd law with public datasets.
