@@ -1,0 +1,5 @@
+title: MindLeaders-ThirdForce 
+-
+services: UI Design
+-
+description: MindLeaders-ThirdForce is an industry leader in e-learning, but their courseware interface was beginning to look dated. I helped establish a refreshed visual style to help ensure that the courseware itself didn't compete for attention next to the numerous UI tools. Contraints have a tendency to bring out the best designs, and I enjoyed the challenge of integrating a large number of features into a fixed window resolution.
