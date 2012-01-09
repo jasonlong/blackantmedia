@@ -624,9 +624,20 @@ function loadDeferredImages() {
 
 function initBGScroll() {
   positionBG();
+
+  var didScroll = false;
   window.addEvent('scroll', function(event) {
-    positionBG();
+    didScroll = true;
+    // positionBG();
   });  
+
+  setInterval(function(){ 
+    if (didScroll) {
+      positionBG();
+      didScroll = false;
+    }       
+  }, 50);
+
   $$('img#bg').addEvent('mousedown', function(e) { e.stop(); });
 }
 
