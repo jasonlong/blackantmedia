@@ -1,0 +1,5 @@
+title: InsideTracker
+-
+services: UI Design
+-
+description: InsideTracker is a sophisticated personal health assessment tool. Users have their blood drawn at regular intervals and then receive detailed analyses about their body's biomarkers and an optimzed eating plan for making improvements. I worked with the team at <a href='http://goinvo.com'>Innvolution Studios</a> to come up with ideas for displaying large amounts of complex nutritional information in a friendly and easy to \"digest\" way.
