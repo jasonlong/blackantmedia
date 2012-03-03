@@ -28,7 +28,7 @@ if(isset($_POST)) {
 
 function send_mail( $name, $email, $ip, $is_spam, $message) {
   $subject = '';
-  if( $is_spam == false ) {
+  if( $is_spam == false && empty($name) == false && empty($email) == false ) {
     $subject = $GLOBALS['CONTACT_SUBJECT'];
 
     $smtp = new SMTP($GLOBALS['SMTP_SERVER'], $GLOBALS['SMTP_PORT']);
