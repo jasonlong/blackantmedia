@@ -33,6 +33,16 @@ img#bg {
   z-index: 2;
   opacity: 0; }
 
+#github-banner {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-bottom: solid 1px #2dbc24;
+  color: #2dbc24;
+  text-align: center;
+  position: relative;
+  line-height: 36px;
+  z-index: 3;
+  text-shadow: none; }
+
 h1, h2, h3 {
   font-weight: normal; }
 
