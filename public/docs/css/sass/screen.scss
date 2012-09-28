@@ -1,10 +1,10 @@
 // variables
-// ----------------------------------------------------------------------	
+// ----------------------------------------------------------------------
 $green: #2dbc24;
 $default_text_shadow: 1px 1px rgba(0, 0, 0, 0.2);
 
 //  mix-ins
-// ----------------------------------------------------------------------	
+// ----------------------------------------------------------------------
 @mixin rounded($radius: 3px) {
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
@@ -18,8 +18,8 @@ $default_text_shadow: 1px 1px rgba(0, 0, 0, 0.2);
 
 @mixin box-shadow($attributes: 1px 1px 2px rgba(0,0,0,0.3)) {
   -webkit-box-shadow: $attributes;
-  -moz-box-shadow: $attributes;      
-  box-shadow: $attributes;   
+  -moz-box-shadow: $attributes;
+  box-shadow: $attributes;
 }
 
 @mixin clearfix {
@@ -34,14 +34,14 @@ $default_text_shadow: 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 //  structural
-// ----------------------------------------------------------------------	
+// ----------------------------------------------------------------------
 body {
-  font-family: "ronnia-1","ronnia-2",helvetica,arial,sans-serif;  
+  font-family: "ronnia-1","ronnia-2",helvetica,arial,sans-serif;
   background-color: #0f0705;
   color: #fff;
   font-size: 16px;
   line-height: 1.4em;
-  text-shadow: $default_text_shadow;   
+  text-shadow: $default_text_shadow;
 }
 a {
   color: $green;
@@ -72,8 +72,8 @@ img#bg {
   opacity: 0;
 }
 #github-banner {
-  background-color: rgba(0, 0, 0, 0.8);
-  border-bottom: solid 1px $green;
+  background-color: rgba(0, 0, 0, 0.4);
+//  border-bottom: solid 1px $green;
   color: $green;
   text-align: center;
   position: relative;
@@ -111,7 +111,7 @@ p {
 }
 
 // header
-// ----------------------------------------------------------------------	
+// ----------------------------------------------------------------------
 header {
   h1 {
     text-align: center;
@@ -122,7 +122,7 @@ header {
     margin-top: 1.4em;
     margin-bottom: 0.3em;
     opacity: 0.97;
-    text-shadow: 0 0 50px rgba(0, 0, 0, 0.2), $default_text_shadow;    
+    text-shadow: 0 0 50px rgba(0, 0, 0, 0.2), $default_text_shadow;
   }
   .no-fontface h1 {
     font-size: 32px;
@@ -148,14 +148,14 @@ header {
     span {
       opacity: 0.7;
     }
-  }  
-  h1 + p em {  
+  }
+  h1 + p em {
     font-style: normal;
   }
   img#logo {
     position: relative;
     top: 26px;
-  }    
+  }
   /* nav */
   nav {
     position: absolute;
@@ -175,18 +175,18 @@ header {
       @include background-transition;
 
       &:hover {
-        color: $green;  
+        color: $green;
       }
     }
-  }  
+  }
 }
 
 // sections
-// ----------------------------------------------------------------------	
+// ----------------------------------------------------------------------
 section {
   margin-top: 2em;
   @include clearfix;
-  
+
   h2 {
     color: #f9f9f8;
     font-size: 28px;
@@ -212,10 +212,10 @@ section#contact h2 {
 }
 section#colophon h2 {
   background: transparent url(/images/icon-colophon.png) 0 0 no-repeat;
-}  
+}
 
 // portfolio
-// ----------------------------------------------------------------------	
+// ----------------------------------------------------------------------
 #portfolio-wrapper {
   height: 426px;
   position: relative;
@@ -246,7 +246,7 @@ section#colophon h2 {
 
     ol {
       width: 300px;
-    
+
       li {
         float: none;
         display: block;
@@ -262,7 +262,7 @@ section#colophon h2 {
 
     ol {
       width: 300px;
-    
+
       li {
         float: none;
         display: block;
@@ -305,7 +305,7 @@ section#colophon h2 {
       left: 550px;
       background: transparent url(/images/ss_nav_next.png) 0 0 no-repeat;
     }
-    
+
     ul {
       list-style: none;
       width: 570px;
@@ -374,7 +374,7 @@ ol#portfolio li a:hover img {
 }
 
 // play
-// ----------------------------------------------------------------------	
+// ----------------------------------------------------------------------
 section#play {
   position: relative;
 }
@@ -393,7 +393,7 @@ ul#experiments li {
 }
 
 ul#experiments li a {
-  color: #fff; 
+  color: #fff;
 
   h5 img {
     padding-left: 0.3em;
@@ -427,7 +427,7 @@ ul#experiments li p {
   padding: 16px 0 8px 16px;
   background: #181517;
   background: rgba(40, 40, 40, 0.4);
-  @include rounded(4px);    
+  @include rounded(4px);
 }
 
 #social ul {
@@ -483,7 +483,7 @@ ul#experiments li p {
 
 
 // mugshot
-// ----------------------------------------------------------------------	
+// ----------------------------------------------------------------------
 section#about img {
   float: right;
   margin: -2em 1em 1em 1em;
@@ -494,31 +494,31 @@ section#about img {
 }
 
 // contact form
-// ----------------------------------------------------------------------	
+// ----------------------------------------------------------------------
 section#contact {
   position: relative;
 }
 
 #contact-wrapper {
   float: left;
-	width: 590px; 
-	height: 338px;	
-	position: relative; 
+	width: 590px;
+	height: 338px;
+	position: relative;
 	z-index: 100;
 
   .inner {
-    width: 590px; 
-    height: 338px;	
+    width: 590px;
+    height: 338px;
     -webkit-perspective: 1000;
-    float: left; 
-    position: absolute; 
+    float: left;
+    position: absolute;
 
     .front {
       z-index: 20;
     }
     .back {
-      width: 590px; 
-      height: 338px;	
+      width: 590px;
+      height: 338px;
       -webkit-transform: rotateX(180deg);
       z-index: 10;
       font-family: "skippy-sharp-1","skippy-sharp-2", Georgia, helvetica,sans-serif;
@@ -526,8 +526,8 @@ section#contact {
   }
 
   .card {
-    width: 590px; 
-    height: 338px;	
+    width: 590px;
+    height: 338px;
     -webkit-transform-style: preserve-3d;
     -webkit-transition: 0.5s;
   }
@@ -538,7 +538,7 @@ section#contact {
 }
 
 #contact-wrapper.flip .card {
-	-webkit-transform: rotateX(180deg);				
+	-webkit-transform: rotateX(180deg);
 }
 
 .no-csstransforms3d #contact-wrapper .inner .back {
@@ -546,49 +546,49 @@ section#contact {
 }
 
 #form-wrapper {
-  width: 566px;  
+  width: 566px;
   background-color: #282222;
-  padding: 12px;  
+  padding: 12px;
   opacity: 0.9;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
-  border-radius: 3px;	    
+  border-radius: 3px;
 }
 
 #envelope {
   background: #dbc09a url(/images/texture-envelope.jpg) 0 0 repeat;
-  -webkit-backface-visibility : hidden;  
+  -webkit-backface-visibility : hidden;
   -webkit-transform: rotateX(180deg);
   width: 590px;
   height: 198px !important;
   position: absolute;
   top: 0;
   left: 0;
-  @include rounded(3px);        
-  font-size: 40px;  
+  @include rounded(3px);
+  font-size: 40px;
   line-height: 1em;
-  text-shadow: none;  
+  text-shadow: none;
   color: #333;
   text-align: center;
   padding-top: 140px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
-  border-radius: 3px;	    
+  border-radius: 3px;
 
   img {
     position: absolute;
     top: 10px;
-    right: 10px;  
+    right: 10px;
   }
 }
 
 form {
   margin-top: 8px;
   padding: 15px;
-  @include rounded(3px);    
+  @include rounded(3px);
   background-color: #2e2727;
   border: solid 1px #211c1c;
-  @include box-shadow(inset 0 0px 30px rgba(0,0,0,0.3));  
+  @include box-shadow(inset 0 0px 30px rgba(0,0,0,0.3));
   @include clearfix;
 
   label {
@@ -598,7 +598,7 @@ form {
     float: left;
     line-height: 1.8em;
     color: #c4c0c0;
-  }    
+  }
   sup {
     color: $green;
   }
@@ -616,25 +616,25 @@ form {
     @include rounded(3px);
     font-family: helvetica,arial;
     border: solid 1px #211c1c;
-    @include box-shadow(0 1px 0 rgba(69, 69, 69, 1));        
-  }    
+    @include box-shadow(0 1px 0 rgba(69, 69, 69, 1));
+  }
   textarea {
     width: 390px;
     height: 108px;
     float: right;
   	font-size: 14px;
   	padding: 0.4em 0.3em;
-  	color: #fff;  
+  	color: #fff;
   	background-color: #282222;
-    @include rounded(3px);    	    
-    font-family: helvetica,arial;      
-    border: solid 1px #211c1c;      
-    @include box-shadow(0 1px 0 rgba(69, 69, 69, 1));        
+    @include rounded(3px);
+    font-family: helvetica,arial;
+    border: solid 1px #211c1c;
+    @include box-shadow(0 1px 0 rgba(69, 69, 69, 1));
   }
   input:focus, textarea:focus {
     outline: none;
     border-color: $green;
-    @include box-shadow(#6ce164 0 0 5px);        
+    @include box-shadow(#6ce164 0 0 5px);
   }
   button {
     margin-left: 135px;
@@ -667,7 +667,7 @@ form {
       border-bottom: 1px solid darken($green, 27%);
       border-left: 1px solid darken($green, 20%);
       cursor: pointer;
-    }      
+    }
   }
 }
 
@@ -675,7 +675,7 @@ form {
   float: right;
   width: 400px;
   font-size: 12px;
-  color: #ff0;  
+  color: #ff0;
 }
 
 #mail-slot {
@@ -697,9 +697,9 @@ form {
   -moz-transform : rotate(-3deg);
   transform : rotate(-3deg);
   display: none;
-  
+
   h5 {
-    font-size: 50px;    
+    font-size: 50px;
     margin-bottom: 0.5em;
     text-transform: none;
   }
@@ -715,17 +715,17 @@ form {
 .vcard {
   float: right;
   width: 285px;
-  
+
   .email, .tel, .street-address {
     display: block;
-  }  
+  }
   .email, .tel {
     margin-bottom: 1.4em;
   }
 }
 
 // colophon
-// ----------------------------------------------------------------------	
+// ----------------------------------------------------------------------
 ul.logos {
   margin-top: 2em;
   list-style: none;
@@ -774,7 +774,7 @@ a#html5-badge {
 
 
 // misc
-// ----------------------------------------------------------------------	
+// ----------------------------------------------------------------------
 #ie-typekit-fix {
   position: absolute;
   top: -9999px;

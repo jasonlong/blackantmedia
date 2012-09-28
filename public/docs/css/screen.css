@@ -34,8 +34,7 @@ img#bg {
   opacity: 0; }
 
 #github-banner {
-  background-color: rgba(0, 0, 0, 0.8);
-  border-bottom: solid 1px #2dbc24;
+  background-color: rgba(0, 0, 0, 0.4);
   color: #2dbc24;
   text-align: center;
   position: relative;

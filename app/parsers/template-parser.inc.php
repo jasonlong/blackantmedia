@@ -20,7 +20,14 @@ Class TemplateParser {
 
     foreach(self::$partials as $partial) {
       if(preg_match('/([^\/]+?)\.[\w]+?$/', $partial, $file_name)) {
-        if($file_name[1] == $name) return file_get_contents($partial);
+        //if($file_name[1] == $name) return file_get_contents($partial);
+        if($file_name[1] == $name) {
+          ob_start();
+          include $partial;
+          $ob_contents = ob_get_contents();
+          ob_end_clean();
+          return $ob_contents;
+        }
       }
     }
     return 'Partial \''.$name.'\' not found';
@@ -80,6 +87,8 @@ Class TemplateParser {
 
     # we've finished parsing, so return any remaining @ symbols
     $template = str_replace("\x01", '@', $template);
+    # put back any $ characters
+    $template = str_replace("\x02", '$', $template);
 
     return $template;
   }
@@ -124,15 +133,25 @@ Class TemplateParser {
     preg_match('/([\S\s]*?)foreach[\s]+?([\$\@].+?)\s+?do\s+?([\S\s]+?)endforeach([\S\s]*)$/', $template, $template_parts);
     # run the replacements on the pre-"foreach" part of the partial
     $template = self::parse($data, $template_parts[1]);
-
+    # allow loop limiting
+    if(preg_match('/\[\d*:\d*\]$/', $template_parts[2])) {
+      preg_match('/([\$\@].+?)\[(\d*):(\d*)\]$/', $template_parts[2], $matches);
+      $template_parts[2] = $matches[1];
+      $start_limit = empty($matches[2]) ? 0 : $matches[2];
+      if (!empty($matches[3])) $end_limit = $matches[3];
+    }
     # traverse one level deeper into the data hierachy
     $pages = (isset($data[$template_parts[2]]) && is_array($data[$template_parts[2]]) && !empty($data[$template_parts[2]])) ? $data[$template_parts[2]] : false;
+
+    # slice down the data array if required
+    if(is_array($pages) && isset($start_limit)) {
+      $pages = array_slice($pages, $start_limit, $end_limit);
+    }
 
     # check for any nested matches
     $template_parts = self::test_nested_matches($template_parts, 'foreach[\s]+?[\$\@].+?\s+?do\s+?', 'endforeach');
 
     if($pages) {
-
       foreach($pages as $data_item) {
         # transform data_item into its appropriate Object
         $data_object =& AssetFactory::get($data_item);
