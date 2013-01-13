@@ -107,7 +107,7 @@ Class PageData {
     # @permalink
     $page->permalink = Helpers::modrewrite_parse($page->url_path.'/');
     # @slug
-      $split_url = explode("/", $page->url_path);
+    $split_url = explode("/", $page->url_path);
     $page->slug = $split_url[count($split_url) - 1];
     # @page_name
     $page->page_name = ucfirst(preg_replace('/[-_](.)/e', "' '.strtoupper('\\1')", $page->data['@slug']));
@@ -142,6 +142,10 @@ Class PageData {
     $page->is_last = $page->data['@index'] == $page->data['@siblings_count'];
     # @is_first
     $page->is_first = $page->data['@index'] == 1;
+
+	# @cache_page
+	$page->bypass_cache = isset($page->data['@bypass_cache']) ? $page->data['@bypass_cache'] : false;
+
   }
 
   static function create_collections($page) {
@@ -190,6 +194,9 @@ Class PageData {
 
     # include shared variables for each page
     $shared = (file_exists('./content/_shared.txt')) ? file_get_contents('./content/_shared.txt') : '';
+    # strip any $n matches from the text, as this will mess with any preg_replaces
+    # they get put back in after the template has finished being parsed
+    $text = preg_replace('/\$(\d+)/', "\x02$1", $text);
 
     # remove UTF-8 BOM and marker character in input, if present
     $merged_text = preg_replace('/^\xEF\xBB\xBF|\x1A/', '', array($shared, $text));

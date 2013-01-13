@@ -1,0 +1,5 @@
+title: Git
+-
+services: Logo Design / UI Design / HTML / CSS / Javascript
+-
+description: I created an updated identity and web presence for the Git version control system. Working with a small team from GitHub, we created a new site that houses documentation, downloads, screencasts, and the entire Pro Git book. The logo and all of the other graphical assets I created are Creative Commons-licensed.
