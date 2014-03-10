@@ -4,4 +4,5 @@ app/cache/
 config/settings.php
 .sass-cache/
 mkmf.log
+.ruby-version
 
