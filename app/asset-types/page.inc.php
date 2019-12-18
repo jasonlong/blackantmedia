@@ -64,7 +64,8 @@ Class Page {
   }
 
   static function template_file($template_name) {
-    $template_file = glob('./templates/'.$template_name.'.*');
+    $template_file = glob(__DIR__ . '/../../templates/'.$template_name.'.*');
+    // var_dump($template_file);
     # return template if one exists
     return isset($template_file[0]) ? $template_file[0] : false;
   }

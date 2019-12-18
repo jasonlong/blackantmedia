@@ -56,27 +56,29 @@ Class Helpers {
       self::build_file_cache('./content');
       self::build_file_cache('./templates');
     }
-    if($dir && !self::$file_cache[$dir]) return array();
+    if($dir && !isset(self::$file_cache[$dir])) return array();
     return $dir ? self::$file_cache[$dir] : self::$file_cache;
   }
 
   static function build_file_cache($dir = '.') {
     # build file cache
-    $files = glob($dir.'/*');
+    // var_dump(__DIR__ . '/../'.$dir.'/*');
+    $files = glob(__DIR__ . '/../'.$dir.'/*');
     $files = is_array($files) ? $files : array();
     foreach($files as $path) {
       $file = basename($path);
       if(substr($file, 0, 1) == "." || $file == "_cache") continue;
-      if(is_dir($path)) self::build_file_cache($path);
+      if(is_dir($path)) self::build_file_cache(str_replace(__DIR__ . '/../', '', $path));
       if(is_readable($path)) {
         self::$file_cache[$dir][] = array(
-          'path' => $path,
+          'path' => str_replace(__DIR__ . '/../', '', $path),
           'file_name' => $file,
           'is_folder' => (is_dir($path) ? 1 : 0),
-          'mtime' => filemtime($path)
+          'mtime' => @filemtime($path)
         );
       }
     }
+    // var_dump(self::$file_cache[$dir]);
   }
 
   static function list_files($dir, $regex, $folders_only = false) {
@@ -125,7 +127,7 @@ Class Helpers {
     $last_modified = 0;
     if(is_dir($dir)) {
       foreach(Helpers::list_files($dir, '/.*/', false) as $file) {
-        if(!is_dir($file)) $last_modified = (filemtime($file) > $last_modified) ? filemtime($file) : $last_modified;
+        if(!is_dir($file)) $last_modified = (@filemtime($file) > $last_modified) ? @filemtime($file) : $last_modified;
       }
     }
     return $last_modified;
@@ -134,7 +136,7 @@ Class Helpers {
   static function site_last_modified($dir = './content') {
     $last_updated = 0;
     foreach(Helpers::list_files($dir, '/.*/', false) as $file) {
-      if(filemtime($file) > $last_updated) $last_updated = filemtime($file);
+      if(@filemtime($file) > $last_updated) $last_updated = @filemtime($file);
       if(is_dir($file)) {
         $child_updated = self::site_last_modified($file);
         if($child_updated > $last_updated) $last_updated = $child_updated;

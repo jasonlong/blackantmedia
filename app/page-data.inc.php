@@ -110,7 +110,7 @@ Class PageData {
     $split_url = explode("/", $page->url_path);
     $page->slug = $split_url[count($split_url) - 1];
     # @page_name
-    $page->page_name = ucfirst(preg_replace('/[-_](.)/e', "' '.strtoupper('\\1')", $page->data['@slug']));
+    $page->page_name = ucfirst(preg_replace('/[-_](.)/', "' '.strtoupper('\\1')", $page->data['@slug']));
     # @root_path
     $page->root_path = Helpers::relative_root_path();
     # @thumb
@@ -228,9 +228,9 @@ Class PageData {
       # set a variable with a name of 'key' on the page with a value of 'value'
       # if the template type is xml or html & the 'value' contains a newline character, parse it as markdown
       if(strpos($colon_split[1], "\n") !== false && preg_match('/xml|htm|html|rss|rdf|atom/', $split_path[1])) {
-        $page->$colon_split[0] = Markdown(trim($colon_split[1]));
+        $page->{$colon_split[0]} = Markdown(trim($colon_split[1] ?? ''));
       } else {
-        $page->$colon_split[0] = trim($colon_split[1]);
+        $page->{$colon_split[0]} = trim($colon_split[1] ?? '');
       }
     }
   }

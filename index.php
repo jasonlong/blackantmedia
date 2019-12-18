@@ -8,9 +8,9 @@ if(phpversion() < 5) {
 } else {
 
   # require helpers class so we can use rglob
-  require_once './app/helpers.inc.php';
+  require_once __DIR__  . '/app/helpers.inc.php';
   # include any php files which sit in the app folder
-  foreach(Helpers::rglob('./app/**.inc.php') as $include) include_once $include;
+  foreach(Helpers::rglob(__DIR__ . '/app/**.inc.php') as $include) include_once $include;
 
   # start the app
   new Stacey($_GET);

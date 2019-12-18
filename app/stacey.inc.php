@@ -82,8 +82,9 @@ Class Stacey {
     $cache = new Cache($file_path, $template_file);
     # set any custom headers
     $this->set_content_type($template_file);
+    // echo $cache->render();
     # if etag is still fresh, return 304 and don't render anything
-    if(!$this->etag_expired($cache)) return;
+    // if(!$this->etag_expired($cache)) return;
     # if cache has expired
     if($cache->expired()) {
       # render page & create new cache
@@ -96,7 +97,7 @@ Class Stacey {
 
   function create_page($file_path) {
     # return a 404 if a matching folder doesn't exist
-    if(!file_exists($file_path)) throw new Exception('404');
+    if(!file_exists(__DIR__ . '/../'.$file_path)) throw new Exception('404');
 
     # register global for the path to the page which is currently being viewed
     global $current_page_file_path;
@@ -136,11 +137,11 @@ Class Stacey {
       if($e->getMessage() == "404") {
         # return 404 headers
         header('HTTP/1.0 404 Not Found');
-        if(file_exists('./content/404')) {
-          $this->create_page('./content/404', '404');
+        if(file_exists(__DIR__ . '/../content/404')) {
+          $this->create_page(__DIR__ . '/../content/404', '404');
         }
-        else if(file_exists('./public/404.html')) {
-          echo file_get_contents('./public/404.html');
+        else if(file_exists(__DIR__ . '/../public/404.html')) {
+          echo file_get_contents(__DIR__ . '/../public/404.html');
         }
         else {
           echo '<h1>404</h1><h2>Page could not be found.</h2><p>Unfortunately, the page you were looking for does not exist here.</p>';

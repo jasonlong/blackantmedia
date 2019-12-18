@@ -612,7 +612,7 @@ function initTypography() {
 
 function decoratePlayLinks() {
   $$('ul#experiments li a h5').each(function(heading) {
-    new Element('img', {src: '/images/icon-external.png'}).inject(heading);
+    new Element('img', {src: '/public/images/icon-external.png'}).inject(heading);
   });
 }
 

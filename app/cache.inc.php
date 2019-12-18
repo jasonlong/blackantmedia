@@ -39,8 +39,8 @@ Class Cache {
     ob_start();
       echo $page->parse_template();
       # if cache folder is writable, write to it
-      if(is_writable('./app/_cache') && !$page->data['@bypass_cache']) $this->write_cache();
-      else if ($this->is_commentable()) echo "\n".$this->comment_tags['begin'].' Stacey('.Stacey::$version.'). '.$this->comment_tags['end'];
+      // if(is_writable('./app/_cache') && !$page->data['@bypass_cache']) $this->write_cache();
+      // else if ($this->is_commentable()) echo "\n".$this->comment_tags['begin'].' Stacey('.Stacey::$version.'). '.$this->comment_tags['end'];
     # end buffer
     ob_end_flush();
     return '';
