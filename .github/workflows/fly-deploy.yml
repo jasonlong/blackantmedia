@@ -28,7 +28,7 @@ jobs:
       - name: Test HTTP routes
         run: |
           docker run -d --name blackantmedia-test -p 127.0.0.1:8087:80 blackantmedia:php84-security
-          curl --retry 10 --retry-connrefused --retry-delay 1 --fail --silent --output /dev/null http://127.0.0.1:8087/
+          curl --retry 10 --retry-all-errors --retry-delay 1 --max-time 10 --fail --silent --show-error --output /dev/null http://127.0.0.1:8087/
           python3 tests/smoke.py http://127.0.0.1:8087
       - name: Show container logs
         if: always()
