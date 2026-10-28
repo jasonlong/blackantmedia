@@ -6,3 +6,8 @@ fly.toml
 CLAUDE.md
 *.md
 app/_cache/*
+.github
+.playwright-mcp
+index_orig.php
+tests
+config/settings.php

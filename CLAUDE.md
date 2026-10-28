@@ -39,10 +39,23 @@ sass --watch public/docs/css/sass:public/docs/css
 (or run `./sass-watch`)
 
 ### Running Locally
-Requires PHP 5+. Use any PHP-capable web server with mod_rewrite enabled. The `.htaccess` handles URL routing.
+Use the Docker image to run PHP 8.4.27 with Apache and mod_rewrite. The `.htaccess` handles URL routing.
+```
+docker build --pull -t blackantmedia:php84-security .
+docker run --rm -p 127.0.0.1:8087:80 blackantmedia:php84-security
+```
+
+### Verification
+```
+python3 tests/smoke.py http://127.0.0.1:8087
+docker run --rm -v "$PWD/tests:/tests:ro" blackantmedia:php84-security php /tests/markdown.php
+docker run --rm blackantmedia:php84-security sh -c 'find . -name "*.php" -print0 | xargs -0 -n1 php -l'
+```
+The HTTP checks can also run against production; they only submit invalid contact input and do not send mail.
 
 ### Deployment
-Capistrano deploys via git to the production server. `config/settings.php` is symlinked from shared storage on deploy.
+Fly.io deploys the Docker image to the `blackantmedia` app. Rebuild and redeploy to apply PHP security updates; a merge alone does not update running machines. Capistrano config remains for the former hosting setup.
 ```
-cap deploy
+flyctl deploy --app blackantmedia --remote-only
 ```
+The image contains an empty `config/settings.php`; contact mail is unconfigured and returns HTTP 503 until mail settings are supplied. Local settings and test/browser artifacts are excluded from the Docker build context.

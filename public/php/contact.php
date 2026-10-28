@@ -1,7 +1,39 @@
 <?php
 date_default_timezone_set('US/Eastern');
 
+header('Content-Type: application/json; charset=utf-8');
+
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+  header('Allow: POST');
+  http_response_code(405);
+  echo json_encode(array('code' => '0'));
+  exit;
+}
+
+foreach (array('name', 'email', 'message') as $field) {
+  if (!isset($_POST[$field]) || !is_string($_POST[$field]) || trim($_POST[$field]) === '') {
+    http_response_code(400);
+    echo json_encode(array('code' => '0'));
+    exit;
+  }
+}
+if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+  http_response_code(400);
+  echo json_encode(array('code' => '0'));
+  exit;
+}
+
 require($_SERVER['DOCUMENT_ROOT'].'/config/settings.php');
+
+// The Fly image has an empty settings file until mail is configured.
+foreach (array('DOMAIN', 'AKISMET_API_KEY', 'CONTACT_SUBJECT', 'CONTACT_RECIPIENT', 'SMTP_SERVER', 'SMTP_PORT') as $setting) {
+  if (empty($GLOBALS[$setting])) {
+    http_response_code(503);
+    echo json_encode(array('code' => '0'));
+    exit;
+  }
+}
+
 require('Akismet.class.php');
 require('SMTP.class.php');
 
